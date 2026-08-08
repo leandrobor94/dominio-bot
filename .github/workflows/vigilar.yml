@@ -26,9 +26,15 @@ on:
   workflow_dispatch:
     inputs:
       minutos:
-        description: 'Duracion del bucle en minutos'
+        # 15 y no 290 A PROPOSITO. Una prueba manual con la duracion larga se
+        # come el grupo de concurrencia durante casi cinco horas, y como solo
+        # cabe UNA corrida en cola, la del cron se cancela sola. Paso de verdad:
+        # una prueba manual mato la ejecucion programada y el bot se quedo mudo
+        # sin que nada fallara visiblemente. Para una corrida larga a mano, pon
+        # 290 explicitamente sabiendo lo que bloqueas.
+        description: 'Duracion del bucle en minutos (15 = prueba; 290 = corrida completa)'
         required: false
-        default: '290'
+        default: '15'
       umbral:
         description: 'Umbral del indice de dominio (0.60 - 0.80)'
         required: false

@@ -133,19 +133,33 @@ function detectar(p, opciones = {}) {
   if (estado === 'perdiendo' && !cfg.avisarPerdiendo) return fallo('estadoNoPedido');
   if (estado === 'empatando' && !cfg.avisarEmpatando) return fallo('estadoNoPedido');
 
+  // TODO lo que sale de aqui va desde el punto de vista del que DOMINA, no del
+  // local. `indice` ya se giraba, pero comps y crudos no: cuando dominaba el
+  // visitante, el aviso ensenaba la posesion y los ataques del equipo
+  // equivocado. Girarlo aqui, una sola vez, evita que cada consumidor tenga que
+  // acordarse de hacerlo.
+  const gira = (x) => (x === null || x === undefined ? null : dominaLocal ? x : 1 - x);
+
   return {
     motivo: 'avisa',
     id: p.id,
     lado: dominaLocal ? 'local' : 'visita',
     equipo: dominaLocal ? p.local : p.visita,
     rival: dominaLocal ? p.visita : p.local,
+    golesEquipo: dominaLocal ? gl : gv,
+    golesRival: dominaLocal ? gv : gl,
     marcador: `${gl}-${gv}`,
     indice: Math.round((dominaLocal ? d.valor : 1 - d.valor) * 1000) / 1000,
     minuto,
     ventana: `${ventana[0]}-${ventana[1]}`,
     estado,
-    comps: d.comps,
-    crudos: d.crudos,
+    comps: { sot: gira(d.comps.sot), sh: gira(d.comps.sh), atk: gira(d.comps.atk), pos: gira(d.comps.pos) },
+    crudos: {
+      shFav: dominaLocal ? d.crudos.shL : d.crudos.shV,
+      shRiv: dominaLocal ? d.crudos.shV : d.crudos.shL,
+      sotFav: dominaLocal ? d.crudos.sotL : d.crudos.sotV,
+      sotRiv: dominaLocal ? d.crudos.sotV : d.crudos.sotL,
+    },
     cobertura: Math.round(d.cobertura * 100) / 100,
     liga: p.liga || null,
   };

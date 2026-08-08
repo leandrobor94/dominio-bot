@@ -11,17 +11,25 @@ function mensaje(avisos) {
   // El modo HTML de Telegram solo admite unas pocas etiquetas y SOLO las
   // entidades &lt; &gt; &amp;. Nada de &nbsp; ni de <br>: o lo imprime literal
   // o rechaza el mensaje entero con "can't parse entities".
+  // Todas las cifras van "lo del que domina vs lo del rival", con el nombre
+  // delante. La version anterior imprimia local-visitante y era imposible saber
+  // de quien era cada numero.
   const bloques = avisos.map((a) => {
-    const cab = a.estado === 'perdiendo' ? '🔴 domina y PIERDE' : '🟡 domina y empata';
-    const lado = a.lado === 'local' ? '🏠' : '✈️';
+    const cab = a.estado === 'perdiendo' ? '🔴 DOMINA Y PIERDE' : '🟡 DOMINA Y EMPATA';
+    const lado = a.lado === 'local' ? '🏠 en casa' : '✈️ de visita';
+    const fila = (etiqueta, fav, riv) => `  ${etiqueta.padEnd(9)} <b>${fav ?? '—'}</b>  vs  ${riv ?? '—'}`;
     return [
       `${cab} · min ${a.minuto}`,
-      `${lado} <b>${esc(a.equipo)}</b> vs ${esc(a.rival)}  <b>${a.marcador}</b>`,
+      `<b>${esc(a.equipo)}</b> ${a.golesEquipo}-${a.golesRival} ${esc(a.rival)}`,
       a.liga ? `<i>${esc(a.liga)}</i>` : null,
-      `dominio <b>${(100 * a.indice).toFixed(0)}%</b> · remates ${a.crudos.shL ?? '—'}-${a.crudos.shV ?? '—'} · a puerta ${a.crudos.sotL ?? '—'}-${a.crudos.sotV ?? '—'}`,
-      `posesión ${pc(a.comps.pos)} · ataques ${pc(a.comps.atk)}`,
+      '',
+      `<b>${esc(a.equipo)}</b> domina al <b>${(100 * a.indice).toFixed(0)}%</b> (${lado})`,
+      fila('remates', a.crudos.shFav, a.crudos.shRiv),
+      fila('a puerta', a.crudos.sotFav, a.crudos.sotRiv),
+      fila('posesión', pc(a.comps.pos), pc(a.comps.pos === null ? null : 1 - a.comps.pos)),
+      fila('ataques', pc(a.comps.atk), pc(a.comps.atk === null ? null : 1 - a.comps.atk)),
       a.cobertura < 0.8 ? '⚠️ datos parciales' : null,
-    ].filter(Boolean).join('\n');
+    ].filter((l) => l !== null).join('\n');
   });
 
   return '🎛️ <b>DOMINIO</b> — control sin premio\n\n'

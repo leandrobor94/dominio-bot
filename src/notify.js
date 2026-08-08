@@ -14,26 +14,44 @@ function mensaje(avisos) {
   // Todas las cifras van "lo del que domina vs lo del rival", con el nombre
   // delante. La version anterior imprimia local-visitante y era imposible saber
   // de quien era cada numero.
-  const bloques = avisos.map((a) => {
-    const cab = a.estado === 'perdiendo' ? '🔴 DOMINA Y PIERDE' : '🟡 DOMINA Y EMPATA';
+  // Los dos gatillos se marcan distinto a proposito: el de posesion esta a
+  // prueba y hay que poder juzgarlos por separado dentro de unas semanas.
+  const bloque = (a) => {
+    const marca = a.tipo === 'posesion' ? '🧪' : (a.estado === 'perdiendo' ? '🔴' : '🟡');
+    const cab = a.estado === 'perdiendo' ? 'PIERDE' : 'EMPATA';
     const lado = a.lado === 'local' ? '🏠 en casa' : '✈️ de visita';
     const fila = (etiqueta, fav, riv) => `  ${etiqueta.padEnd(9)} <b>${fav ?? '—'}</b>  vs  ${riv ?? '—'}`;
+    const titulo = a.tipo === 'posesion'
+      ? `manda la pelota y ${cab}`
+      : `domina y ${cab}`;
     return [
-      `${cab} · min ${a.minuto}`,
+      `${marca} <b>${titulo.toUpperCase()}</b> · min ${a.minuto}`,
       `<b>${esc(a.equipo)}</b> ${a.golesEquipo}-${a.golesRival} ${esc(a.rival)}`,
       a.liga ? `<i>${esc(a.liga)}</i>` : null,
       '',
-      `<b>${esc(a.equipo)}</b> domina al <b>${(100 * a.indice).toFixed(0)}%</b> (${lado})`,
+      a.tipo === 'posesion'
+        ? `<b>${esc(a.equipo)}</b> tiene <b>${pc(a.comps.pos)}</b> de la pelota (${lado})`
+        : `<b>${esc(a.equipo)}</b> domina al <b>${(100 * a.indice).toFixed(0)}%</b> (${lado})`,
       fila('remates', a.crudos.shFav, a.crudos.shRiv),
       fila('a puerta', a.crudos.sotFav, a.crudos.sotRiv),
       fila('posesión', pc(a.comps.pos), pc(a.comps.pos === null ? null : 1 - a.comps.pos)),
       fila('ataques', pc(a.comps.atk), pc(a.comps.atk === null ? null : 1 - a.comps.atk)),
       a.cobertura < 0.8 ? '⚠️ datos parciales' : null,
     ].filter((l) => l !== null).join('\n');
-  });
+  };
 
-  return '🎛️ <b>DOMINIO</b> — control sin premio\n\n'
-    + bloques.join('\n\n')
+  const porRemates = avisos.filter((a) => a.tipo !== 'posesion');
+  const porPosesion = avisos.filter((a) => a.tipo === 'posesion');
+  const partes = [];
+
+  if (porRemates.length) {
+    partes.push('🎛️ <b>DOMINIO</b> — control sin premio\n\n' + porRemates.map(bloque).join('\n\n'));
+  }
+  if (porPosesion.length) {
+    partes.push('🧪 <b>POSESIÓN</b> — a prueba, manda pero no marca\n\n' + porPosesion.map(bloque).join('\n\n'));
+  }
+
+  return partes.join('\n\n───────────\n\n')
     + '\n\n<i>Filtro, no pronóstico. Mira el partido y decide.</i>';
 }
 

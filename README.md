@@ -24,14 +24,69 @@ Un índice de 0 a 1 donde 0,5 es un partido parejo:
 | ataques | 0,10 |
 | posesión | 0,10 |
 
-Si falta algún dato, los pesos se renormalizan con lo que haya. **Sin dato de remates no se
-avisa**: la posesión sola engaña demasiado.
-
-Además hacen falta tres cosas más, para que "2 remates a 0" no dispare una alerta:
+Si falta algún dato, los pesos se renormalizan con lo que haya. Además hacen falta tres
+cosas más, para que "2 remates a 0" no dispare una alerta:
 
 - **volumen mínimo** — 6 remates en el partido antes del minuto 45, 10 después
 - **diferencia mínima** de 2 remates a puerta, cuando hay ese dato
+- **suelo de posesión del 35 %** — guardarraíl, no umbral medido (ver abajo)
 - **el que domina no va ganando** — perdiendo o empatando
+
+## El segundo gatillo: 🧪 POSESIÓN (a prueba)
+
+Hay un segundo detector, independiente, que salta con **≥65 % de posesión sin exigir
+ventaja de remates**. Existe porque una medición sobre 551 partidos **contradijo el diseño
+del primero**.
+
+Partiendo los equipos en cuadrantes, los goles que meten en lo que queda de partido:
+
+| | goles a favor |
+|---|---|
+| mucha posesión + pocos remates (*estéril*) | **0,758** |
+| mucha posesión + muchos remates | 0,691 |
+| poca posesión + muchos remates (*contragolpe*) | 0,418 |
+| poca posesión + pocos remates | 0,370 |
+
+Los dos cuadrantes **con** balón van por delante de los dos sin balón. Comparado de forma
+pareada dentro del mismo partido —el que tiene la pelota contra el que tiene los remates,
+mismo minuto y misma liga—: **+0,340 goles**, IC95 [0,157, 0,536], y aguanta Bonferroni
+sobre las 35 comparaciones hechas.
+
+Y hay un porqué mecánico: **la cuota de remates a puerta predice el marcador ya jugado a
+AUC 0,891** — un gol *es* un remate a puerta. El primer gatillo estaba repitiendo en parte
+el electrónico, que es información gastada.
+
+El umbral de 65 % sale de medir los goles posteriores por escalón (n=770 observaciones de
+equipos que no van ganando; media general 0,573):
+
+| posesión | n | goles después | IC95 |
+|---|---|---|---|
+| ≥55 % | 246 | 0,780 | [0,64, 0,91] |
+| ≥60 % | 141 | 0,858 | [0,62, 1,06] |
+| **≥65 %** | 63 | **0,937** | [0,68, 1,25] |
+
+Se eligió 65 % porque es el escalón más fuerte **y** dispara menos que la regla de remates
+(8,2 % de las observaciones frente al 13,6 %), así que no infla el volumen.
+
+### Por qué está "a prueba" y no ha sustituido al primero
+
+1. **Puede ser calidad de dato, no fútbol.** Al minuto 60 hay ~5 remates a puerta en total:
+   esa cuota se calcula sobre 5 sucesos y tiene un ruido binomial enorme. La posesión es
+   continua y se mide con precisión. Quizá no es "la posesión importa más que rematar" sino
+   "en este feed la posesión está bien medida y los remates a lo bruto".
+2. **Con una etiqueta más corta el signo se invierte.** El mismo fichero medido sobre "gol
+   en los próximos 15 minutos" da lo contrario. El hallazgo depende de la etiqueta.
+3. **La etiqueta usada son ~40 minutos**, que se parece más a "qué equipo es mejor" que a lo
+   que mira el bot, que son ventanas de 10.
+
+Por eso corren los dos, marcados distinto, y se comparan con datos propios en unas semanas.
+
+### El suelo del 35 % es un guardarraíl, no un hallazgo
+
+Los datos **no** permiten fijar una posesión mínima para el gatillo de remates: por debajo
+del 35 % solo había n=5 observaciones, y en la franja 35-40 %, n=1. Se puso en 35 % porque
+recorta el único grupo claramente malo (0,200 goles) sin tocar el volumen (−0,7 %), y solo
+se aplica cuando el dato de posesión existe. No se defiende como umbral medido.
 
 ### Por qué esos pesos y no otros
 
@@ -54,24 +109,27 @@ desempatar y nada más.
 
 ## Calibración
 
-Con umbral **0,68** (el de fábrica), sobre el histórico real:
+Con umbral **0,68** (el de fábrica) y los dos gatillos activos, sobre el histórico real:
 
-```
-umbral   avisos   avisos/día   perdiendo   empatando
-  0,60      28        7,0           4          24
-  0,64      26        6,5           4          22
-  0,68      18        4,5           1          17   <- por defecto
-  0,72      15        3,8           0          15
-  0,76       8        2,0           0           8
-  0,80       6        1,5           0           6
-```
+| gatillo | avisos | por día |
+|---|---|---|
+| 🎛️ remates | 18 | 4,5 |
+| 🧪 posesión | 11 | 2,8 |
+| **total** | **29** | **7,3** |
 
-**"Domina y va perdiendo" es raro: 1 de cada 18 avisos.** Tiene sentido — para ir perdiendo
-dominando hace falta que el rival marque en una de las pocas que tuvo. Lo habitual es
-"domina y empata". El mensaje distingue los dos casos con 🔴 y 🟡.
+**El gatillo de posesión multiplica por nueve los avisos de "va perdiendo":**
 
-Por qué se descarta el resto: nadie domina 35 %, sin datos de remates 27 %, pocos remates
-todavía 19 %, el que domina va ganando 8 %.
+| | avisos | perdiendo | empatando |
+|---|---|---|---|
+| solo remates | 18 | **1** | 17 |
+| los dos | 29 | **9** | 20 |
+
+Tiene sentido: un equipo con el 68 % del balón que va perdiendo es común —va persiguiendo
+el partido—; uno que domina en remates *y* pierde es rarísimo, porque hace falta que el
+rival marque en una de las pocas que tuvo.
+
+Por qué se descarta el resto: nadie domina 29 %, sin datos de remates 27 %, pocos remates
+todavía 19 %, va ganando 6,6 %.
 
 > Esas cifras salen de 4 días y 307 partidos, y solo de los partidos que ya se estaban
 > mirando. Sirven para **ordenar** umbrales, no como número absoluto. El real sale a los

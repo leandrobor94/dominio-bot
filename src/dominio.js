@@ -1,47 +1,71 @@
 'use strict';
-// EL DETECTOR.
+// LOS DETECTORES.
 //
-// No predice nada. Es un FILTRO: avisa de que un equipo esta controlando el
+// No predicen nada. Son FILTROS: avisan de que un equipo esta controlando el
 // partido y NO va ganando, para que tu mires ese partido y decidas. Por eso
-// aqui no hay probabilidades, ni cuotas, ni valor esperado: si despues cae el
-// gol o no, no es la metrica de este bot. La metrica es cuantos avisos manda
-// al dia y si, al abrirlos, el partido era lo que decia.
+// aqui no hay probabilidades, ni cuotas, ni valor esperado. La metrica es
+// cuantos avisos manda al dia y si, al abrirlos, el partido era lo que decia.
 //
-// QUE SE PUEDE USAR Y QUE NO (medido sobre 1.273 capturas reales del feed):
-//   remates y remates a puerta ... 62-74% de cobertura -> BASE del indice
-//   posesion y ataques .......... 79-84% -> solo APOYO, nunca solos
-//   corners ..................... 81-87% de cobertura pero corr -0.030 con los
-//                                 goles: no informan de nada -> fuera
-//   remates en el area .......... 11-25% -> inservible
-//   grandes ocasiones ........... 23-26% -> inservible
-//   xG .......................... 56% real, y 365scores lo ESTIMA a partir de
-//                                 los remates, asi que usarlo junto a los
-//                                 remates seria contar lo mismo dos veces -> fuera
+// HAY DOS GATILLOS, Y COMPITEN A PROPOSITO:
 //
-// Los pesos cargan en los remates a proposito. Hay una medicion previa que
-// avala esa decision: en un modelo hermano, meter ataques y posesion como
-// senal principal HUNDIO el rendimiento fuera de muestra (AUC 0.644 -> 0.538).
-// Aqui entran solo para desempatar, y con peso bajo.
+//   'remates'  — el original. Indice ponderado con el grueso en los remates.
+//   'posesion' — EXPERIMENTAL. Salta con >=65% de posesion aunque NO tenga
+//                ventaja de remates.
+//
+// El segundo existe porque una medicion sobre 551 partidos contradijo el diseno
+// del primero. Partiendo los equipos en cuadrantes, los goles que meten en lo
+// que queda de partido salen asi:
+//     mucha posesion + pocos remates ... 0.758   <- "posesion esteril"
+//     mucha posesion + muchos remates .. 0.691
+//     poca posesion + muchos remates ... 0.418   <- contragolpe
+//     poca posesion + pocos remates .... 0.370
+// Los dos cuadrantes CON balon van por delante de los dos sin balon. Comparado
+// de forma pareada dentro del mismo partido (el que tiene la pelota contra el
+// que tiene los remates, mismo minuto, misma liga): +0.340 goles a favor del
+// que tiene la pelota, IC95 [0.157, 0.536], y aguanta Bonferroni.
+//
+// Y hay un porque: la cuota de remates a puerta predice el marcador YA JUGADO a
+// AUC 0.891 — un gol ES un remate a puerta. O sea que el gatillo de remates
+// repite en parte el electronico, que es informacion gastada.
+//
+// PERO NO SE DA POR BUENO, y por eso el segundo gatillo va marcado como
+// experimental en vez de sustituir al primero:
+//   1. Puede ser calidad de dato, no futbol: al minuto 60 hay ~5 remates a
+//      puerta en total, asi que esa cuota se calcula sobre 5 sucesos y es
+//      ruidosisima; la posesion es continua y precisa.
+//   2. Con una etiqueta mas corta ("gol en 15 min") el signo se INVIERTE, sobre
+//      el mismo fichero. El hallazgo depende de la etiqueta.
+//   3. La etiqueta usada son los goles de ~40 minutos restantes, que se parece
+//      mas a "que equipo es mejor" que a lo que mira el bot, que son 10 minutos.
+// Se dejan los dos corriendo unas semanas y se comparan con datos propios.
 
 const CFG = {
-  // ventanas de minuto donde se mira (el usuario pidio "35 o 75")
+  // ventanas de minuto donde se mira
   ventanas: [[30, 40], [68, 80]],
 
-  // cuanto hay que dominar. 0.5 = parejo, 1.0 = monologo. Calibrado: ver README.
-  umbral: 0.68,
+  // --- gatillo 'remates' ---
+  umbral: 0.68,                                  // cuanto hay que dominar (0.5 = parejo)
+  minRematesPartido: { primera: 6, segunda: 10 },// "2 remates a 0" no es dominar
+  minDifSot: 2,                                  // diferencia absoluta de tiros a puerta
+  // Suelo de posesion. OJO: es un guardarrail, NO un umbral medido. Por debajo
+  // del 35% solo habia n=5 observaciones (que marcaron 0.200, el peor grupo);
+  // con ese n no se fija un umbral, asi que se pone donde no cuesta casi nada
+  // (recorta el 0.7% del volumen) y evita los casos absurdos de 25% de balon.
+  // Solo se aplica cuando el dato de posesion EXISTE: bloquear por un dato que
+  // falta el 20% de las veces seria peor que no tener suelo.
+  minPosesion: 0.35,
 
-  // volumen minimo: "2 remates a 0" no es dominar, es que no ha pasado nada
-  minRematesPartido: { primera: 6, segunda: 10 },
-
-  // ademas de la cuota, diferencia absoluta minima de tiros a puerta
-  minDifSot: 2,
+  // --- gatillo 'posesion' (experimental) ---
+  posesionActiva: true,
+  // 0.65 elegido por dos razones: es el escalon con mas goles a favor
+  // (0.937 [0.68, 1.25], n=63) y dispara MENOS que la regla de remates
+  // (8.2% de las observaciones frente al 13.6%), asi que no infla el volumen.
+  posesionGatillo: 0.65,
 
   // pesos del indice; se renormalizan si falta algun componente
   pesos: { sot: 0.45, sh: 0.35, atk: 0.10, pos: 0.10 },
 
-  // sin dato de remates no se avisa: la posesion sola engana mucho
-  exigirRemates: true,
-
+  exigirRemates: true,   // sin dato de remates no salta el gatillo 'remates'
   avisarPerdiendo: true,
   avisarEmpatando: true,
 };
@@ -56,18 +80,23 @@ function cuota(local, visita) {
   return t > 0 ? l / t : null;
 }
 
+/** Posesion del local, normalizada a 0-1. null si no hay dato creible. */
+function posesionLocal(s) {
+  let p = num(s.pos);
+  if (p === null) return null;
+  if (p > 1) p /= 100;
+  return p > 0 && p < 1 ? p : null;
+}
+
 /** Indice de dominio del LOCAL, de 0 a 1 (0.5 = parejo). null si no hay datos. */
 function indice(s, cfg = CFG) {
   if (!s) return null;
-
-  let pos = num(s.pos);
-  if (pos !== null && pos > 1) pos /= 100;
 
   const comps = {
     sot: cuota(s.sot, s.sota),
     sh: cuota(s.sh, s.sha),
     atk: cuota(s.atk, s.atka),
-    pos: pos !== null && pos > 0 && pos < 1 ? pos : null,
+    pos: posesionLocal(s),
   };
 
   if (cfg.exigirRemates && comps.sot === null && comps.sh === null) return null;
@@ -93,10 +122,45 @@ function ventanaDe(minuto, cfg) {
 }
 
 /**
+ * Empaqueta el aviso SIEMPRE desde el punto de vista del que domina. Girar aqui,
+ * una sola vez, evita que cada consumidor tenga que acordarse: antes comps.pos y
+ * comps.atk salian del local aunque dominara el visitante, y un aviso llego a
+ * mostrar "posesion 44%" cuando el que dominaba tenia el 56%.
+ */
+function empaquetar(p, d, ventana, dominaLocal, tipo, gl, gv) {
+  const gira = (x) => (x === null || x === undefined ? null : dominaLocal ? x : 1 - x);
+  const difGoles = dominaLocal ? gl - gv : gv - gl;
+  return {
+    motivo: 'avisa',
+    tipo,
+    id: p.id,
+    lado: dominaLocal ? 'local' : 'visita',
+    equipo: dominaLocal ? p.local : p.visita,
+    rival: dominaLocal ? p.visita : p.local,
+    golesEquipo: dominaLocal ? gl : gv,
+    golesRival: dominaLocal ? gv : gl,
+    marcador: `${gl}-${gv}`,
+    indice: Math.round((dominaLocal ? d.valor : 1 - d.valor) * 1000) / 1000,
+    minuto: p.minuto,
+    ventana: `${ventana[0]}-${ventana[1]}`,
+    estado: difGoles < 0 ? 'perdiendo' : 'empatando',
+    comps: { sot: gira(d.comps.sot), sh: gira(d.comps.sh), atk: gira(d.comps.atk), pos: gira(d.comps.pos) },
+    crudos: {
+      shFav: dominaLocal ? d.crudos.shL : d.crudos.shV,
+      shRiv: dominaLocal ? d.crudos.shV : d.crudos.shL,
+      sotFav: dominaLocal ? d.crudos.sotL : d.crudos.sotV,
+      sotRiv: dominaLocal ? d.crudos.sotV : d.crudos.sotL,
+    },
+    cobertura: Math.round(d.cobertura * 100) / 100,
+    liga: p.liga || null,
+  };
+}
+
+/**
  * ¿Hay que avisar de este partido ahora?
  * @param {{id,local,visita,golesLocal,golesVisita,minuto,liga,stats}} p
- * @returns {null | object} el aviso, o null con el motivo del descarte en .motivo
- *          si se pide con {conMotivo:true} (lo usa el calibrador)
+ * @returns {null | object} el aviso (con .tipo), o null. Con {conMotivo:true}
+ *          devuelve {motivo} explicando el descarte (lo usa el calibrador).
  */
 function detectar(p, opciones = {}) {
   const cfg = { ...CFG, ...opciones };
@@ -111,58 +175,63 @@ function detectar(p, opciones = {}) {
   const d = indice(p.stats, cfg);
   if (!d) return fallo('sinRemates');
 
-  const totalRemates = (d.crudos.shL || 0) + (d.crudos.shV || 0);
-  const minVol = minuto < 45 ? cfg.minRematesPartido.primera : cfg.minRematesPartido.segunda;
-  if (totalRemates < minVol) return fallo('pocoVolumen');
-
-  const dominaLocal = d.valor >= cfg.umbral;
-  const dominaVisita = 1 - d.valor >= cfg.umbral;
-  if (!dominaLocal && !dominaVisita) return fallo('noDomina');
-
-  if (d.comps.sot !== null) {
-    const dif = dominaLocal ? d.crudos.sotL - d.crudos.sotV : d.crudos.sotV - d.crudos.sotL;
-    if (dif < cfg.minDifSot) return fallo('difSotBaja');
-  }
-
   const gl = num(p.golesLocal) ?? 0;
   const gv = num(p.golesVisita) ?? 0;
-  const difGoles = dominaLocal ? gl - gv : gv - gl;
-
-  if (difGoles > 0) return fallo('vaGanando');
-  const estado = difGoles < 0 ? 'perdiendo' : 'empatando';
-  if (estado === 'perdiendo' && !cfg.avisarPerdiendo) return fallo('estadoNoPedido');
-  if (estado === 'empatando' && !cfg.avisarEmpatando) return fallo('estadoNoPedido');
-
-  // TODO lo que sale de aqui va desde el punto de vista del que DOMINA, no del
-  // local. `indice` ya se giraba, pero comps y crudos no: cuando dominaba el
-  // visitante, el aviso ensenaba la posesion y los ataques del equipo
-  // equivocado. Girarlo aqui, una sola vez, evita que cada consumidor tenga que
-  // acordarse de hacerlo.
-  const gira = (x) => (x === null || x === undefined ? null : dominaLocal ? x : 1 - x);
-
-  return {
-    motivo: 'avisa',
-    id: p.id,
-    lado: dominaLocal ? 'local' : 'visita',
-    equipo: dominaLocal ? p.local : p.visita,
-    rival: dominaLocal ? p.visita : p.local,
-    golesEquipo: dominaLocal ? gl : gv,
-    golesRival: dominaLocal ? gv : gl,
-    marcador: `${gl}-${gv}`,
-    indice: Math.round((dominaLocal ? d.valor : 1 - d.valor) * 1000) / 1000,
-    minuto,
-    ventana: `${ventana[0]}-${ventana[1]}`,
-    estado,
-    comps: { sot: gira(d.comps.sot), sh: gira(d.comps.sh), atk: gira(d.comps.atk), pos: gira(d.comps.pos) },
-    crudos: {
-      shFav: dominaLocal ? d.crudos.shL : d.crudos.shV,
-      shRiv: dominaLocal ? d.crudos.shV : d.crudos.shL,
-      sotFav: dominaLocal ? d.crudos.sotL : d.crudos.sotV,
-      sotRiv: dominaLocal ? d.crudos.sotV : d.crudos.sotL,
-    },
-    cobertura: Math.round(d.cobertura * 100) / 100,
-    liga: p.liga || null,
+  const noGana = (esLocal) => (esLocal ? gl - gv : gv - gl) <= 0;
+  const estadoPedido = (esLocal) => {
+    const dif = esLocal ? gl - gv : gv - gl;
+    return dif < 0 ? cfg.avisarPerdiendo : cfg.avisarEmpatando;
   };
+
+  const totalRemates = (d.crudos.shL || 0) + (d.crudos.shV || 0);
+  const hayVolumen = totalRemates >= (minuto < 45 ? cfg.minRematesPartido.primera : cfg.minRematesPartido.segunda);
+
+  // ---------------------------------------------------- gatillo 'remates'
+  let descarteRemates = null;
+  if (!hayVolumen) {
+    descarteRemates = 'pocoVolumen';
+  } else {
+    const dominaLocal = d.valor >= cfg.umbral;
+    const dominaVisita = 1 - d.valor >= cfg.umbral;
+    if (!dominaLocal && !dominaVisita) {
+      descarteRemates = 'noDomina';
+    } else {
+      const esLocal = dominaLocal;
+      const posFav = d.comps.pos === null ? null : (esLocal ? d.comps.pos : 1 - d.comps.pos);
+      const difSot = d.comps.sot === null ? null
+        : (esLocal ? d.crudos.sotL - d.crudos.sotV : d.crudos.sotV - d.crudos.sotL);
+
+      if (difSot !== null && difSot < cfg.minDifSot) descarteRemates = 'difSotBaja';
+      else if (posFav !== null && posFav < cfg.minPosesion) descarteRemates = 'posesionMuyBaja';
+      else if (!noGana(esLocal)) descarteRemates = 'vaGanando';
+      else if (!estadoPedido(esLocal)) descarteRemates = 'estadoNoPedido';
+      else return empaquetar(p, d, ventana, esLocal, 'remates', gl, gv);
+    }
+  }
+
+  // --------------------------------------------------- gatillo 'posesion'
+  // Independiente del anterior: NO exige ventaja de remates, que es justo lo que
+  // le impedia saltar al equipo de posesion esteril con cualquier peso.
+  let descartePosesion = null;
+  if (cfg.posesionActiva && d.comps.pos !== null && hayVolumen) {
+    const local = d.comps.pos >= cfg.posesionGatillo;
+    const visita = 1 - d.comps.pos >= cfg.posesionGatillo;
+    if (!local && !visita) {
+      descartePosesion = 'posesionInsuficiente';
+    } else {
+      const esLocal = local;
+      if (!noGana(esLocal)) descartePosesion = 'posesionVaGanando';
+      else if (!estadoPedido(esLocal)) descartePosesion = 'estadoNoPedido';
+      else return empaquetar(p, d, ventana, esLocal, 'posesion', gl, gv);
+    }
+  }
+
+  // Se reporta el descarte mas informativo: si el gatillo de posesion llego a
+  // tener el balon suficiente y solo fallo por el marcador, eso dice mas que
+  // "noDomina" del otro gatillo. Sin esto, la comparacion entre los dos
+  // gatillos dentro de unas semanas seria ilegible.
+  const informativo = descartePosesion === 'posesionVaGanando' ? descartePosesion : null;
+  return fallo(informativo || descarteRemates || descartePosesion || 'noDomina');
 }
 
 module.exports = { detectar, indice, CFG };

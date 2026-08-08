@@ -85,14 +85,17 @@ async function pasada(estado) {
     registro.push({
       id: p.id, min: p.minuto, marc: `${p.golesLocal}-${p.golesVisita}`,
       liga: p.liga, motivo: res ? res.motivo : 'sinResultado',
+      tipo: res && res.tipo ? res.tipo : null,
       ind: res && res.indice != null ? res.indice : null, stats: stats || null,
     });
 
     if (!res || res.motivo !== 'avisa') continue;
 
-    const clave = `${p.id}_${res.ventana}`;
+    // El tipo entra en la clave: los dos gatillos son independientes y el mismo
+    // partido puede merecer un aviso por cada uno.
+    const clave = `${p.id}_${res.ventana}_${res.tipo}`;
     if (estado.avisados[clave]) continue;
-    estado.avisados[clave] = { ts: Date.now(), minuto: p.minuto, estado: res.estado };
+    estado.avisados[clave] = { ts: Date.now(), minuto: p.minuto, estado: res.estado, tipo: res.tipo };
     avisos.push(res);
   }
 
@@ -114,7 +117,7 @@ async function pasada(estado) {
   // asi que hay que deshacerlo cuando el aviso no llego a salir. Incluye el modo
   // seco: si una prueba con --dry dejara la marca puesta, el siguiente arranque
   // de verdad se callaria justo esos partidos.
-  const deshacer = () => { for (const a of avisos) delete estado.avisados[`${a.id}_${a.ventana}`]; };
+  const deshacer = () => { for (const a of avisos) delete estado.avisados[`${a.id}_${a.ventana}_${a.tipo}`]; };
 
   if (DRY) {
     console.log('  [dry] no se envia:\n' + texto.replace(/<[^>]+>/g, ''));

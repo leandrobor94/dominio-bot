@@ -1,3 +1,39 @@
 {
-  "avisados": {}
+  "avisados": {
+    "4746311_30-40": {
+      "ts": 1786208454884,
+      "minuto": 31,
+      "estado": "empatando"
+    },
+    "4765076_68-80": {
+      "ts": 1786209980936,
+      "minuto": 69,
+      "estado": "empatando"
+    },
+    "4734633_30-40": {
+      "ts": 1786209996439,
+      "minuto": 39,
+      "estado": "empatando"
+    },
+    "4802667_68-80": {
+      "ts": 1786210216236,
+      "minuto": 71,
+      "estado": "empatando"
+    },
+    "4804790_30-40": {
+      "ts": 1786210240731,
+      "minuto": 30,
+      "estado": "empatando"
+    },
+    "4804571_30-40": {
+      "ts": 1786210735260,
+      "minuto": 34,
+      "estado": "empatando"
+    },
+    "4744331_30-40": {
+      "ts": 1786210925823,
+      "minuto": 40,
+      "estado": "empatando"
+    }
+  }
 }

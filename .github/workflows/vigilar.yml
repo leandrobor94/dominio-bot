@@ -1,0 +1,74 @@
+name: Vigilar dominio
+
+# ─────────────────────────────────────────────────────────────────────────────
+# POR QUE NO HAY UN CRON CADA 3 MINUTOS
+#
+# GitHub Actions retrasa y se salta ejecuciones programadas, sobre todo con
+# frecuencias altas y en repos con poca actividad. Un cron de */10 deja huecos
+# de una hora DENTRO del mismo partido, y este bot vive de mirar los minutos
+# 30-40 y 68-80: si se salta la ventana, no sirve para nada.
+#
+# Por eso: un solo job que dura horas y hace el bucle POR DENTRO. El cron solo
+# tiene que acertar 3 veces al dia en vez de 480, y el intervalo real lo controla
+# run.js con un sleep, que no depende de nadie.
+#
+# Limite de un job: 6 horas. Se usan 4h50 y los arranques van cada 5h, de forma
+# que NUNCA se solapan: con cancel-in-progress:false, un job que pisa al anterior
+# queda ENCOLADO y arrastra retraso en cascada.
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  schedule:
+    # 3 arranques de 4h50 separados 5h: cubren 7:05-21:55 hora de Colombia
+    - cron: '5 12 * * *'
+    - cron: '5 17 * * *'
+    - cron: '5 22 * * *'
+  workflow_dispatch:
+    inputs:
+      minutos:
+        description: 'Duracion del bucle en minutos'
+        required: false
+        default: '290'
+      umbral:
+        description: 'Umbral del indice de dominio (0.60 - 0.80)'
+        required: false
+        default: '0.68'
+
+concurrency:
+  group: dominio-bot
+  cancel-in-progress: false
+
+jobs:
+  vigilar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Bucle de vigilancia
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          node run.js \
+            --minutos "${{ github.event.inputs.minutos || '290' }}" \
+            --umbral  "${{ github.event.inputs.umbral  || '0.68' }}"
+
+      # El historial es el activo del bot: sin los negativos guardados no se
+      # puede recalibrar el umbral mas adelante.
+      - name: Guardar estado e historial
+        if: always()
+        run: |
+          git config user.name  "dominio-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add estado.json historial.jsonl 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "estado: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase --autostash || true
+          git push || true

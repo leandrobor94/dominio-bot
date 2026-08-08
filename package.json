@@ -1,0 +1,15 @@
+{
+  "name": "dominio-bot",
+  "version": "1.0.0",
+  "description": "Avisa cuando un equipo esta controlando el partido y no va ganando. Filtro, no pronostico.",
+  "private": true,
+  "main": "run.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node run.js",
+    "once": "node run.js --una-vez",
+    "dry": "node run.js --una-vez --dry",
+    "calibrar": "node calibrar.js"
+  },
+  "engines": { "node": ">=18" }
+}

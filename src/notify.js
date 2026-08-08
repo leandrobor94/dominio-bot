@@ -29,9 +29,38 @@ function mensaje(avisos) {
     + '\n\n<i>Filtro, no pronóstico. Mira el partido y decide.</i>';
 }
 
+/**
+ * Cuando el envio falla, la API de Telegram devuelve mensajes que no dicen cual
+ * de los dos secretos esta mal: un token invalido da "Not Found" a secas.
+ * getMe separa los dos casos — si getMe funciona, el token es bueno y el
+ * problema es el chat. Nunca se imprime el token, solo su forma y su longitud.
+ */
+async function diagnosticar(token) {
+  const formaOk = /^\d{6,}:[A-Za-z0-9_-]{30,}$/.test(token);
+  let quien = null, tokenOk = false;
+  try {
+    const r = await fetch(`https://api.telegram.org/bot${token}/getMe`);
+    const j = await r.json();
+    tokenOk = !!j.ok;
+    quien = j.ok ? '@' + j.result.username : j.description;
+  } catch (e) {
+    quien = 'sin conexion: ' + e.message;
+  }
+  console.log(`  diagnostico: token de ${token.length} caracteres, forma ${formaOk ? 'correcta' : 'INCORRECTA (deberia ser 123456789:AA...)'}`);
+  if (tokenOk) {
+    console.log(`  -> el TOKEN es valido (bot ${quien}). El problema esta en TELEGRAM_CHAT_ID.`);
+    console.log('     Sacalo abriendo https://api.telegram.org/bot<TU_TOKEN>/getUpdates tras escribirle al bot.');
+  } else {
+    console.log(`  -> el TOKEN es el problema: getMe responde "${quien}".`);
+    console.log('     Revisa TELEGRAM_BOT_TOKEN: sin el prefijo "bot", sin espacios ni saltos de linea.');
+  }
+}
+
 async function enviar(texto) {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chat = process.env.TELEGRAM_CHAT_ID;
+  // .trim(): pegar el secreto con un salto de linea al final es el error mas
+  // comun y produce un 404 identico al de un token invalido.
+  const token = (process.env.TELEGRAM_BOT_TOKEN || '').trim();
+  const chat = (process.env.TELEGRAM_CHAT_ID || '').trim();
   if (!token || !chat) {
     console.log('  Telegram sin configurar (TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID)');
     return false;
@@ -43,7 +72,11 @@ async function enviar(texto) {
       body: JSON.stringify({ chat_id: chat, text: texto, parse_mode: 'HTML', disable_web_page_preview: true }),
     });
     const j = await r.json();
-    if (!j.ok) { console.log('  Telegram error:', j.description); return false; }
+    if (!j.ok) {
+      console.log(`  Telegram error: ${j.description} (http ${r.status})`);
+      await diagnosticar(token);
+      return false;
+    }
     return true;
   } catch (e) {
     console.log('  Telegram fallo:', e.message);

@@ -162,3 +162,22 @@
 {"ts":"2026-08-08T16:38:43.570Z","id":"4806368","min":38,"marc":"1-1","liga":"Partido Amistoso","motivo":"sinRemates","ind":null,"stats":null}
 {"ts":"2026-08-08T16:38:43.570Z","id":"4806797","min":38,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","ind":null,"stats":null}
 {"ts":"2026-08-08T16:38:43.570Z","id":"4807048","min":35,"marc":"1-0","liga":"A Lyga","motivo":"pocoVolumen","ind":null,"stats":{"pos":0.64,"sh":3,"sot":2,"atk":46,"posa":36,"sha":2,"sota":0,"atka":42}}
+{"ts":"2026-08-08T16:52:37.910Z","id":"4804417","min":68,"marc":"0-1","liga":"Partido Amistoso","motivo":"sinRemates","ind":null,"stats":null}
+{"ts":"2026-08-08T16:52:37.910Z","id":"4804418","min":71,"marc":"2-1","liga":"Partido Amistoso","motivo":"sinRemates","ind":null,"stats":{"pos":0.61,"atk":78,"posa":39,"atka":64}}
+{"ts":"2026-08-08T16:52:37.910Z","id":"4803784","min":40,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","ind":null,"stats":null}
+{"ts":"2026-08-08T16:52:37.910Z","id":"4740786","min":36,"marc":"0-0","liga":"Jupiler Pro League","motivo":"noDomina","ind":null,"stats":{"pos":0.62,"sh":3,"sot":0,"atk":38,"posa":38,"sha":5,"sota":0,"atka":22}}
+{"ts":"2026-08-08T16:52:37.910Z","id":"4805875","min":38,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","ind":null,"stats":null}
+{"ts":"2026-08-08T16:55:50.813Z","id":"4636057","min":68,"marc":"0-1","liga":"Allsvenskan","motivo":"noDomina","ind":null,"stats":{"pos":0.43,"sh":8,"sot":4,"atk":57,"posa":57,"sha":20,"sota":6,"atka":68}}
+{"ts":"2026-08-08T16:55:50.813Z","id":"4738270","min":69,"marc":"0-0","liga":"Prva Liga","motivo":"sinRemates","ind":null,"stats":null}
+{"ts":"2026-08-08T16:55:50.813Z","id":"4748482","min":69,"marc":"3-1","liga":"Liga1","motivo":"pocoVolumen","ind":null,"stats":{"pos":0.67,"sh":7,"sot":5,"atk":51,"posa":33,"sha":1,"sota":1,"atka":35}}
+{"ts":"2026-08-08T16:55:50.813Z","id":"4750297","min":68,"marc":"1-1","liga":"2º División de Austria","motivo":"noDomina","ind":null,"stats":{"pos":0.5,"sh":14,"sot":3,"atk":52,"posa":50,"sha":11,"sota":7,"atka":46}}
+{"ts":"2026-08-08T16:55:50.813Z","id":"4750299","min":69,"marc":"2-2","liga":"2º División de Austria","motivo":"noDomina","ind":null,"stats":{"pos":0.52,"sh":6,"sot":4,"atk":91,"posa":48,"sha":8,"sota":5,"atka":73}}
+{"ts":"2026-08-08T16:55:50.813Z","id":"4750300","min":69,"marc":"4-1","liga":"2º División de Austria","motivo":"noDomina","ind":null,"stats":{"pos":0.57,"sh":9,"sot":5,"atk":68,"posa":43,"sha":7,"sota":4,"atka":49}}
+{"ts":"2026-08-08T16:55:50.813Z","id":"4753667","min":69,"marc":"0-0","liga":"NB II - Regular Season","motivo":"pocoVolumen","ind":null,"stats":{"pos":0.56,"sh":5,"sot":3,"atk":0,"posa":44,"sha":2,"sota":0,"atka":0}}
+{"ts":"2026-08-08T16:55:50.813Z","id":"4753671","min":68,"marc":"0-0","liga":"NB II - Regular Season","motivo":"pocoVolumen","ind":null,"stats":{"pos":0.5,"sh":1,"sot":1,"atk":83,"posa":50,"sha":2,"sota":1,"atka":86}}
+{"ts":"2026-08-08T16:55:50.813Z","id":"4767047","min":69,"marc":"0-2","liga":"Partido Amistoso","motivo":"sinRemates","ind":null,"stats":null}
+{"ts":"2026-08-08T16:55:50.813Z","id":"4802082","min":69,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","ind":null,"stats":null}
+{"ts":"2026-08-08T16:55:50.813Z","id":"4804417","min":71,"marc":"0-1","liga":"Partido Amistoso","motivo":"sinRemates","ind":null,"stats":null}
+{"ts":"2026-08-08T16:55:50.813Z","id":"4804418","min":74,"marc":"2-1","liga":"Partido Amistoso","motivo":"sinRemates","ind":null,"stats":{"pos":0.6,"atk":79,"posa":40,"atka":68}}
+{"ts":"2026-08-08T16:55:50.813Z","id":"4806963","min":69,"marc":"0-3","liga":"Partido Amistoso","motivo":"sinRemates","ind":null,"stats":null}
+{"ts":"2026-08-08T16:55:50.813Z","id":"4740786","min":39,"marc":"0-0","liga":"Jupiler Pro League","motivo":"noDomina","ind":null,"stats":{"pos":0.61,"sh":3,"sot":0,"atk":38,"posa":39,"sha":5,"sota":0,"atka":25}}

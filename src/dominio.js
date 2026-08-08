@@ -57,10 +57,12 @@ const CFG = {
 
   // --- gatillo 'posesion' (experimental) ---
   posesionActiva: true,
-  // 0.65 elegido por dos razones: es el escalon con mas goles a favor
-  // (0.937 [0.68, 1.25], n=63) y dispara MENOS que la regla de remates
-  // (8.2% de las observaciones frente al 13.6%), asi que no infla el volumen.
-  posesionGatillo: 0.65,
+  // 0.68 y no 0.65: peticion del dueno, que sigue los avisos y dice que por
+  // debajo de 67 no le sirven. Los dos numeros que se ENSENAN en el mensaje
+  // —"domina al X%" y "tiene X% de la pelota"— quedan asi ambos en 68 o mas.
+  // (0.65 venia de que era el escalon con mas goles a favor, 0.937 [0.68, 1.25]
+  // con n=63; subirlo a 0.68 recorta volumen y el dueno lo prefiere asi.)
+  posesionGatillo: 0.68,
 
   // pesos del indice; se renormalizan si falta algun componente
   pesos: { sot: 0.45, sh: 0.35, atk: 0.10, pos: 0.10 },

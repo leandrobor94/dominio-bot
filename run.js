@@ -16,6 +16,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 const feed = require('./src/feed');
 const { detectar, CFG } = require('./src/dominio');
 const notify = require('./src/notify');
@@ -52,6 +53,36 @@ function apuntar(filas) {
   if (!filas.length) return;
   const ts = new Date().toISOString();
   fs.appendFileSync(HISTORIAL, filas.map((f) => JSON.stringify({ ts, ...f })).join('\n') + '\n');
+}
+
+// ---------------------------------------------------------------- guardado
+// El historial se sube CADA MEDIA HORA, no solo al final.
+//
+// Antes solo se guardaba al terminar el job, y con corridas de 4h50 eso
+// significaba que los datos tardaban hasta cinco horas en llegar al repo — y si
+// el job se cancelaba a mitad, ese tramo se perdia entero. El fichero es el
+// unico activo que este bot acumula; no puede vivir cinco horas dentro de una
+// maquina que GitHub puede apagar.
+const GUARDAR_CADA_MS = 30 * 60000;
+let ultimoGuardado = Date.now();
+
+function gitGuardar(motivo) {
+  if (!process.env.CI) return;              // en local no se toca el repo
+  const cmd = (c) => execSync(c, { cwd: __dirname, stdio: 'pipe', encoding: 'utf8' });
+  try {
+    cmd('git add estado.json historial.jsonl');
+    try {
+      cmd('git diff --staged --quiet');
+      return;                                // nada que guardar
+    } catch { /* hay cambios, seguimos */ }
+    cmd(`git commit -m "estado ${motivo}: ${new Date().toISOString().slice(0, 16)}Z"`);
+    try { cmd('git pull --rebase --autostash'); } catch { /* si falla, el push dira */ }
+    cmd('git push');
+    console.log(`  historial subido (${motivo})`);
+  } catch (e) {
+    // Nunca tumbar el bucle por un fallo de git: el trabajo real es vigilar.
+    console.log('  no se pudo subir el historial:', String(e.message || e).split('\n')[0].slice(0, 90));
+  }
 }
 
 // Contadores de toda la corrida. Existen por una razon concreta: si el bot solo
@@ -162,12 +193,17 @@ async function main() {
       console.log('  error en la vuelta:', e.message);
     }
     guardarEstado(estado);
+    if (Date.now() - ultimoGuardado >= GUARDAR_CADA_MS) {
+      gitGuardar('parcial');
+      ultimoGuardado = Date.now();
+    }
     if (UNA_VEZ) break;
     const queda = fin - Date.now();
     if (queda <= INTERVALO_MS) break;
     await new Promise((r) => setTimeout(r, INTERVALO_MS));
   } while (Date.now() < fin);
 
+  gitGuardar('final');
   await resumen();
 }
 

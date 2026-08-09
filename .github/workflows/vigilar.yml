@@ -58,6 +58,14 @@ jobs:
         with:
           node-version: 20
 
+      # Antes del bucle, no despues: run.js sube el historial cada media hora
+      # mientras vigila, y sin identidad configurada el primer commit falla.
+      - name: Configurar git
+        run: |
+          git config user.name  "dominio-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git config pull.rebase true
+
       - name: Bucle de vigilancia
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -67,14 +75,13 @@ jobs:
             --minutos "${{ github.event.inputs.minutos || '290' }}" \
             --umbral  "${{ github.event.inputs.umbral  || '0.68' }}"
 
-      # El historial es el activo del bot: sin los negativos guardados no se
-      # puede recalibrar el umbral mas adelante.
-      - name: Guardar estado e historial
+      # Red de seguridad. El bucle ya sube el historial cada media hora por su
+      # cuenta; esto solo recoge lo que quede suelto si el job muere o lo cancelan
+      # antes del siguiente guardado parcial.
+      - name: Guardar lo que quede suelto
         if: always()
         run: |
-          git config user.name  "dominio-bot"
-          git config user.email "bot@users.noreply.github.com"
           git add estado.json historial.jsonl 2>/dev/null || true
-          git diff --staged --quiet || git commit -m "estado: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git diff --staged --quiet || git commit -m "estado rescate: $(date -u +%Y-%m-%dT%H:%MZ)"
           git pull --rebase --autostash || true
           git push || true

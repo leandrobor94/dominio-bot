@@ -51,8 +51,7 @@ function mensaje(avisos) {
     partes.push('🧪 <b>POSESIÓN</b> — a prueba, manda pero no marca\n\n' + porPosesion.map(bloque).join('\n\n'));
   }
 
-  return partes.join('\n\n───────────\n\n')
-    + '\n\n<i>Filtro, no pronóstico. Mira el partido y decide.</i>';
+  return partes.join('\n\n───────────\n\n');
 }
 
 /**

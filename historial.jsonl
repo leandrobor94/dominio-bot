@@ -3521,3 +3521,18 @@
 {"ts":"2026-08-10T14:06:05.534Z","id":"4748740","min":77,"marc":"3-0","liga":"Premier League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
 {"ts":"2026-08-10T14:06:05.534Z","id":"4806674","min":35,"marc":"0-1","liga":"Tercera División - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.6,"atk":38,"posa":40,"atka":33}}
 {"ts":"2026-08-10T14:06:05.534Z","id":"4806675","min":34,"marc":"1-0","liga":"Tercera División - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.38,"atk":44,"posa":62,"atka":48}}
+{"ts":"2026-08-10T14:09:09.568Z","id":"4806674","min":38,"marc":"0-1","liga":"Tercera División - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.59,"atk":38,"posa":41,"atka":36}}
+{"ts":"2026-08-10T14:09:09.568Z","id":"4806675","min":37,"marc":"1-0","liga":"Tercera División - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.37,"atk":48,"posa":63,"atka":52}}
+{"ts":"2026-08-10T14:12:10.698Z","id":"4806675","min":40,"marc":"1-0","liga":"Tercera División - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.35,"atk":50,"posa":65,"atka":56}}
+{"ts":"2026-08-10T14:24:12.722Z","id":"4804396","min":68,"marc":"1-0","liga":"APF Primera B","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"atk":64,"atka":76}}
+{"ts":"2026-08-10T14:27:13.851Z","id":"4804396","min":71,"marc":"1-0","liga":"APF Primera B","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"atk":65,"atka":80}}
+{"ts":"2026-08-10T14:30:16.854Z","id":"4804396","min":74,"marc":"1-0","liga":"APF Primera B","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"atk":68,"atka":81}}
+{"ts":"2026-08-10T14:30:16.854Z","id":"4712330","min":30,"marc":"0-1","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T14:30:16.854Z","id":"4803405","min":30,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T14:33:36.899Z","id":"4804396","min":78,"marc":"1-0","liga":"APF Primera B","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"atk":71,"atka":82}}
+{"ts":"2026-08-10T14:33:36.899Z","id":"4712330","min":33,"marc":"0-1","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T14:33:36.899Z","id":"4803405","min":33,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T14:33:36.899Z","id":"4806676","min":30,"marc":"0-1","liga":"Tercera División - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.36,"atk":20,"posa":64,"atka":19}}
+{"ts":"2026-08-10T14:36:39.886Z","id":"4712330","min":36,"marc":"0-1","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T14:36:39.886Z","id":"4803405","min":36,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T14:36:39.886Z","id":"4806676","min":33,"marc":"0-1","liga":"Tercera División - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.36,"atk":22,"posa":64,"atka":24}}

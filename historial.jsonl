@@ -3608,3 +3608,60 @@
 {"ts":"2026-08-10T16:08:04.347Z","id":"4688543","min":77,"marc":"0-2","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
 {"ts":"2026-08-10T16:08:04.347Z","id":"4748487","min":38,"marc":"0-0","liga":"Liga1","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.45,"sh":5,"sot":1,"atk":29,"posa":55,"sha":10,"sota":2,"atka":33}}
 {"ts":"2026-08-10T16:08:04.347Z","id":"4805861","min":37,"marc":"1-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.52,"atk":22,"posa":48,"atka":39}}
+{"ts":"2026-08-10T16:11:08.286Z","id":"4688543","min":80,"marc":"0-2","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:11:08.286Z","id":"4805861","min":40,"marc":"1-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.52,"atk":24,"posa":48,"atka":41}}
+{"ts":"2026-08-10T16:17:09.801Z","id":"4808125","min":31,"marc":"0-0","liga":"A Lyga","motivo":"difSotBaja","tipo":null,"ind":null,"stats":{"pos":0.53,"sh":3,"sot":0,"atk":13,"posa":47,"sha":3,"sota":1,"atka":19}}
+{"ts":"2026-08-10T16:20:20.929Z","id":"4808125","min":31,"marc":"0-0","liga":"A Lyga","motivo":"avisa","tipo":"remates","ind":0.76,"stats":{"pos":0.51,"sh":3,"sot":0,"atk":14,"posa":49,"sha":4,"sota":2,"atka":22}}
+{"ts":"2026-08-10T16:23:24.411Z","id":"4688542","min":69,"marc":"1-0","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:23:24.411Z","id":"4688084","min":68,"marc":"1-0","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:23:24.411Z","id":"4808125","min":37,"marc":"0-1","liga":"A Lyga","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.52,"sh":3,"sot":0,"atk":15,"posa":48,"sha":6,"sota":3,"atka":25}}
+{"ts":"2026-08-10T16:26:30.234Z","id":"4688084","min":71,"marc":"1-0","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:26:30.234Z","id":"4688541","min":71,"marc":"0-3","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:26:30.234Z","id":"4688542","min":72,"marc":"1-0","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:26:30.234Z","id":"4744769","min":71,"marc":"2-0","liga":"2. Liga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.33,"sh":8,"sot":5,"atk":62,"posa":67,"sha":10,"sota":6,"atka":116}}
+{"ts":"2026-08-10T16:26:30.234Z","id":"4749863","min":70,"marc":"2-0","liga":"Vtora Liga","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.51,"sh":10,"sot":7,"atk":57,"posa":49,"sha":5,"sota":2,"atka":58}}
+{"ts":"2026-08-10T16:26:30.234Z","id":"4807180","min":69,"marc":"2-0","liga":"Liga Femenina - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"atk":105,"atka":38}}
+{"ts":"2026-08-10T16:29:39.783Z","id":"4688084","min":74,"marc":"2-0","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:29:39.783Z","id":"4688085","min":70,"marc":"0-0","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:29:39.783Z","id":"4688541","min":74,"marc":"0-3","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:29:39.783Z","id":"4688542","min":75,"marc":"1-0","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:29:39.783Z","id":"4744769","min":74,"marc":"2-0","liga":"2. Liga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.32,"sh":8,"sot":5,"atk":63,"posa":68,"sha":10,"sota":6,"atka":123}}
+{"ts":"2026-08-10T16:29:39.783Z","id":"4748739","min":69,"marc":"1-0","liga":"Premier League","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.56,"sh":3,"sot":2,"atk":58,"posa":44,"sha":4,"sota":2,"atka":53}}
+{"ts":"2026-08-10T16:29:39.783Z","id":"4749863","min":73,"marc":"2-0","liga":"Vtora Liga","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.51,"sh":10,"sot":7,"atk":57,"posa":49,"sha":5,"sota":2,"atka":60}}
+{"ts":"2026-08-10T16:29:39.783Z","id":"4807180","min":73,"marc":"3-0","liga":"Liga Femenina - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"atk":107,"atka":39}}
+{"ts":"2026-08-10T16:29:39.783Z","id":"4742843","min":30,"marc":"0-0","liga":"Liga eslovena - Regular Season","motivo":"avisa","tipo":"posesion","ind":0.263,"stats":{"pos":0.26,"sh":6,"sot":3,"atk":23,"posa":74,"sha":3,"sota":0,"atka":61}}
+{"ts":"2026-08-10T16:29:39.783Z","id":"4759627","min":31,"marc":"2-0","liga":"Premier League","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.61,"sh":10,"sot":6,"atk":18,"posa":39,"sha":1,"sota":0,"atka":17}}
+{"ts":"2026-08-10T16:32:53.534Z","id":"4688085","min":73,"marc":"0-0","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:32:53.534Z","id":"4688541","min":77,"marc":"0-3","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:32:53.534Z","id":"4688542","min":78,"marc":"1-0","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:32:53.534Z","id":"4744769","min":77,"marc":"2-1","liga":"2. Liga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.33,"sh":9,"sot":5,"atk":67,"posa":67,"sha":11,"sota":7,"atka":128}}
+{"ts":"2026-08-10T16:32:53.534Z","id":"4748739","min":72,"marc":"1-0","liga":"Premier League","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.57,"sh":3,"sot":2,"atk":62,"posa":43,"sha":4,"sota":2,"atka":57}}
+{"ts":"2026-08-10T16:32:53.534Z","id":"4749863","min":76,"marc":"2-0","liga":"Vtora Liga","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.5,"sh":10,"sot":7,"atk":58,"posa":50,"sha":5,"sota":2,"atka":61}}
+{"ts":"2026-08-10T16:32:53.534Z","id":"4807180","min":76,"marc":"4-0","liga":"Liga Femenina - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"atk":112,"atka":41}}
+{"ts":"2026-08-10T16:32:53.534Z","id":"4688084","min":77,"marc":"2-0","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:32:53.534Z","id":"4668680","min":32,"marc":"4-0","liga":"Segunda división estonia","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.72,"sh":3,"sot":3,"atk":29,"posa":28,"sha":0,"sota":0,"atka":19}}
+{"ts":"2026-08-10T16:32:53.534Z","id":"4733611","min":32,"marc":"0-0","liga":"Liga de Bulgaria","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.62,"sh":4,"sot":0,"atk":42,"posa":38,"sha":2,"sota":1,"atka":35}}
+{"ts":"2026-08-10T16:32:53.534Z","id":"4740914","min":32,"marc":"0-1","liga":"I Lyga","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.49,"sh":2,"sot":0,"atk":47,"posa":51,"sha":2,"sota":1,"atka":32}}
+{"ts":"2026-08-10T16:32:53.534Z","id":"4742843","min":33,"marc":"0-0","liga":"Liga eslovena - Regular Season","motivo":"avisa","tipo":"posesion","ind":0.254,"stats":{"pos":0.26,"sh":7,"sot":3,"atk":24,"posa":74,"sha":3,"sota":0,"atka":71}}
+{"ts":"2026-08-10T16:32:53.534Z","id":"4759627","min":34,"marc":"2-0","liga":"Premier League","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.61,"sh":10,"sot":6,"atk":20,"posa":39,"sha":1,"sota":0,"atka":19}}
+{"ts":"2026-08-10T16:32:53.534Z","id":"4784920","min":31,"marc":"1-1","liga":"Liga de Segunda - Fase 2","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.48,"sh":3,"sot":2,"atk":28,"posa":52,"sha":4,"sota":3,"atka":24}}
+{"ts":"2026-08-10T16:36:04.954Z","id":"4688085","min":77,"marc":"0-0","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:36:04.954Z","id":"4688541","min":80,"marc":"0-3","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:36:04.954Z","id":"4744769","min":80,"marc":"2-1","liga":"2. Liga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.33,"sh":10,"sot":6,"atk":70,"posa":67,"sha":12,"sota":7,"atka":133}}
+{"ts":"2026-08-10T16:36:04.954Z","id":"4748739","min":75,"marc":"1-0","liga":"Premier League","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.58,"sh":3,"sot":2,"atk":67,"posa":42,"sha":4,"sota":2,"atka":59}}
+{"ts":"2026-08-10T16:36:04.954Z","id":"4749863","min":79,"marc":"2-0","liga":"Vtora Liga","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.49,"sh":11,"sot":8,"atk":61,"posa":51,"sha":5,"sota":2,"atka":63}}
+{"ts":"2026-08-10T16:36:04.954Z","id":"4807180","min":79,"marc":"5-0","liga":"Liga Femenina - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"atk":113,"atka":42}}
+{"ts":"2026-08-10T16:36:04.954Z","id":"4668680","min":36,"marc":"3-0","liga":"Segunda división estonia","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.74,"sh":3,"sot":3,"atk":33,"posa":26,"sha":0,"sota":0,"atka":20}}
+{"ts":"2026-08-10T16:36:04.954Z","id":"4733611","min":36,"marc":"0-0","liga":"Liga de Bulgaria","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.61,"sh":4,"sot":0,"atk":44,"posa":39,"sha":2,"sota":1,"atka":38}}
+{"ts":"2026-08-10T16:36:04.954Z","id":"4740914","min":35,"marc":"0-1","liga":"I Lyga","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.5,"sh":3,"sot":0,"atk":51,"posa":50,"sha":2,"sota":1,"atka":36}}
+{"ts":"2026-08-10T16:36:04.954Z","id":"4742843","min":37,"marc":"0-0","liga":"Liga eslovena - Regular Season","motivo":"avisa","tipo":"posesion","ind":0.276,"stats":{"pos":0.25,"sh":7,"sot":3,"atk":27,"posa":75,"sha":4,"sota":0,"atka":75}}
+{"ts":"2026-08-10T16:36:04.954Z","id":"4759627","min":37,"marc":"2-0","liga":"Premier League","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.62,"sh":10,"sot":6,"atk":25,"posa":38,"sha":1,"sota":0,"atka":22}}
+{"ts":"2026-08-10T16:36:04.954Z","id":"4784920","min":34,"marc":"1-1","liga":"Liga de Segunda - Fase 2","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.48,"sh":4,"sot":2,"atk":32,"posa":52,"sha":4,"sota":3,"atka":26}}
+{"ts":"2026-08-10T16:39:12.598Z","id":"4688085","min":80,"marc":"0-0","liga":"Pershaya Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T16:39:12.598Z","id":"4748739","min":79,"marc":"2-0","liga":"Premier League","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.59,"sh":3,"sot":2,"atk":69,"posa":41,"sha":4,"sota":2,"atka":60}}
+{"ts":"2026-08-10T16:39:12.598Z","id":"4668680","min":39,"marc":"3-0","liga":"Segunda división estonia","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.74,"sh":3,"sot":3,"atk":35,"posa":26,"sha":0,"sota":0,"atka":21}}
+{"ts":"2026-08-10T16:39:12.598Z","id":"4733611","min":39,"marc":"0-0","liga":"Liga de Bulgaria","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.6,"sh":4,"sot":0,"atk":50,"posa":40,"sha":2,"sota":1,"atka":43}}
+{"ts":"2026-08-10T16:39:12.598Z","id":"4740914","min":39,"marc":"0-1","liga":"I Lyga","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.47,"sh":3,"sot":0,"atk":53,"posa":53,"sha":2,"sota":1,"atka":41}}
+{"ts":"2026-08-10T16:39:12.598Z","id":"4742843","min":40,"marc":"0-0","liga":"Liga eslovena - Regular Season","motivo":"avisa","tipo":"posesion","ind":0.31,"stats":{"pos":0.25,"sh":7,"sot":3,"atk":29,"posa":75,"sha":6,"sota":0,"atka":82}}
+{"ts":"2026-08-10T16:39:12.598Z","id":"4759627","min":40,"marc":"2-0","liga":"Premier League","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.6,"sh":10,"sot":6,"atk":27,"posa":40,"sha":2,"sota":0,"atka":27}}
+{"ts":"2026-08-10T16:39:12.598Z","id":"4784920","min":37,"marc":"1-2","liga":"Liga de Segunda - Fase 2","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.47,"sh":4,"sot":2,"atk":33,"posa":53,"sha":5,"sota":4,"atka":30}}

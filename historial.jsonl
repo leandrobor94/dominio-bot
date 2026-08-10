@@ -3511,3 +3511,13 @@
 {"ts":"2026-08-10T03:31:30.641Z","id":"4678087","min":31,"marc":"0-0","liga":"OFC Champions League - Fase preliminar","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
 {"ts":"2026-08-10T03:34:32.736Z","id":"4683991","min":78,"marc":"1-0","liga":"Leagues Cup","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.63,"sh":5,"sot":1,"atk":72,"posa":37,"sha":10,"sota":1,"atka":45}}
 {"ts":"2026-08-10T03:34:32.736Z","id":"4678087","min":34,"marc":"0-0","liga":"OFC Champions League - Fase preliminar","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T13:35:55.010Z","id":"4804396","min":36,"marc":"0-0","liga":"APF Primera B","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"atk":37,"atka":37}}
+{"ts":"2026-08-10T13:38:56.117Z","id":"4804396","min":39,"marc":"0-0","liga":"APF Primera B","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"atk":40,"atka":42}}
+{"ts":"2026-08-10T13:56:58.310Z","id":"4748740","min":68,"marc":"3-0","liga":"Premier League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T13:59:59.468Z","id":"4748740","min":71,"marc":"3-0","liga":"Premier League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T14:03:02.507Z","id":"4748740","min":74,"marc":"3-0","liga":"Premier League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T14:03:02.507Z","id":"4806674","min":32,"marc":"0-1","liga":"Tercera División - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.61,"atk":36,"posa":39,"atka":30}}
+{"ts":"2026-08-10T14:03:02.507Z","id":"4806675","min":31,"marc":"1-0","liga":"Tercera División - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.38,"atk":40,"posa":62,"atka":45}}
+{"ts":"2026-08-10T14:06:05.534Z","id":"4748740","min":77,"marc":"3-0","liga":"Premier League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-10T14:06:05.534Z","id":"4806674","min":35,"marc":"0-1","liga":"Tercera División - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.6,"atk":38,"posa":40,"atka":33}}
+{"ts":"2026-08-10T14:06:05.534Z","id":"4806675","min":34,"marc":"1-0","liga":"Tercera División - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.38,"atk":44,"posa":62,"atka":48}}

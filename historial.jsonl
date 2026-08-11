@@ -3865,3 +3865,4 @@
 {"ts":"2026-08-11T13:36:57.480Z","id":"4764395","min":80,"marc":"1-0","liga":"AFC Challenge League - Clasificación","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.37,"sh":11,"sot":3,"atk":56,"posa":63,"sha":16,"sota":1,"atka":72}}
 {"ts":"2026-08-11T13:36:57.480Z","id":"4806673","min":35,"marc":"0-0","liga":"Tercera División - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.55,"atk":36,"posa":45,"atka":43}}
 {"ts":"2026-08-11T13:39:58.737Z","id":"4806673","min":38,"marc":"0-0","liga":"Tercera División - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.55,"atk":36,"posa":45,"atka":44}}
+{"ts":"2026-08-11T14:25:16.693Z","id":"4806673","min":68,"marc":"0-1","liga":"Tercera División - Clausura","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.56,"atk":64,"posa":44,"atka":64}}

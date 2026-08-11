@@ -1,34 +1,3 @@
 {
-  "avisados": {
-    "4658972_68-80_remates": {
-      "ts": 1786411478009,
-      "minuto": 68,
-      "estado": "perdiendo",
-      "tipo": "remates"
-    },
-    "4665973_68-80_remates": {
-      "ts": 1786411478922,
-      "minuto": 68,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
-    "4651109_68-80_remates": {
-      "ts": 1786411842957,
-      "minuto": 69,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
-    "4788406_68-80_remates": {
-      "ts": 1786411845693,
-      "minuto": 69,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
-    "4788407_30-40_remates": {
-      "ts": 1786412404007,
-      "minuto": 34,
-      "estado": "empatando",
-      "tipo": "remates"
-    }
-  }
+  "avisados": {}
 }

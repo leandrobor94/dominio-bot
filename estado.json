@@ -41,6 +41,12 @@
       "minuto": 68,
       "estado": "empatando",
       "tipo": "remates"
+    },
+    "4800234_30-40_remates": {
+      "ts": 1786469619625,
+      "minuto": 34,
+      "estado": "perdiendo",
+      "tipo": "remates"
     }
   }
 }

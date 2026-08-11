@@ -3915,3 +3915,37 @@
 {"ts":"2026-08-11T15:38:30.713Z","id":"4807728","min":36,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
 {"ts":"2026-08-11T15:41:32.826Z","id":"4804047","min":39,"marc":"0-1","liga":"Copa griega - Clasificación","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.36,"sh":2,"sot":2,"atk":27,"posa":64,"sha":8,"sota":6,"atka":40}}
 {"ts":"2026-08-11T15:41:32.826Z","id":"4807728","min":39,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-11T16:03:00.481Z","id":"4667779","min":32,"marc":"0-0","liga":"Ykkonen","motivo":"avisa","tipo":"remates","ind":0.692,"stats":{"pos":0.33,"sh":4,"sot":2,"atk":20,"posa":67,"sha":9,"sota":5,"atka":32}}
+{"ts":"2026-08-11T16:03:00.481Z","id":"4667780","min":32,"marc":"0-0","liga":"Ykkonen","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.35,"sh":1,"sot":0,"atk":26,"posa":65,"sha":2,"sota":2,"atka":35}}
+{"ts":"2026-08-11T16:03:00.481Z","id":"4667781","min":32,"marc":"0-0","liga":"Ykkonen","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-11T16:03:00.481Z","id":"4700116","min":32,"marc":"1-0","liga":"Ykkonen","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.44,"sh":8,"sot":2,"atk":25,"posa":56,"sha":6,"sota":2,"atka":41}}
+{"ts":"2026-08-11T16:03:00.481Z","id":"4744816","min":32,"marc":"0-1","liga":"Copa de Rusia - Regions Path - Playoffs","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.46,"sh":1,"sot":0,"posa":54,"sha":2,"sota":1}}
+{"ts":"2026-08-11T16:03:00.481Z","id":"4790043","min":31,"marc":"0-0","liga":"MOL Cup - Octavos de final","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.27,"sh":0,"sot":0,"posa":73,"sha":5,"sota":2}}
+{"ts":"2026-08-11T16:03:00.481Z","id":"4791677","min":32,"marc":"0-2","liga":"MOL Cup - Octavos de final","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.35,"sh":2,"sot":2,"posa":65,"sha":4,"sota":2}}
+{"ts":"2026-08-11T16:03:00.481Z","id":"4797393","min":32,"marc":"1-0","liga":"Ykkonen","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.56,"sh":2,"sot":2,"atk":46,"posa":44,"sha":1,"sota":1,"atka":34}}
+{"ts":"2026-08-11T16:06:09.221Z","id":"4667779","min":35,"marc":"0-0","liga":"Ykkonen","motivo":"avisa","tipo":"remates","ind":0.692,"stats":{"pos":0.37,"sh":4,"sot":2,"atk":26,"posa":63,"sha":10,"sota":5,"atka":35}}
+{"ts":"2026-08-11T16:06:09.221Z","id":"4667780","min":35,"marc":"0-0","liga":"Ykkonen","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.33,"sh":1,"sot":0,"atk":28,"posa":67,"sha":2,"sota":2,"atka":40}}
+{"ts":"2026-08-11T16:06:09.221Z","id":"4667781","min":35,"marc":"0-0","liga":"Ykkonen","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-11T16:06:09.221Z","id":"4700116","min":35,"marc":"1-0","liga":"Ykkonen","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.42,"sh":9,"sot":2,"atk":32,"posa":58,"sha":6,"sota":2,"atka":44}}
+{"ts":"2026-08-11T16:06:09.221Z","id":"4744816","min":35,"marc":"0-1","liga":"Copa de Rusia - Regions Path - Playoffs","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.46,"sh":1,"sot":0,"posa":54,"sha":2,"sota":1}}
+{"ts":"2026-08-11T16:06:09.221Z","id":"4790043","min":34,"marc":"0-0","liga":"MOL Cup - Octavos de final","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.31,"sh":0,"sot":0,"posa":69,"sha":5,"sota":2}}
+{"ts":"2026-08-11T16:06:09.221Z","id":"4791677","min":35,"marc":"0-2","liga":"MOL Cup - Octavos de final","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.37,"sh":2,"sot":2,"posa":63,"sha":4,"sota":2}}
+{"ts":"2026-08-11T16:06:09.221Z","id":"4797393","min":35,"marc":"1-0","liga":"Ykkonen","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.55,"sh":2,"sot":2,"atk":49,"posa":45,"sha":1,"sota":1,"atka":36}}
+{"ts":"2026-08-11T16:09:17.322Z","id":"4667779","min":38,"marc":"0-0","liga":"Ykkonen","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.36,"sh":6,"sot":2,"atk":27,"posa":64,"sha":12,"sota":5,"atka":38}}
+{"ts":"2026-08-11T16:09:17.322Z","id":"4667780","min":39,"marc":"0-0","liga":"Ykkonen","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.34,"sh":2,"sot":0,"atk":31,"posa":66,"sha":2,"sota":2,"atka":41}}
+{"ts":"2026-08-11T16:09:17.322Z","id":"4667781","min":38,"marc":"0-0","liga":"Ykkonen","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-11T16:09:17.322Z","id":"4700116","min":38,"marc":"1-0","liga":"Ykkonen","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.42,"sh":9,"sot":2,"atk":35,"posa":58,"sha":7,"sota":2,"atka":46}}
+{"ts":"2026-08-11T16:09:17.322Z","id":"4744816","min":38,"marc":"0-1","liga":"Copa de Rusia - Regions Path - Playoffs","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.45,"sh":1,"sot":0,"posa":55,"sha":2,"sota":1}}
+{"ts":"2026-08-11T16:09:17.322Z","id":"4790043","min":38,"marc":"0-0","liga":"MOL Cup - Octavos de final","motivo":"difSotBaja","tipo":null,"ind":null,"stats":{"pos":0.35,"sh":1,"sot":1,"posa":65,"sha":5,"sota":2}}
+{"ts":"2026-08-11T16:09:17.322Z","id":"4791677","min":38,"marc":"0-2","liga":"MOL Cup - Octavos de final","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.41,"sh":2,"sot":2,"posa":59,"sha":4,"sota":2}}
+{"ts":"2026-08-11T16:09:17.322Z","id":"4797393","min":39,"marc":"1-0","liga":"Ykkonen","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.58,"sh":2,"sot":2,"atk":54,"posa":42,"sha":1,"sota":1,"atka":36}}
+{"ts":"2026-08-11T16:21:19.310Z","id":"4807728","min":68,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-11T16:24:22.337Z","id":"4749856","min":69,"marc":"2-2","liga":"Vtora Liga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.57,"sh":9,"sot":5,"atk":60,"posa":43,"sha":6,"sota":4,"atka":51}}
+{"ts":"2026-08-11T16:24:22.337Z","id":"4801275","min":69,"marc":"2-1","liga":"Copa Estonia - Tercera Ronda","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-11T16:24:22.337Z","id":"4807728","min":71,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-11T16:27:28.388Z","id":"4749856","min":72,"marc":"2-2","liga":"Vtora Liga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.56,"sh":9,"sot":5,"atk":62,"posa":44,"sha":6,"sota":4,"atka":52}}
+{"ts":"2026-08-11T16:27:28.388Z","id":"4781195","min":68,"marc":"3-0","liga":"AFC Liga de Campeones Élite - Fase preliminar","motivo":"posesionVaGanando","tipo":null,"ind":null,"stats":{"pos":0.83,"sh":7,"sot":7,"atk":47,"posa":17,"sha":4,"sota":1,"atka":52}}
+{"ts":"2026-08-11T16:27:28.388Z","id":"4798279","min":70,"marc":"0-1","liga":"UEFA Champions League Clasificatorio - Tercera Ronda","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.54,"sh":10,"sot":3,"atk":96,"posa":46,"sha":8,"sota":2,"atka":47}}
+{"ts":"2026-08-11T16:27:28.388Z","id":"4801275","min":72,"marc":"2-1","liga":"Copa Estonia - Tercera Ronda","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-11T16:27:28.388Z","id":"4802127","min":69,"marc":"1-1","liga":"Slovakia Cup - Preliminary Round","motivo":"avisa","tipo":"posesion","ind":0.596,"stats":{"pos":0.3,"sh":4,"sot":3,"atk":48,"posa":70,"sha":6,"sota":4,"atka":68}}
+{"ts":"2026-08-11T16:27:28.388Z","id":"4807728","min":74,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}

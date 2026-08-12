@@ -4955,3 +4955,15 @@
 {"ts":"2026-08-12T18:18:39.296Z","id":"4788579","min":33,"marc":"0-0","liga":"Copa Rio - Cuartos de Final","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.7,"sh":1,"sot":1,"posa":30,"sha":1,"sota":1}}
 {"ts":"2026-08-12T18:18:39.296Z","id":"4788580","min":32,"marc":"0-0","liga":"Copa Rio - Cuartos de Final","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.35,"sh":1,"sot":0,"posa":65,"sha":3,"sota":2}}
 {"ts":"2026-08-12T18:18:39.296Z","id":"4788581","min":34,"marc":"0-0","liga":"Copa Rio - Cuartos de Final","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.54,"sh":2,"sot":1,"posa":46,"sha":3,"sota":0}}
+{"ts":"2026-08-12T18:21:45.765Z","id":"4810198","min":80,"marc":"1-2","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"atk":69,"atka":77}}
+{"ts":"2026-08-12T18:21:45.765Z","id":"4788579","min":36,"marc":"0-0","liga":"Copa Rio - Cuartos de Final","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.67,"sh":1,"sot":1,"posa":33,"sha":1,"sota":1}}
+{"ts":"2026-08-12T18:21:45.765Z","id":"4788580","min":35,"marc":"0-0","liga":"Copa Rio - Cuartos de Final","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.35,"sh":1,"sot":0,"posa":65,"sha":3,"sota":2}}
+{"ts":"2026-08-12T18:21:45.765Z","id":"4788581","min":37,"marc":"0-0","liga":"Copa Rio - Cuartos de Final","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.55,"sh":2,"sot":1,"posa":45,"sha":4,"sota":1}}
+{"ts":"2026-08-12T18:21:45.765Z","id":"4808819","min":32,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-12T18:24:54.269Z","id":"4804069","min":68,"marc":"1-1","liga":"Copa Paraguay - 16avos de final","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.42,"sh":4,"sot":2,"atk":106,"posa":58,"sha":10,"sota":5,"atka":107}}
+{"ts":"2026-08-12T18:24:54.269Z","id":"4806300","min":69,"marc":"0-0","liga":"Liga Profesional - Reserva","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.52,"sh":3,"sot":0,"atk":163,"posa":48,"sha":5,"sota":3,"atka":165}}
+{"ts":"2026-08-12T18:24:54.269Z","id":"4807718","min":68,"marc":"1-2","liga":"Copa Africana de Naciones (F) - Semifinales","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.48,"sh":11,"sot":3,"atk":44,"posa":52,"sha":14,"sota":5,"atka":46}}
+{"ts":"2026-08-12T18:24:54.269Z","id":"4788579","min":39,"marc":"0-0","liga":"Copa Rio - Cuartos de Final","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.68,"sh":2,"sot":1,"posa":32,"sha":1,"sota":1}}
+{"ts":"2026-08-12T18:24:54.269Z","id":"4788580","min":38,"marc":"0-0","liga":"Copa Rio - Cuartos de Final","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.37,"sh":1,"sot":0,"posa":63,"sha":3,"sota":2}}
+{"ts":"2026-08-12T18:24:54.269Z","id":"4788581","min":40,"marc":"0-0","liga":"Copa Rio - Cuartos de Final","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.54,"sh":2,"sot":1,"posa":46,"sha":4,"sota":1}}
+{"ts":"2026-08-12T18:24:54.269Z","id":"4808819","min":35,"marc":"1-2","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}

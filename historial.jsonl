@@ -5201,3 +5201,17 @@
 {"ts":"2026-08-13T03:59:24.556Z","id":"4684004","min":72,"marc":"1-0","liga":"Leagues Cup","motivo":"avisa","tipo":"posesion","ind":0.675,"stats":{"pos":0.29,"sh":8,"sot":2,"atk":49,"posa":71,"sha":14,"sota":5,"atka":72}}
 {"ts":"2026-08-13T04:02:26.859Z","id":"4684002","min":75,"marc":"1-1","liga":"Leagues Cup","motivo":"avisa","tipo":"posesion","ind":0.468,"stats":{"pos":0.7,"sh":10,"sot":3,"atk":109,"posa":30,"sha":10,"sota":6,"atka":41}}
 {"ts":"2026-08-13T04:02:26.859Z","id":"4684004","min":75,"marc":"1-0","liga":"Leagues Cup","motivo":"avisa","tipo":"remates","ind":0.685,"stats":{"pos":0.27,"sh":8,"sot":2,"atk":49,"posa":73,"sha":15,"sota":5,"atka":81}}
+{"ts":"2026-08-13T14:31:34.959Z","id":"4663702","min":30,"marc":"0-0","liga":"Super Liga de Uzbekistán","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.53,"sh":5,"sot":2,"atk":21,"posa":47,"sha":3,"sota":1,"atka":23}}
+{"ts":"2026-08-13T14:31:34.959Z","id":"4663705","min":32,"marc":"1-0","liga":"Super Liga de Uzbekistán","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.59,"sh":5,"sot":3,"atk":34,"posa":41,"sha":4,"sota":1,"atka":40}}
+{"ts":"2026-08-13T14:31:34.959Z","id":"4805821","min":32,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-13T14:31:34.959Z","id":"4805824","min":32,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-13T14:34:39.809Z","id":"4663702","min":33,"marc":"0-0","liga":"Super Liga de Uzbekistán","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.56,"sh":5,"sot":2,"atk":26,"posa":44,"sha":3,"sota":1,"atka":25}}
+{"ts":"2026-08-13T14:34:39.809Z","id":"4663705","min":35,"marc":"1-0","liga":"Super Liga de Uzbekistán","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.6,"sh":6,"sot":3,"atk":37,"posa":40,"sha":4,"sota":1,"atka":40}}
+{"ts":"2026-08-13T14:34:39.809Z","id":"4744821","min":31,"marc":"0-1","liga":"Copa de Rusia - Regions Path - Playoffs","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.55,"sh":3,"sot":3,"posa":45,"sha":2,"sota":2}}
+{"ts":"2026-08-13T14:34:39.809Z","id":"4805821","min":35,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-13T14:34:39.809Z","id":"4805824","min":35,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-13T14:37:44.575Z","id":"4663702","min":36,"marc":"0-0","liga":"Super Liga de Uzbekistán","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.56,"sh":5,"sot":2,"atk":28,"posa":44,"sha":3,"sota":1,"atka":27}}
+{"ts":"2026-08-13T14:37:44.575Z","id":"4663705","min":38,"marc":"1-0","liga":"Super Liga de Uzbekistán","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.58,"sh":6,"sot":3,"atk":42,"posa":42,"sha":4,"sota":1,"atka":44}}
+{"ts":"2026-08-13T14:37:44.575Z","id":"4744821","min":34,"marc":"0-1","liga":"Copa de Rusia - Regions Path - Playoffs","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.54,"sh":4,"sot":3,"posa":46,"sha":2,"sota":2}}
+{"ts":"2026-08-13T14:37:44.575Z","id":"4805821","min":38,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-13T14:37:44.575Z","id":"4805824","min":38,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}

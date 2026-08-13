@@ -5,6 +5,12 @@
       "minuto": 30,
       "estado": "perdiendo",
       "tipo": "remates"
+    },
+    "4787096_30-40_remates": {
+      "ts": 1786639700954,
+      "minuto": 34,
+      "estado": "perdiendo",
+      "tipo": "remates"
     }
   }
 }

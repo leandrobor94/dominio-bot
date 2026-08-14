@@ -5563,3 +5563,17 @@
 {"ts":"2026-08-14T14:47:23.686Z","id":"4756581","min":38,"marc":"0-2","liga":"UAE Pro League","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.5,"sh":3,"sot":0,"atk":38,"posa":50,"sha":7,"sota":3,"atka":22}}
 {"ts":"2026-08-14T14:50:24.808Z","id":"4782358","min":75,"marc":"0-1","liga":"Ligi Kuu Bara","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.46,"sh":3,"sot":0,"atk":81,"posa":54,"sha":5,"sota":1,"atka":79}}
 {"ts":"2026-08-14T14:53:25.946Z","id":"4782358","min":78,"marc":"0-1","liga":"Ligi Kuu Bara","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.46,"sh":3,"sot":0,"atk":83,"posa":54,"sha":5,"sota":1,"atka":83}}
+{"ts":"2026-08-14T14:59:28.671Z","id":"4796665","min":30,"marc":"0-1","liga":"Superliga de Kosovo - Regular Season","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.62,"sh":2,"sot":1,"atk":53,"posa":38,"sha":2,"sota":2,"atka":40}}
+{"ts":"2026-08-14T15:02:31.571Z","id":"4736147","min":31,"marc":"0-0","liga":"First League - Regular Season","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.53,"sh":2,"sot":1,"posa":47,"sha":3,"sota":1}}
+{"ts":"2026-08-14T15:02:31.571Z","id":"4796665","min":33,"marc":"0-1","liga":"Superliga de Kosovo - Regular Season","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.65,"sh":2,"sot":1,"atk":61,"posa":35,"sha":2,"sota":2,"atka":41}}
+{"ts":"2026-08-14T15:02:31.571Z","id":"4800764","min":30,"marc":"0-0","liga":"Persian Gulf Pro League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T15:05:34.387Z","id":"4736147","min":34,"marc":"0-0","liga":"First League - Regular Season","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.54,"sh":2,"sot":1,"posa":46,"sha":4,"sota":2}}
+{"ts":"2026-08-14T15:05:34.387Z","id":"4796665","min":36,"marc":"0-1","liga":"Superliga de Kosovo - Regular Season","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.65,"sh":2,"sot":1,"atk":67,"posa":35,"sha":2,"sota":2,"atka":43}}
+{"ts":"2026-08-14T15:05:34.387Z","id":"4800764","min":33,"marc":"0-0","liga":"Persian Gulf Pro League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T15:08:37.337Z","id":"4736147","min":37,"marc":"0-0","liga":"First League - Regular Season","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.54,"sh":2,"sot":1,"posa":46,"sha":4,"sota":2}}
+{"ts":"2026-08-14T15:08:37.337Z","id":"4796665","min":39,"marc":"0-1","liga":"Superliga de Kosovo - Regular Season","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.65,"sh":2,"sot":1,"atk":76,"posa":35,"sha":2,"sota":2,"atka":46}}
+{"ts":"2026-08-14T15:08:37.337Z","id":"4800764","min":36,"marc":"0-0","liga":"Persian Gulf Pro League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T15:11:39.354Z","id":"4736147","min":40,"marc":"0-0","liga":"First League - Regular Season","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.55,"sh":2,"sot":1,"posa":45,"sha":4,"sota":2}}
+{"ts":"2026-08-14T15:11:39.354Z","id":"4800764","min":39,"marc":"1-0","liga":"Persian Gulf Pro League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T15:26:42.117Z","id":"4675494","min":69,"marc":"1-0","liga":"Vysshaya Liga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.34,"sh":6,"sot":1,"posa":66,"sha":7,"sota":3}}
+{"ts":"2026-08-14T15:26:42.117Z","id":"4814851","min":70,"marc":"8-0","liga":"Liga Femenina de Fútbol - Apertura","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}

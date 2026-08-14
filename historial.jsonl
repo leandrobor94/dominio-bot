@@ -6036,3 +6036,28 @@
 {"ts":"2026-08-14T18:03:43.299Z","id":"4808777","min":31,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
 {"ts":"2026-08-14T18:03:43.299Z","id":"4810131","min":30,"marc":"1-0","liga":"Campeonato Femenino - Clausura","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.47,"sh":4,"sot":2,"atk":38,"posa":53,"sha":4,"sota":1,"atka":45}}
 {"ts":"2026-08-14T18:03:43.299Z","id":"4814541","min":34,"marc":"0-1","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.53,"atk":26,"posa":47,"atka":32}}
+{"ts":"2026-08-14T18:06:57.696Z","id":"4750292","min":78,"marc":"1-1","liga":"2º División de Austria","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.56,"sh":10,"sot":3,"posa":44,"sha":6,"sota":3}}
+{"ts":"2026-08-14T18:06:57.696Z","id":"4757703","min":76,"marc":"0-1","liga":"2. Bundesliga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.51,"sh":14,"sot":3,"atk":97,"posa":49,"sha":11,"sota":4,"atka":72}}
+{"ts":"2026-08-14T18:06:57.696Z","id":"4757705","min":80,"marc":"1-2","liga":"2. Bundesliga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.64,"sh":17,"sot":5,"atk":83,"posa":36,"sha":8,"sota":6,"atka":52}}
+{"ts":"2026-08-14T18:06:57.696Z","id":"4760482","min":80,"marc":"1-1","liga":"Russian First League - Regular Season","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.49,"sh":3,"sot":3,"posa":51,"sha":6,"sota":3}}
+{"ts":"2026-08-14T18:06:57.696Z","id":"4800760","min":80,"marc":"0-0","liga":"Persian Gulf Pro League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T18:06:57.696Z","id":"4800761","min":79,"marc":"0-1","liga":"Persian Gulf Pro League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T18:06:57.696Z","id":"4807701","min":80,"marc":"1-0","liga":"Copa Italia - 32avos de final","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.44,"sh":10,"sot":1,"atk":55,"posa":56,"sha":11,"sota":2,"atka":54}}
+{"ts":"2026-08-14T18:06:57.696Z","id":"4747992","min":36,"marc":"3-1","liga":"Bundesliga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.46,"sh":5,"sot":3,"atk":36,"posa":54,"sha":4,"sota":2,"atka":28}}
+{"ts":"2026-08-14T18:06:57.696Z","id":"4795083","min":37,"marc":"2-0","liga":"Premier League","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.39,"sh":3,"sot":2,"atk":33,"posa":61,"sha":4,"sota":1,"atka":54}}
+{"ts":"2026-08-14T18:06:57.696Z","id":"4806589","min":36,"marc":"1-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.5,"atk":23,"posa":50,"atka":35}}
+{"ts":"2026-08-14T18:06:57.696Z","id":"4806592","min":36,"marc":"1-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.64,"atk":36,"posa":36,"atka":20}}
+{"ts":"2026-08-14T18:06:57.696Z","id":"4808777","min":34,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T18:06:57.696Z","id":"4810131","min":34,"marc":"1-0","liga":"Campeonato Femenino - Clausura","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.45,"sh":4,"sot":2,"atk":43,"posa":55,"sha":5,"sota":2,"atka":51}}
+{"ts":"2026-08-14T18:06:57.696Z","id":"4814541","min":37,"marc":"0-1","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.53,"atk":29,"posa":47,"atka":34}}
+{"ts":"2026-08-14T18:10:05.108Z","id":"4757703","min":79,"marc":"0-1","liga":"2. Bundesliga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.53,"sh":14,"sot":3,"atk":102,"posa":47,"sha":12,"sota":4,"atka":75}}
+{"ts":"2026-08-14T18:10:05.108Z","id":"4760482","min":78,"marc":"1-1","liga":"Russian First League - Regular Season","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.48,"sh":3,"sot":3,"posa":52,"sha":6,"sota":3}}
+{"ts":"2026-08-14T18:10:05.108Z","id":"4747992","min":39,"marc":"3-1","liga":"Bundesliga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.46,"sh":5,"sot":3,"atk":37,"posa":54,"sha":5,"sota":2,"atka":28}}
+{"ts":"2026-08-14T18:10:05.108Z","id":"4795083","min":40,"marc":"2-0","liga":"Premier League","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.38,"sh":3,"sot":2,"atk":40,"posa":62,"sha":6,"sota":1,"atka":63}}
+{"ts":"2026-08-14T18:10:05.108Z","id":"4806589","min":39,"marc":"1-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.5,"atk":24,"posa":50,"atka":36}}
+{"ts":"2026-08-14T18:10:05.108Z","id":"4806592","min":39,"marc":"1-1","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.64,"atk":38,"posa":36,"atka":22}}
+{"ts":"2026-08-14T18:10:05.108Z","id":"4808777","min":38,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T18:10:05.108Z","id":"4810131","min":37,"marc":"1-0","liga":"Campeonato Femenino - Clausura","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.47,"sh":4,"sot":2,"atk":45,"posa":53,"sha":5,"sota":2,"atka":53}}
+{"ts":"2026-08-14T18:13:08.047Z","id":"4756612","min":68,"marc":"0-2","liga":"UAE Pro League","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.55,"sh":3,"sot":0,"atk":55,"posa":45,"sha":7,"sota":4,"atka":64}}
+{"ts":"2026-08-14T18:13:08.047Z","id":"4800759","min":69,"marc":"0-0","liga":"Persian Gulf Pro League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T18:13:08.047Z","id":"4810131","min":40,"marc":"1-0","liga":"Campeonato Femenino - Clausura","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.47,"sh":4,"sot":2,"atk":48,"posa":53,"sha":5,"sota":2,"atka":58}}

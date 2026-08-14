@@ -5529,3 +5529,5 @@
 {"ts":"2026-08-14T13:49:12.758Z","id":"4782358","min":34,"marc":"0-1","liga":"Ligi Kuu Bara","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.38,"sh":0,"sot":0,"atk":38,"posa":62,"sha":2,"sota":1,"atka":33}}
 {"ts":"2026-08-14T13:52:13.824Z","id":"4782358","min":37,"marc":"0-1","liga":"Ligi Kuu Bara","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.38,"sh":0,"sot":0,"atk":44,"posa":62,"sha":2,"sota":1,"atka":33}}
 {"ts":"2026-08-14T13:55:31.177Z","id":"4782358","min":40,"marc":"0-1","liga":"Ligi Kuu Bara","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.43,"sh":1,"sot":0,"atk":48,"posa":57,"sha":2,"sota":1,"atka":35}}
+{"ts":"2026-08-14T14:25:52.714Z","id":"4713013","min":68,"marc":"2-0","liga":"Paulista U20 - Primera Fase - Grupo 2","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T14:25:52.714Z","id":"4809685","min":68,"marc":"1-0","liga":"APF Primera B","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.46,"atk":54,"posa":54,"atka":62}}

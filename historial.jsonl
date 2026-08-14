@@ -5692,3 +5692,103 @@
 {"ts":"2026-08-14T16:29:01.424Z","id":"4773150","min":72,"marc":"2-1","liga":"Latvian Cup","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
 {"ts":"2026-08-14T16:29:01.424Z","id":"4814540","min":72,"marc":"2-1","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
 {"ts":"2026-08-14T16:29:01.424Z","id":"4744175","min":30,"marc":"1-0","liga":"Division 2","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.45,"sh":4,"sot":3,"atk":29,"posa":55,"sha":0,"sota":0,"atka":26}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4636808","min":75,"marc":"0-2","liga":"Veikkausliiga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.58,"sh":10,"sot":3,"atk":66,"posa":42,"sha":9,"sota":3,"atka":59}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4663706","min":75,"marc":"2-1","liga":"Super Liga de Uzbekistán","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.62,"sh":25,"sot":10,"atk":80,"posa":38,"sha":9,"sota":4,"atka":65}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4744764","min":78,"marc":"3-1","liga":"2. Liga","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4748732","min":75,"marc":"0-0","liga":"Premier League","motivo":"avisa","tipo":"remates","ind":0.71,"stats":{"pos":0.64,"sh":13,"sot":5,"atk":63,"posa":36,"sha":4,"sota":2,"atka":47}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4760483","min":72,"marc":"0-2","liga":"Russian First League - Regular Season","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.56,"sh":5,"sot":5,"posa":44,"sha":10,"sota":6}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4773150","min":75,"marc":"2-1","liga":"Latvian Cup","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4814540","min":76,"marc":"2-1","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4661048","min":31,"marc":"0-0","liga":"Meistriliiga","motivo":"avisa","tipo":"remates","ind":0.824,"stats":{"pos":0.36,"sh":2,"sot":0,"atk":23,"posa":64,"sha":5,"sota":2,"atka":35}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4675493","min":32,"marc":"0-0","liga":"Vysshaya Liga","motivo":"avisa","tipo":"remates","ind":0.814,"stats":{"pos":0.49,"sh":4,"sot":3,"posa":51,"sha":2,"sota":0}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4740910","min":31,"marc":"0-1","liga":"I Lyga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.5,"sh":1,"sot":1,"atk":26,"posa":50,"sha":6,"sota":1,"atka":46}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4740911","min":31,"marc":"0-1","liga":"I Lyga","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.69,"sh":2,"sot":0,"atk":33,"posa":31,"sha":3,"sota":1,"atka":21}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4740912","min":33,"marc":"0-0","liga":"I Lyga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.44,"sh":4,"sot":2,"atk":38,"posa":56,"sha":3,"sota":1,"atka":42}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4742645","min":31,"marc":"0-0","liga":"I Liga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.37,"sh":5,"sot":2,"atk":33,"posa":63,"sha":7,"sota":1,"atka":45}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4744175","min":33,"marc":"1-0","liga":"Division 2","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.44,"sh":4,"sot":3,"atk":32,"posa":56,"sha":2,"sota":0,"atka":31}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4744177","min":32,"marc":"0-1","liga":"Division 2","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.39,"sh":3,"sot":1,"atk":14,"posa":61,"sha":4,"sota":3,"atka":29}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4749203","min":31,"marc":"0-0","liga":"Premier League","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.36,"sh":3,"sot":2,"atk":22,"posa":64,"sha":4,"sota":2,"atka":27}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4759624","min":32,"marc":"0-0","liga":"Premier League","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.35,"sh":1,"sot":0,"atk":19,"posa":65,"sha":3,"sota":1,"atka":26}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4763845","min":32,"marc":"0-0","liga":"Regionalliga - Bayern","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4763850","min":32,"marc":"0-0","liga":"Regionalliga - Bayern","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4782357","min":33,"marc":"1-0","liga":"Ligi Kuu Bara","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.5,"sh":0,"sot":0,"posa":50,"sha":0,"sota":0}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4800763","min":32,"marc":"0-0","liga":"Persian Gulf Pro League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4806585","min":32,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4807124","min":30,"marc":"1-0","liga":"Copa Italia - 32avos de final","motivo":"difSotBaja","tipo":null,"ind":null,"stats":{"pos":0.5,"sh":5,"sot":2,"atk":35,"posa":50,"sha":1,"sota":1,"atka":30}}
+{"ts":"2026-08-14T16:32:24.943Z","id":"4810145","min":31,"marc":"0-1","liga":"Copa Italia - Lega Pro - 32avos de final","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.65,"atk":45,"posa":35,"atka":21}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4636808","min":74,"marc":"0-2","liga":"Veikkausliiga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.58,"sh":13,"sot":3,"atk":68,"posa":42,"sha":9,"sota":3,"atka":62}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4663706","min":78,"marc":"2-1","liga":"Super Liga de Uzbekistán","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.62,"sh":25,"sot":10,"atk":80,"posa":38,"sha":9,"sota":4,"atka":65}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4748732","min":79,"marc":"0-0","liga":"Premier League","motivo":"avisa","tipo":"remates","ind":0.71,"stats":{"pos":0.64,"sh":13,"sot":5,"atk":63,"posa":36,"sha":4,"sota":2,"atka":47}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4760483","min":75,"marc":"0-2","liga":"Russian First League - Regular Season","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.57,"sh":5,"sot":5,"posa":43,"sha":10,"sota":6}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4773150","min":78,"marc":"2-1","liga":"Latvian Cup","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4814540","min":79,"marc":"2-1","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4661048","min":35,"marc":"0-0","liga":"Meistriliiga","motivo":"difSotBaja","tipo":null,"ind":null,"stats":{"pos":0.36,"sh":3,"sot":1,"atk":25,"posa":64,"sha":10,"sota":2,"atka":35}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4675493","min":35,"marc":"0-0","liga":"Vysshaya Liga","motivo":"avisa","tipo":"remates","ind":0.849,"stats":{"pos":0.52,"sh":6,"sot":4,"posa":48,"sha":2,"sota":0}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4740910","min":35,"marc":"0-1","liga":"I Lyga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.5,"sh":1,"sot":1,"atk":26,"posa":50,"sha":6,"sota":1,"atka":46}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4740911","min":34,"marc":"0-1","liga":"I Lyga","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.66,"sh":2,"sot":0,"atk":34,"posa":34,"sha":3,"sota":1,"atka":25}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4740912","min":36,"marc":"0-0","liga":"I Lyga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.43,"sh":4,"sot":2,"atk":41,"posa":57,"sha":4,"sota":1,"atka":46}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4742645","min":34,"marc":"0-0","liga":"I Liga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.38,"sh":5,"sot":2,"atk":36,"posa":62,"sha":7,"sota":1,"atka":50}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4744175","min":36,"marc":"1-0","liga":"Division 2","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.43,"sh":4,"sot":3,"atk":34,"posa":57,"sha":3,"sota":1,"atka":35}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4744177","min":36,"marc":"0-1","liga":"Division 2","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.41,"sh":3,"sot":1,"atk":15,"posa":59,"sha":4,"sota":3,"atka":32}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4749203","min":34,"marc":"0-1","liga":"Premier League","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.39,"sh":3,"sot":2,"atk":28,"posa":61,"sha":5,"sota":3,"atka":29}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4759624","min":35,"marc":"0-0","liga":"Premier League","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.38,"sh":1,"sot":0,"atk":25,"posa":62,"sha":3,"sota":1,"atka":31}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4763845","min":35,"marc":"0-0","liga":"Regionalliga - Bayern","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4763850","min":35,"marc":"0-0","liga":"Regionalliga - Bayern","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4782357","min":36,"marc":"1-0","liga":"Ligi Kuu Bara","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.5,"sh":0,"sot":0,"posa":50,"sha":0,"sota":0}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4800762","min":32,"marc":"0-0","liga":"Persian Gulf Pro League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4800763","min":35,"marc":"0-1","liga":"Persian Gulf Pro League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4806585","min":35,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4807124","min":33,"marc":"1-0","liga":"Copa Italia - 32avos de final","motivo":"difSotBaja","tipo":null,"ind":null,"stats":{"pos":0.48,"sh":5,"sot":2,"atk":39,"posa":52,"sha":1,"sota":1,"atka":35}}
+{"ts":"2026-08-14T16:36:17.487Z","id":"4810145","min":34,"marc":"0-1","liga":"Copa Italia - Lega Pro - 32avos de final","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.64,"atk":49,"posa":36,"atka":25}}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4760483","min":79,"marc":"0-2","liga":"Russian First League - Regular Season","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.57,"sh":5,"sot":5,"posa":43,"sha":10,"sota":6}}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4661048","min":39,"marc":"0-0","liga":"Meistriliiga","motivo":"difSotBaja","tipo":null,"ind":null,"stats":{"pos":0.37,"sh":3,"sot":1,"atk":27,"posa":63,"sha":10,"sota":2,"atka":37}}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4675493","min":39,"marc":"0-0","liga":"Vysshaya Liga","motivo":"avisa","tipo":"remates","ind":0.851,"stats":{"pos":0.53,"sh":6,"sot":4,"posa":47,"sha":2,"sota":0}}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4740910","min":38,"marc":"0-1","liga":"I Lyga","motivo":"difSotBaja","tipo":null,"ind":null,"stats":{"pos":0.5,"sh":1,"sot":1,"atk":33,"posa":50,"sha":8,"sota":2,"atka":53}}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4740911","min":38,"marc":"0-1","liga":"I Lyga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.66,"sh":3,"sot":1,"atk":39,"posa":34,"sha":4,"sota":2,"atka":26}}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4740912","min":40,"marc":"0-0","liga":"I Lyga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.43,"sh":4,"sot":2,"atk":42,"posa":57,"sha":5,"sota":2,"atka":50}}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4742645","min":38,"marc":"0-0","liga":"I Liga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.41,"sh":5,"sot":2,"atk":43,"posa":59,"sha":7,"sota":1,"atka":52}}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4744175","min":40,"marc":"1-0","liga":"Division 2","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.4,"sh":4,"sot":3,"atk":34,"posa":60,"sha":4,"sota":1,"atka":41}}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4744177","min":40,"marc":"0-1","liga":"Division 2","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.41,"sh":4,"sot":1,"atk":18,"posa":59,"sha":4,"sota":3,"atka":36}}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4749203","min":38,"marc":"0-1","liga":"Premier League","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.38,"sh":3,"sot":2,"atk":32,"posa":62,"sha":5,"sota":3,"atka":32}}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4759624","min":39,"marc":"0-0","liga":"Premier League","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.43,"sh":1,"sot":0,"atk":32,"posa":57,"sha":3,"sota":1,"atka":34}}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4763845","min":39,"marc":"0-0","liga":"Regionalliga - Bayern","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4763850","min":39,"marc":"0-0","liga":"Regionalliga - Bayern","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4782357","min":40,"marc":"1-0","liga":"Ligi Kuu Bara","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.5,"sh":0,"sot":0,"posa":50,"sha":0,"sota":0}}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4800762","min":36,"marc":"0-0","liga":"Persian Gulf Pro League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4800763","min":39,"marc":"0-1","liga":"Persian Gulf Pro League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4806585","min":39,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4807124","min":37,"marc":"2-0","liga":"Copa Italia - 32avos de final","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.47,"sh":6,"sot":3,"atk":41,"posa":53,"sha":1,"sota":1,"atka":39}}
+{"ts":"2026-08-14T16:39:35.039Z","id":"4810145","min":38,"marc":"0-1","liga":"Copa Italia - Lega Pro - 32avos de final","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.64,"atk":55,"posa":36,"atka":27}}
+{"ts":"2026-08-14T16:42:36.149Z","id":"4800762","min":40,"marc":"0-0","liga":"Persian Gulf Pro League","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:54:41.413Z","id":"4788373","min":68,"marc":"1-1","liga":"Partido Amistoso","motivo":"avisa","tipo":"remates","ind":0.751,"stats":{"pos":0.6,"sh":7,"sot":6,"atk":59,"posa":40,"sha":3,"sota":1,"atka":39}}
+{"ts":"2026-08-14T16:54:41.413Z","id":"4806040","min":68,"marc":"0-0","liga":"Liga Iraquí","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:54:41.413Z","id":"4806041","min":68,"marc":"2-0","liga":"Liga Iraquí","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.55,"sh":7,"sot":4,"atk":39,"posa":45,"sha":2,"sota":0,"atka":42}}
+{"ts":"2026-08-14T16:54:41.413Z","id":"4806591","min":70,"marc":"2-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.54,"atk":56,"posa":46,"atka":40}}
+{"ts":"2026-08-14T16:54:41.413Z","id":"4814801","min":68,"marc":"2-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:58:07.380Z","id":"4651927","min":70,"marc":"0-1","liga":"Ykkosliiga","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.5,"sh":5,"sot":0,"atk":57,"posa":50,"sha":14,"sota":5,"atka":56}}
+{"ts":"2026-08-14T16:58:07.380Z","id":"4663704","min":69,"marc":"2-0","liga":"Super Liga de Uzbekistán","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.42,"sh":6,"sot":2,"atk":45,"posa":58,"sha":9,"sota":4,"atka":61}}
+{"ts":"2026-08-14T16:58:07.380Z","id":"4744520","min":68,"marc":"1-0","liga":"OTP Bank Liga","motivo":"avisa","tipo":"posesion","ind":0.48,"stats":{"pos":0.31,"sh":8,"sot":3,"atk":70,"posa":69,"sha":8,"sota":2,"atka":88}}
+{"ts":"2026-08-14T16:58:07.380Z","id":"4748475","min":68,"marc":"1-1","liga":"Liga1","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.51,"sh":12,"sot":4,"atk":64,"posa":49,"sha":15,"sota":3,"atka":72}}
+{"ts":"2026-08-14T16:58:07.380Z","id":"4788373","min":71,"marc":"1-1","liga":"Partido Amistoso","motivo":"avisa","tipo":"remates","ind":0.75,"stats":{"pos":0.6,"sh":7,"sot":6,"atk":62,"posa":40,"sha":3,"sota":1,"atka":42}}
+{"ts":"2026-08-14T16:58:07.380Z","id":"4806040","min":71,"marc":"0-0","liga":"Liga Iraquí","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T16:58:07.380Z","id":"4806041","min":71,"marc":"2-0","liga":"Liga Iraquí","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.53,"sh":7,"sot":4,"atk":40,"posa":47,"sha":2,"sota":0,"atka":46}}
+{"ts":"2026-08-14T16:58:07.380Z","id":"4806591","min":73,"marc":"2-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.53,"atk":57,"posa":47,"atka":44}}
+{"ts":"2026-08-14T16:58:07.380Z","id":"4808779","min":70,"marc":"2-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.51,"atk":108,"posa":49,"atka":86}}
+{"ts":"2026-08-14T16:58:07.380Z","id":"4814801","min":71,"marc":"2-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4651927","min":74,"marc":"0-1","liga":"Ykkosliiga","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.5,"sh":5,"sot":0,"atk":61,"posa":50,"sha":16,"sota":5,"atka":58}}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4663704","min":73,"marc":"2-0","liga":"Super Liga de Uzbekistán","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.42,"sh":6,"sot":2,"atk":49,"posa":58,"sha":9,"sota":4,"atka":65}}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4740913","min":71,"marc":"1-1","liga":"I Lyga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.55,"sh":5,"sot":2,"atk":79,"posa":45,"sha":10,"sota":4,"atka":86}}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4744520","min":72,"marc":"1-0","liga":"OTP Bank Liga","motivo":"avisa","tipo":"posesion","ind":0.481,"stats":{"pos":0.31,"sh":8,"sot":3,"atk":75,"posa":69,"sha":8,"sota":2,"atka":98}}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4748475","min":71,"marc":"1-1","liga":"Liga1","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.52,"sh":12,"sot":4,"atk":67,"posa":48,"sha":15,"sota":3,"atka":73}}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4776947","min":74,"marc":"1-0","liga":"Premier League","motivo":"vaGanando","tipo":null,"ind":null,"stats":{"pos":0.56,"sh":8,"sot":4,"atk":60,"posa":44,"sha":4,"sota":0,"atka":47}}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4788373","min":74,"marc":"1-1","liga":"Partido Amistoso","motivo":"avisa","tipo":"remates","ind":0.75,"stats":{"pos":0.59,"sh":7,"sot":6,"atk":65,"posa":41,"sha":3,"sota":1,"atka":42}}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4806040","min":74,"marc":"0-0","liga":"Liga Iraquí","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4806041","min":74,"marc":"2-0","liga":"Liga Iraquí","motivo":"pocoVolumen","tipo":null,"ind":null,"stats":{"pos":0.48,"sh":7,"sot":4,"atk":42,"posa":52,"sha":2,"sota":0,"atka":49}}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4806591","min":76,"marc":"2-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.53,"atk":59,"posa":47,"atka":47}}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4808779","min":73,"marc":"2-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.49,"atk":108,"posa":51,"atka":92}}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4814801","min":75,"marc":"2-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4750292","min":30,"marc":"0-0","liga":"2º División de Austria","motivo":"difSotBaja","tipo":null,"ind":null,"stats":{"sh":5,"sot":2,"sha":2,"sota":1}}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4757703","min":30,"marc":"0-1","liga":"2. Bundesliga","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.57,"sh":7,"sot":3,"atk":26,"posa":43,"sha":4,"sota":4,"atka":17}}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4757705","min":32,"marc":"0-0","liga":"2. Bundesliga","motivo":"difSotBaja","tipo":null,"ind":null,"stats":{"pos":0.61,"sh":10,"sot":2,"atk":39,"posa":39,"sha":2,"sota":1,"atka":23}}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4807701","min":30,"marc":"1-0","liga":"Copa Italia - 32avos de final","motivo":"difSotBaja","tipo":null,"ind":null,"stats":{"pos":0.43,"sh":4,"sot":1,"atk":19,"posa":57,"sha":2,"sota":0,"atka":18}}
+{"ts":"2026-08-14T17:01:23.517Z","id":"4808778","min":31,"marc":"0-0","liga":"Partido Amistoso","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.62,"atk":50,"posa":38,"atka":39}}

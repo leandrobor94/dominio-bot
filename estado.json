@@ -1,3 +1,10 @@
 {
-  "avisados": {}
+  "avisados": {
+    "4684009_30-40_posesion": {
+      "ts": 1786676470200,
+      "minuto": 31,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    }
+  }
 }

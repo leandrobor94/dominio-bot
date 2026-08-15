@@ -80,6 +80,19 @@ const CFG = {
   acelActiva: true,
   minAceleracion: 1.2,
 
+  // --- PARTIDO ROTO ---
+  // Un equipo que domina y va 3 abajo esta en un partido que ya no se juega
+  // nada. Medido sobre 5.291 observaciones con resultado: en el 1T, con
+  // diferencia de 3 o mas la probabilidad de gol cae al 45.5% [34-57] frente a
+  // una base del 64.4%; en el 2T queda en 35.8% frente a 37.4%, o sea neutro.
+  // Se corta en 2: en la primera parte gana bastante y en la segunda no cuesta.
+  //
+  // NO se corta la diferencia de 2 pese a ser el peor grupo del 2T (28.0% con
+  // n=496 frente a 37.4% de base). Una regla que quita el 2 y deja el 3 huele a
+  // sobreajuste, y esa no-monotonia no es creible todavia. Queda registrada en
+  // el historial para revisarla con mas muestra.
+  maxDifGoles: 2,
+
   // pesos del indice; se renormalizan si falta algun componente
   pesos: { sot: 0.45, sh: 0.35, atk: 0.10, pos: 0.10 },
 
@@ -196,6 +209,9 @@ function empaquetar(p, d, ventana, dominaLocal, tipo, gl, gv) {
     golesEquipo: dominaLocal ? gl : gv,
     golesRival: dominaLocal ? gv : gl,
     marcador: `${gl}-${gv}`,
+    // se guardan para poder revisar mas adelante el hueco de la diferencia de 2
+    difGoles: difGoles,
+    totalGoles: gl + gv,
     indice: Math.round((dominaLocal ? d.valor : 1 - d.valor) * 1000) / 1000,
     minuto: p.minuto,
     ventana: `${ventana[0]}-${ventana[1]}`,
@@ -257,9 +273,11 @@ function detectar(p, opciones = {}) {
       const difSot = d.comps.sot === null ? null
         : (esLocal ? d.crudos.sotL - d.crudos.sotV : d.crudos.sotV - d.crudos.sotL);
 
+      const difGolesFav = esLocal ? gl - gv : gv - gl;
       if (difSot !== null && difSot < cfg.minDifSot) descarteRemates = 'difSotBaja';
       else if (posFav !== null && posFav < cfg.minPosesion) descarteRemates = 'posesionMuyBaja';
       else if (!noGana(esLocal)) descarteRemates = 'vaGanando';
+      else if (difGolesFav < -cfg.maxDifGoles) descarteRemates = 'partidoRoto';
       else if (!estadoPedido(esLocal)) descarteRemates = 'estadoNoPedido';
       // El gatillo nuevo: solo si esta apretando AHORA. Si no hay dato de
       // aceleracion (primera muestra del partido) no se bloquea: se avisa igual

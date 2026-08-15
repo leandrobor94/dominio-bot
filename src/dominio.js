@@ -64,6 +64,22 @@ const CFG = {
   // con n=63; subirlo a 0.68 recorta volumen y el dueno lo prefiere asi.)
   posesionGatillo: 0.68,
 
+  // --- ACELERACION: el cambio, no el nivel ---
+  // El hallazgo que justifica esto: sobre 1.036 ventanas con trayectoria, el
+  // NIVEL (la cuota de remates, que es la variable de la casa vista como la ve
+  // la casa) da AUC 0.530 en descubrimiento y 0.460 en los dias reservados —
+  // peor que una moneda. La ACELERACION da 0.531 y 0.606. Por terciles, la tasa
+  // de gol sube 45.4 -> 51.1 -> 54.5% en descubrimiento y 51.9 -> 55.6 -> 72.4%
+  // en reserva: monotona en las dos mitades.
+  //
+  //   aceleracion = (remates en la ventana / minutos)  /  (remates totales / minuto)
+  //   >1 = esta rematando por encima de su propio ritmo del partido
+  //
+  // OJO: la reserva son 83 ventanas. Es una pista fuerte, no un hecho cerrado.
+  // Por eso el umbral es bajo (1.2) y se registra siempre, se dispare o no.
+  acelActiva: true,
+  minAceleracion: 1.2,
+
   // pesos del indice; se renormalizan si falta algun componente
   pesos: { sot: 0.45, sh: 0.35, atk: 0.10, pos: 0.10 },
 
@@ -132,9 +148,28 @@ function ventanaDe(minuto, cfg) {
 function empaquetar(p, d, ventana, dominaLocal, tipo, gl, gv) {
   const gira = (x) => (x === null || x === undefined ? null : dominaLocal ? x : 1 - x);
   const difGoles = dominaLocal ? gl - gv : gv - gl;
+
+  // ¿ARRASANDO O JUEGA ASI SIEMPRE? La media de temporada del propio equipo es
+  // lo unico que distingue las dos cosas. Un 65% de posesion no dice nada si el
+  // equipo promedia 63; dice mucho si promedia 44.
+  const bFav = dominaLocal ? p.baseLocal : p.baseVisita;
+  const bRiv = dominaLocal ? p.baseVisita : p.baseLocal;
+  const posFav = gira(d.comps.pos);
+  const posSobreBase = (bFav && Number.isFinite(bFav.posMedia) && posFav !== null)
+    ? Math.round((100 * posFav - bFav.posMedia) * 10) / 10 : null;
+  const golesEsperados = (bFav && bRiv && Number.isFinite(bFav.golesFav) && Number.isFinite(bRiv.golesFav))
+    ? Math.round((bFav.golesFav + bRiv.golesFav) * 100) / 100 : null;
+
   return {
     motivo: 'avisa',
     tipo,
+    aceleracion: Number.isFinite(p.aceleracion) ? Math.round(p.aceleracion * 100) / 100 : null,
+    posSobreBase,
+    posBase: bFav && Number.isFinite(bFav.posMedia) ? bFav.posMedia : null,
+    golesEsperados,
+    posicion: bFav && bFav.posicion ? bFav.posicion : null,
+    posicionRival: bRiv && bRiv.posicion ? bRiv.posicion : null,
+    equiposLiga: bFav && bFav.equipos ? bFav.equipos : null,
     id: p.id,
     lado: dominaLocal ? 'local' : 'visita',
     equipo: dominaLocal ? p.local : p.visita,
@@ -207,6 +242,10 @@ function detectar(p, opciones = {}) {
       else if (posFav !== null && posFav < cfg.minPosesion) descarteRemates = 'posesionMuyBaja';
       else if (!noGana(esLocal)) descarteRemates = 'vaGanando';
       else if (!estadoPedido(esLocal)) descarteRemates = 'estadoNoPedido';
+      // El gatillo nuevo: solo si esta apretando AHORA. Si no hay dato de
+      // aceleracion (primera muestra del partido) no se bloquea: se avisa igual
+      // y queda registrado como aceleracion desconocida.
+      else if (cfg.acelActiva && Number.isFinite(p.aceleracion) && p.aceleracion < cfg.minAceleracion) descarteRemates = 'noAcelera';
       else return empaquetar(p, d, ventana, esLocal, 'remates', gl, gv);
     }
   }

@@ -36,6 +36,16 @@ function mensaje(avisos) {
       fila('a puerta', a.crudos.sotFav, a.crudos.sotRiv),
       fila('posesión', pc(a.comps.pos), pc(a.comps.pos === null ? null : 1 - a.comps.pos)),
       fila('ataques', pc(a.comps.atk), pc(a.comps.atk === null ? null : 1 - a.comps.atk)),
+      // Las dos lineas que contestan "¿aprieta ahora?" y "¿o juega asi siempre?"
+      a.aceleracion !== null && a.aceleracion !== undefined
+        ? `\n⚡ remata a <b>${a.aceleracion.toFixed(1)}×</b> su ritmo del partido`
+        : null,
+      a.posSobreBase !== null && a.posSobreBase !== undefined
+        ? `📊 posesión ${a.posSobreBase >= 0 ? '+' : ''}${a.posSobreBase} pts sobre su media (${a.posBase}%)`
+        : null,
+      a.posicion && a.posicionRival
+        ? `🏆 ${a.posicion}º contra ${a.posicionRival}º${a.equiposLiga ? ' de ' + a.equiposLiga : ''}`
+        : null,
       a.cobertura < 0.8 ? '⚠️ datos parciales' : null,
     ].filter((l) => l !== null).join('\n');
   };

@@ -91,32 +91,80 @@ function gitGuardar(motivo) {
 // convierte el silencio en informacion.
 const total = { vueltas: 0, vistos: 0, enVentana: 0, avisos: 0, motivos: {}, errores: 0 };
 
+// MEMORIA DE TRAYECTORIA.
+// El bot ya no mira solo los partidos en ventana: muestrea todos para poder
+// calcular como VIENE el partido, no solo como esta. El nivel (cuantos remates
+// lleva) resulto ser peor que una moneda fuera de muestra; la aceleracion
+// (cuantos lleva AHORA respecto a su propio ritmo) fue lo unico que aguanto.
+const memoria = new Map(); // id -> [{min, tot}] con los ultimos vistazos
+
+function recordar(id, minuto, totalRemates) {
+  if (!Number.isFinite(totalRemates)) return;
+  const h = memoria.get(id) || [];
+  if (!h.length || minuto > h[h.length - 1].min) h.push({ min: minuto, tot: totalRemates });
+  while (h.length > 8) h.shift();
+  memoria.set(id, h);
+}
+
+/** Ritmo de remates de los ultimos ~10 min dividido por el ritmo del partido. */
+function aceleracionDe(id, minuto, totalRemates) {
+  const h = memoria.get(id);
+  if (!h || h.length < 2 || !Number.isFinite(totalRemates) || minuto <= 0) return null;
+  // el vistazo mas antiguo dentro de los ultimos 15 minutos
+  const previo = h.filter((x) => x.min < minuto && minuto - x.min <= 15).sort((a, b) => a.min - b.min)[0];
+  if (!previo) return null;
+  const dmin = minuto - previo.min;
+  if (dmin < 2) return null;
+  const ritmoVentana = (totalRemates - previo.tot) / dmin;
+  const ritmoPartido = totalRemates / minuto;
+  if (!(ritmoPartido > 0)) return null;
+  return ritmoVentana / ritmoPartido;
+}
+
+const enAlgunaVentana = (m) => CFG.ventanas.some(([a, b]) => m >= a && m <= b);
+
 async function pasada(estado) {
   const partidos = await feed.partidosEnVivo();
-  const enVentana = partidos.filter((p) =>
-    CFG.ventanas.some(([a, b]) => p.minuto >= a && p.minuto <= b)
-  );
+  // Se observa todo el partido util; solo se AVISA dentro de las ventanas.
+  const observables = partidos.filter((p) => p.hayStats && p.minuto >= 12 && p.minuto <= 96);
+  const enVentana = partidos.filter((p) => enAlgunaVentana(p.minuto));
   total.vistos += partidos.length;
   total.enVentana += enVentana.length;
-  console.log(`  ${partidos.length} en vivo · ${enVentana.length} dentro de ventana`);
-  if (!enVentana.length) return 0;
+  console.log(`  ${partidos.length} en vivo · ${observables.length} observables · ${enVentana.length} en ventana`);
+  if (!observables.length) return 0;
 
   const avisos = [];
   const registro = [];
 
-  for (const p of enVentana) {
-    // Solo se piden estadisticas de los partidos que estan en ventana: recorta
-    // las peticiones a la cuarta parte y deja margen para ser educado con la API.
-    const stats = p.hayStats ? await feed.estadisticas(p) : null;
-    await new Promise((r) => setTimeout(r, 900));
+  for (const p of observables) {
+    const stats = await feed.estadisticas(p);
+    await new Promise((r) => setTimeout(r, 700));
 
-    const res = detectar({ ...p, stats }, { umbral: UMBRAL, conMotivo: true });
+    const totalRemates = stats && Number.isFinite(stats.sh) && Number.isFinite(stats.sha) ? stats.sh + stats.sha : null;
+    const acel = aceleracionDe(p.id, p.minuto, totalRemates);
+    recordar(p.id, p.minuto, totalRemates);
+
+    // Fuera de ventana solo se observa: alimenta la trayectoria y el historial.
+    if (!enAlgunaVentana(p.minuto)) {
+      registro.push({ id: p.id, min: p.minuto, marc: `${p.golesLocal}-${p.golesVisita}`, liga: p.liga, motivo: 'observado', acel, stats: stats || null });
+      continue;
+    }
+
+    const ctx = await feed.contexto(p.competicion);
+    const entrada = {
+      ...p, stats, aceleracion: acel,
+      baseLocal: ctx ? ctx.get(p.idLocal) : null,
+      baseVisita: ctx ? ctx.get(p.idVisita) : null,
+    };
+    const res = detectar(entrada, { umbral: UMBRAL, conMotivo: true });
     const motivo = res ? res.motivo : 'sinResultado';
     total.motivos[motivo] = (total.motivos[motivo] || 0) + 1;
     registro.push({
       id: p.id, min: p.minuto, marc: `${p.golesLocal}-${p.golesVisita}`,
-      liga: p.liga, motivo: res ? res.motivo : 'sinResultado',
+      liga: p.liga, motivo,
       tipo: res && res.tipo ? res.tipo : null,
+      acel,
+      posSobreBase: res && res.posSobreBase != null ? res.posSobreBase : null,
       ind: res && res.indice != null ? res.indice : null, stats: stats || null,
     });
 

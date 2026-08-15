@@ -64,6 +64,7 @@ async function partidosEnVivo() {
     if (minuto >= 98) continue;
     salida.push({
       id: String(g.id),
+      competicion: g.competitionId || null,
       local: (g.homeCompetitor && g.homeCompetitor.name) || '?',
       visita: (g.awayCompetitor && g.awayCompetitor.name) || '?',
       idLocal: g.homeCompetitor && g.homeCompetitor.id,
@@ -107,4 +108,53 @@ async function estadisticas(p) {
   return Object.keys(s).length ? s : null;
 }
 
-module.exports = { partidosEnVivo, estadisticas };
+// ------------------------------------------------------------- linea base
+// "¿Esta arrasando o juega asi siempre?" no se puede responder mirando solo el
+// partido. El feed publica la media de temporada de cada equipo en
+// competitorsStats, y la clasificacion da posicion y forma. Se cachea por
+// competicion durante toda la corrida: cambia una vez por jornada, no cada
+// vuelta.
+const cacheCtx = new Map();
+
+const NUM = (v) => { const n = parseFloat(String(v).replace(',', '.')); return Number.isFinite(n) ? n : null; };
+
+async function contexto(competitionId) {
+  if (!competitionId) return null;
+  if (cacheCtx.has(competitionId)) return cacheCtx.get(competitionId);
+
+  const base = new Map(); // idEquipo -> { posMedia, golesFav, golesCon, corners, pos, jugados, puntos }
+  try {
+    const j = await pedir(`${API}/stats/?${PARAMS}&competitions=${competitionId}&competitors=`, 2);
+    for (const bloque of (j.stats && j.stats.competitorsStats) || []) {
+      const clave = { 'Goles por partido': 'golesFav', 'Goles recibidos por partido': 'golesCon', 'Posesión del balón': 'posMedia', 'Cornes por partido': 'corners' }[bloque.name];
+      if (!clave) continue;
+      for (const fila of bloque.rows || []) {
+        const id = fila.entity && fila.entity.id;
+        if (!id) continue;
+        if (!base.has(id)) base.set(id, {});
+        base.get(id)[clave] = NUM(fila.statValue ?? fila.value ?? fila.stat);
+      }
+    }
+  } catch { /* sin medias de temporada */ }
+
+  try {
+    const j = await pedir(`${API}/standings/?${PARAMS}&competitions=${competitionId}&live=false`, 2);
+    for (const tabla of j.standings || []) {
+      for (const fila of tabla.rows || []) {
+        const id = fila.competitor && fila.competitor.id;
+        if (!id) continue;
+        if (!base.has(id)) base.set(id, {});
+        Object.assign(base.get(id), {
+          posicion: fila.position, jugados: fila.gamePlayed, puntos: fila.points,
+          equipos: (tabla.rows || []).length,
+        });
+      }
+    }
+  } catch { /* sin clasificacion: es normal en copas y amistosos */ }
+
+  const res = base.size ? base : null;
+  cacheCtx.set(competitionId, res);
+  return res;
+}
+
+module.exports = { partidosEnVivo, estadisticas, contexto };

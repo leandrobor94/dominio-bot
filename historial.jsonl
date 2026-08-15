@@ -6318,3 +6318,6 @@
 {"ts":"2026-08-15T03:37:32.165Z","id":"4678286","min":38,"marc":"0-0","liga":"National League","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.54,"atk":37,"posa":46,"atka":46}}
 {"ts":"2026-08-15T03:37:32.165Z","id":"4678288","min":36,"marc":"0-1","liga":"National League","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.3,"atk":19,"posa":70,"atka":37}}
 {"ts":"2026-08-15T03:37:32.165Z","id":"4761319","min":37,"marc":"2-0","liga":"Liga de Expansión MX - Apertura","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.42,"sh":8,"sot":2,"atk":40,"posa":58,"sha":2,"sota":1,"atka":47}}
+{"ts":"2026-08-15T03:40:36.619Z","id":"4678081","min":40,"marc":"0-1","liga":"OFC Champions League - Fase preliminar","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-15T03:40:36.619Z","id":"4678285","min":39,"marc":"0-2","liga":"National League","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.55,"atk":38,"posa":45,"atka":33}}
+{"ts":"2026-08-15T03:40:36.619Z","id":"4678288","min":39,"marc":"0-1","liga":"National League","motivo":"sinRemates","tipo":null,"ind":null,"stats":{"pos":0.28,"atk":20,"posa":72,"atka":38}}

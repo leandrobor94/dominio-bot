@@ -6260,3 +6260,18 @@
 {"ts":"2026-08-15T02:36:30.786Z","id":"4734842","min":34,"marc":"0-0","liga":"Liga Promerica - Apertura","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
 {"ts":"2026-08-15T02:36:30.786Z","id":"4809606","min":39,"marc":"0-0","liga":"Liga Promerica femenina","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
 {"ts":"2026-08-15T02:36:30.786Z","id":"4809683","min":35,"marc":"0-0","liga":"Liga Promerica femenina","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-15T02:39:40.687Z","id":"4761064","min":78,"marc":"2-3","liga":"Liga de Expansión MX - Apertura","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.5,"sh":11,"sot":3,"atk":81,"posa":50,"sha":15,"sota":6,"atka":94}}
+{"ts":"2026-08-15T02:39:40.687Z","id":"4778503","min":78,"marc":"3-1","liga":"Liga Prom - Apertura - Conferencia Este - Zona Norte","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-15T02:39:40.687Z","id":"4783878","min":79,"marc":"0-1","liga":"Primera Division - Apertura","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.45,"sh":8,"sot":4,"atk":94,"posa":55,"sha":6,"sota":3,"atka":109}}
+{"ts":"2026-08-15T02:39:40.687Z","id":"4791671","min":80,"marc":"1-1","liga":"Liga Femenil BBVA - Apertura","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.65,"sh":3,"sot":1,"atk":47,"posa":35,"sha":9,"sota":1,"atka":17}}
+{"ts":"2026-08-15T02:39:40.687Z","id":"4653911","min":40,"marc":"0-0","liga":"NWSL","motivo":"difSotBaja","tipo":null,"ind":null,"stats":{"pos":0.6,"sh":6,"sot":2,"atk":32,"posa":40,"sha":2,"sota":1,"atka":16}}
+{"ts":"2026-08-15T02:39:40.687Z","id":"4653912","min":40,"marc":"2-2","liga":"NWSL","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.51,"sh":4,"sot":3,"atk":15,"posa":49,"sha":4,"sota":3,"atka":21}}
+{"ts":"2026-08-15T02:39:40.687Z","id":"4655235","min":40,"marc":"0-0","liga":"NWSL","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.57,"sh":2,"sot":2,"atk":23,"posa":43,"sha":4,"sota":1,"atka":27}}
+{"ts":"2026-08-15T02:39:40.687Z","id":"4734842","min":37,"marc":"0-0","liga":"Liga Promerica - Apertura","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-15T02:39:40.687Z","id":"4809683","min":38,"marc":"0-0","liga":"Liga Promerica femenina","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-15T02:42:41.841Z","id":"4734842","min":40,"marc":"0-0","liga":"Liga Promerica - Apertura","motivo":"sinRemates","tipo":null,"ind":null,"stats":null}
+{"ts":"2026-08-15T02:48:43.212Z","id":"4655235","min":40,"marc":"1-0","liga":"NWSL","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.58,"sh":3,"sot":3,"atk":34,"posa":42,"sha":4,"sota":1,"atka":33}}
+{"ts":"2026-08-15T02:51:44.326Z","id":"4653911","min":40,"marc":"0-0","liga":"NWSL","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.58,"sh":9,"sot":2,"atk":42,"posa":42,"sha":5,"sota":2,"atka":29}}
+{"ts":"2026-08-15T03:00:46.028Z","id":"4773302","min":70,"marc":"2-1","liga":"Liga Panameña - Apertura - Conferencia Este","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.53,"sh":8,"sot":4,"atk":55,"posa":47,"sha":5,"sota":4,"atka":55}}
+{"ts":"2026-08-15T03:03:47.112Z","id":"4773302","min":73,"marc":"2-1","liga":"Liga Panameña - Apertura - Conferencia Este","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.55,"sh":8,"sot":4,"atk":58,"posa":45,"sha":5,"sota":4,"atka":56}}
+{"ts":"2026-08-15T03:06:48.379Z","id":"4773302","min":76,"marc":"2-1","liga":"Liga Panameña - Apertura - Conferencia Este","motivo":"noDomina","tipo":null,"ind":null,"stats":{"pos":0.54,"sh":9,"sot":5,"atk":60,"posa":46,"sha":6,"sota":4,"atka":59}}

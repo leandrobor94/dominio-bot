@@ -89,7 +89,13 @@ function gitGuardar(motivo) {
 // habla cuando hay aviso, el silencio es ambiguo — no se distingue "hoy ningun
 // partido cumplio" de "el bot lleva tres dias caido". El resumen del final
 // convierte el silencio en informacion.
-const total = { vueltas: 0, vistos: 0, enVentana: 0, avisos: 0, motivos: {}, errores: 0 };
+const total = {
+  vueltas: 0, vistos: 0, enVentana: 0, avisos: 0, motivos: {}, errores: 0,
+  vueltasVacias: 0,      // el feed no devolvio ni un partido: sospechoso
+  duraciones: [],        // para detectar que una vuelta tarda mas que el intervalo
+  ultimoError: null,
+  telegramFallos: 0,
+};
 
 // MEMORIA DE TRAYECTORIA.
 // El bot ya no mira solo los partidos en ventana: muestrea todos para poder
@@ -130,6 +136,7 @@ async function pasada(estado) {
   const enVentana = partidos.filter((p) => enAlgunaVentana(p.minuto));
   total.vistos += partidos.length;
   total.enVentana += enVentana.length;
+  if (!partidos.length) total.vueltasVacias++;
   console.log(`  ${partidos.length} en vivo · ${observables.length} observables · ${enVentana.length} en ventana`);
   if (!observables.length) return 0;
 
@@ -204,22 +211,62 @@ async function pasada(estado) {
   } else if (await notify.enviar(texto)) {
     console.log(`  enviado a Telegram (${avisos.length})`);
   } else {
+    total.telegramFallos++;
     deshacer();
   }
   return avisos.length;
 }
 
-/** Latido: un mensaje al terminar la corrida, aunque no haya habido avisos. */
+/**
+ * PARTE DE SALUD. Va al final de cada corrida, haya avisos o no.
+ *
+ * Con los filtros nuevos el bot habla poco a proposito, y entonces el silencio
+ * deja de distinguir "hoy no hubo nada que valiera la pena" de "el feed lleva
+ * dos horas caido". Este mensaje tiene que responder a eso solo: si algo va
+ * mal, que se vea en la primera linea sin leer el resto.
+ */
 async function resumen() {
-  const m = total.motivos;
-  const orden = Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, 4);
+  const NOMBRES = {
+    observado: 'fuera de ventana (solo observado)',
+    sinRemates: 'el feed no da remates',
+    pocoVolumen: 'aún pocos remates',
+    noDomina: 'nadie domina',
+    noAcelera: 'domina pero no aprieta ahora',
+    partidoRoto: 'partido roto (3+ de diferencia)',
+    vaGanando: 'el que domina va ganando',
+    difSotBaja: 'poca ventaja a puerta',
+    posesionMuyBaja: 'sin la pelota',
+    posesionVaGanando: 'manda la pelota pero gana',
+  };
+
+  const dur = total.duraciones;
+  const durMedia = dur.length ? dur.reduce((a, b) => a + b, 0) / dur.length : 0;
+  const lentas = dur.filter((d) => d > INTERVALO_MS).length;
+
+  // Problemas, en orden de gravedad. Si esta lista esta vacia, todo va bien.
+  const problemas = [];
+  if (total.vueltas === 0) problemas.push('no completó ni una vuelta');
+  if (total.vueltasVacias >= 3) problemas.push(`el feed devolvió 0 partidos en ${total.vueltasVacias} vueltas`);
+  if (total.errores > 0) problemas.push(`${total.errores} vuelta(s) con error${total.ultimoError ? ': ' + total.ultimoError : ''}`);
+  if (total.telegramFallos > 0) problemas.push(`${total.telegramFallos} envío(s) a Telegram fallaron`);
+  if (lentas > 0) problemas.push(`${lentas} vuelta(s) tardaron más que el intervalo (${(durMedia / 1000).toFixed(0)}s de media)`);
+
+  const sano = problemas.length === 0;
+  const filtros = Object.entries(total.motivos)
+    .filter(([k]) => k !== 'avisa' && k !== 'observado')
+    .sort((a, b) => b[1] - a[1]).slice(0, 5);
+
   const texto = [
-    '🫀 <b>dominio-bot</b> — resumen de la corrida',
-    `${total.vueltas} vueltas · ${total.vistos} partidos vistos · ${total.enVentana} en ventana`,
-    `<b>${total.avisos}</b> aviso${total.avisos === 1 ? '' : 's'}` + (total.errores ? ` · ${total.errores} errores` : ''),
-    orden.length ? '\n' + orden.map(([k, v]) => `· ${k}: ${v}`).join('\n') : null,
-    total.enVentana === 0 ? '\n<i>Ningún partido llegó a los minutos 30-40 ni 68-80 mientras corría.</i>' : null,
-  ].filter(Boolean).join('\n');
+    sano ? '🫀 <b>dominio-bot</b> — todo en orden' : '🚨 <b>dominio-bot</b> — REVISAR',
+    !sano ? problemas.map((p) => `⚠️ ${p}`).join('\n') : null,
+    '',
+    `${total.vueltas} vueltas · ${total.vistos} partidos mirados · ${total.enVentana} en ventana`,
+    `<b>${total.avisos}</b> aviso${total.avisos === 1 ? '' : 's'} enviado${total.avisos === 1 ? '' : 's'}`,
+    filtros.length ? '\n<i>por qué no avisó del resto:</i>\n' + filtros.map(([k, v]) => `· ${NOMBRES[k] || k}: ${v}`).join('\n') : null,
+    total.enVentana === 0 ? '\n<i>Ningún partido llegó a las ventanas mientras corría — normal a horas muertas.</i>' : null,
+    sano && total.avisos === 0 && total.enVentana > 0
+      ? '\n<i>Cero avisos pero el bot funcionó: ninguno pasó los filtros. Es lo esperado la mayoría de las veces.</i>' : null,
+  ].filter((l) => l !== null).join('\n');
 
   console.log('\n' + texto.replace(/<[^>]+>/g, ''));
   if (!DRY && !SIN_RESUMEN) await notify.enviar(texto);
@@ -232,14 +279,17 @@ async function main() {
 
   do {
     total.vueltas++;
+    const t0 = Date.now();
     const t = new Date().toLocaleTimeString('es-CO', { timeZone: 'America/Bogota' });
     console.log(`[${t}] vuelta ${total.vueltas}`);
     try {
       total.avisos += await pasada(estado);
     } catch (e) {
       total.errores++;
+      total.ultimoError = String(e.message || e).slice(0, 70);
       console.log('  error en la vuelta:', e.message);
     }
+    total.duraciones.push(Date.now() - t0);
     guardarEstado(estado);
     if (Date.now() - ultimoGuardado >= GUARDAR_CADA_MS) {
       gitGuardar('parcial');

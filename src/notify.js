@@ -40,9 +40,14 @@ function mensaje(avisos) {
       a.aceleracion !== null && a.aceleracion !== undefined
         ? `\n⚡ remata a <b>${a.aceleracion.toFixed(1)}×</b> su ritmo del partido`
         : null,
-      a.posSobreBase !== null && a.posSobreBase !== undefined
-        ? `📊 posesión ${a.posSobreBase >= 0 ? '+' : ''}${a.posSobreBase} pts sobre su media (${a.posBase}%)`
-        : null,
+      // Contra lo esperado ANTE ESTE RIVAL, no contra su media de todo el ano:
+      // esa media mezcla los partidos contra el 3o y contra el colero.
+      a.posSobreEsperada !== null && a.posSobreEsperada !== undefined
+        ? `📊 posesión ${a.posSobreEsperada >= 0 ? '+' : ''}${a.posSobreEsperada} pts sobre lo esperado ante este rival (${a.posEsperada}%)`
+        : (a.posSobreBase !== null && a.posSobreBase !== undefined
+          ? `📊 posesión ${a.posSobreBase >= 0 ? '+' : ''}${a.posSobreBase} pts sobre su media (${a.posBase}%)`
+          : null),
+      a.golesEsperados ? `🎯 partido de ${a.golesEsperados} goles esperados` : null,
       a.posicion && a.posicionRival
         ? `🏆 ${a.posicion}º contra ${a.posicionRival}º${a.equiposLiga ? ' de ' + a.equiposLiga : ''}`
         : null,

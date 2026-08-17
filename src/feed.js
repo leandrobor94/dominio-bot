@@ -116,7 +116,15 @@ async function estadisticas(p) {
 // vuelta.
 const cacheCtx = new Map();
 
-const NUM = (v) => { const n = parseFloat(String(v).replace(',', '.')); return Number.isFinite(n) ? n : null; };
+// El valor vive en fila.stats[0].value y viene como texto: "60%", "1,35".
+// Leerlo de fila.statValue —que no existe— devolvia null siempre y dejaba la
+// linea base vacia sin que nada fallara visiblemente.
+const NUM = (fila) => {
+  const bruto = fila && Array.isArray(fila.stats) && fila.stats.length ? fila.stats[0].value : null;
+  if (bruto == null) return null;
+  const n = parseFloat(String(bruto).replace('%', '').replace(',', '.'));
+  return Number.isFinite(n) ? n : null;
+};
 
 async function contexto(competitionId) {
   if (!competitionId) return null;
@@ -132,7 +140,7 @@ async function contexto(competitionId) {
         const id = fila.entity && fila.entity.id;
         if (!id) continue;
         if (!base.has(id)) base.set(id, {});
-        base.get(id)[clave] = NUM(fila.statValue ?? fila.value ?? fila.stat);
+        base.get(id)[clave] = NUM(fila);
       }
     }
   } catch { /* sin medias de temporada */ }

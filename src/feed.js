@@ -79,13 +79,31 @@ async function partidosEnVivo() {
   return salida;
 }
 
-// El feed viene en espanol (langId=14). Solo se traducen las cuatro que usa
-// el indice de dominio; lo demas no hace falta.
+// El feed viene en espanol (langId=14).
+//
+// Las cuatro primeras alimentan el indice. El resto NO se usa para decidir: se
+// guarda porque viene gratis en la misma peticion y sin ellas no se puede
+// probar nada mas adelante. Los corners en particular llegan en el 100% de los
+// partidos —mas que los remates, que llegan en el 89%— y llevabamos semanas
+// tirandolos por una correlacion medida en otro contexto.
 const NOMBRES = {
+  // usadas por el indice
   'Posesión': 'pos',
   'Total Remates': 'sh',
   'Remates a Puerta': 'sot',
   'Ataques': 'atk',
+  // guardadas para poder medir despues
+  'Saques de Esquina': 'cor',
+  'Remates Fuera': 'off',
+  'Pelotas al poste': 'palo',
+  'Grandes chances': 'bc',
+  'Remates dentro del área': 'box',
+  'Fueras de Juego': 'fj',
+  'Tarjetas Amarillas': 'ta',
+  'Tarjetas Rojas': 'tr',
+  'Faltas': 'fal',
+  'Saques de banda': 'sb',
+  'Saques de puerta': 'sp',
 };
 
 /** Estadisticas de un partido: {sh, sha, sot, sota, atk, atka, pos} o null. */
@@ -103,8 +121,10 @@ async function estadisticas(p) {
     if (st.competitorId === p.idLocal) s[clave] = valor;
     else if (st.competitorId === p.idVisita) s[clave + 'a'] = valor;
   }
-  // posesion: el feed la da como porcentaje del equipo; el indice usa la del local
-  if (s.pos != null && s.pos > 1) s.pos /= 100;
+  // Posesion a 0-1 en los DOS lados. Antes solo se normalizaba la del local
+  // porque era la unica que se leia; ahora que se guarda todo, dejarlas en
+  // escalas distintas (0.58 y 42) romperia cualquier analisis posterior.
+  for (const k of ['pos', 'posa']) if (s[k] != null && s[k] > 1) s[k] /= 100;
   return Object.keys(s).length ? s : null;
 }
 

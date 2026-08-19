@@ -29,6 +29,12 @@
       "minuto": 34,
       "estado": "empatando",
       "tipo": "remates"
+    },
+    "4802111_30-40_remates": {
+      "ts": 1787153515676,
+      "minuto": 32,
+      "estado": "empatando",
+      "tipo": "remates"
     }
   }
 }

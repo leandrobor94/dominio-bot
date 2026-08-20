@@ -1,17 +1,5 @@
 {
   "avisados": {
-    "4798197_68-80_remates": {
-      "ts": 1787182245904,
-      "minuto": 73,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
-    "4762506_68-80_remates": {
-      "ts": 1787182659706,
-      "minuto": 79,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
     "4653916_68-80_remates": {
       "ts": 1787184375750,
       "minuto": 79,

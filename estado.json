@@ -23,6 +23,30 @@
       "minuto": 40,
       "estado": "empatando",
       "tipo": "remates"
+    },
+    "4621442_68-80_remates": {
+      "ts": 1787187569040,
+      "minuto": 72,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4728062_30-40_posesion": {
+      "ts": 1787187767517,
+      "minuto": 32,
+      "estado": "empatando",
+      "tipo": "posesion"
+    },
+    "4796799_30-40_remates": {
+      "ts": 1787187768312,
+      "minuto": 32,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4621437_68-80_remates": {
+      "ts": 1787187952370,
+      "minuto": 79,
+      "estado": "empatando",
+      "tipo": "remates"
     }
   }
 }

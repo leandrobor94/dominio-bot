@@ -5,6 +5,42 @@
       "minuto": 37,
       "estado": "perdiendo",
       "tipo": "posesion"
+    },
+    "4740906_68-80_posesion": {
+      "ts": 1787329726411,
+      "minuto": 71,
+      "estado": "empatando",
+      "tipo": "posesion"
+    },
+    "4736993_30-40_posesion": {
+      "ts": 1787329762710,
+      "minuto": 30,
+      "estado": "empatando",
+      "tipo": "posesion"
+    },
+    "4736144_68-80_remates": {
+      "ts": 1787329959848,
+      "minuto": 76,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4636814_30-40_remates": {
+      "ts": 1787329978676,
+      "minuto": 33,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4740904_30-40_posesion": {
+      "ts": 1787329988124,
+      "minuto": 31,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    },
+    "4807658_30-40_remates": {
+      "ts": 1787330455889,
+      "minuto": 40,
+      "estado": "perdiendo",
+      "tipo": "remates"
     }
   }
 }

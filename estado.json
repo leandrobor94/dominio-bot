@@ -1,196 +1,34 @@
 {
   "avisados": {
-    "4778998_30-40_posesion": {
-      "ts": 1787410178450,
+    "4776143_68-80_posesion": {
+      "ts": 1787437933725,
+      "minuto": 73,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    },
+    "4801423_30-40_posesion": {
+      "ts": 1787437946050,
+      "minuto": 32,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    },
+    "4656608_68-80_remates": {
+      "ts": 1787439789095,
+      "minuto": 76,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4669145_68-80_remates": {
+      "ts": 1787439790583,
+      "minuto": 71,
+      "estado": "perdiendo",
+      "tipo": "remates"
+    },
+    "4634123_30-40_posesion": {
+      "ts": 1787439796128,
       "minuto": 33,
       "estado": "empatando",
       "tipo": "posesion"
-    },
-    "4734616_30-40_remates": {
-      "ts": 1787411022376,
-      "minuto": 30,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
-    "4815953_30-40_posesion": {
-      "ts": 1787411030962,
-      "minuto": 32,
-      "estado": "empatando",
-      "tipo": "posesion"
-    },
-    "4734616_30-40_posesion": {
-      "ts": 1787411327593,
-      "minuto": 35,
-      "estado": "empatando",
-      "tipo": "posesion"
-    },
-    "4736145_30-40_posesion": {
-      "ts": 1787411662019,
-      "minuto": 40,
-      "estado": "empatando",
-      "tipo": "posesion"
-    },
-    "4746198_68-80_posesion": {
-      "ts": 1787412619060,
-      "minuto": 71,
-      "estado": "perdiendo",
-      "tipo": "posesion"
-    },
-    "4746850_68-80_posesion": {
-      "ts": 1787412625679,
-      "minuto": 71,
-      "estado": "perdiendo",
-      "tipo": "posesion"
-    },
-    "4746856_68-80_posesion": {
-      "ts": 1787412628618,
-      "minuto": 68,
-      "estado": "perdiendo",
-      "tipo": "posesion"
-    },
-    "4746858_68-80_remates": {
-      "ts": 1787412629349,
-      "minuto": 72,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
-    "4747410_68-80_remates": {
-      "ts": 1787412637193,
-      "minuto": 69,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
-    "4770292_68-80_remates": {
-      "ts": 1787412668413,
-      "minuto": 72,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
-    "4818870_68-80_remates": {
-      "ts": 1787412704009,
-      "minuto": 72,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
-    "4746198_68-80_remates": {
-      "ts": 1787412986904,
-      "minuto": 78,
-      "estado": "perdiendo",
-      "tipo": "remates"
-    },
-    "4743926_30-40_posesion": {
-      "ts": 1787413078153,
-      "minuto": 35,
-      "estado": "empatando",
-      "tipo": "posesion"
-    },
-    "4803425_30-40_posesion": {
-      "ts": 1787413089056,
-      "minuto": 36,
-      "estado": "empatando",
-      "tipo": "posesion"
-    },
-    "4736145_68-80_posesion": {
-      "ts": 1787414517807,
-      "minuto": 71,
-      "estado": "empatando",
-      "tipo": "posesion"
-    },
-    "4744756_68-80_remates": {
-      "ts": 1787414812362,
-      "minuto": 80,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
-    "4751188_68-80_posesion": {
-      "ts": 1787415966088,
-      "minuto": 69,
-      "estado": "perdiendo",
-      "tipo": "posesion"
-    },
-    "4733033_30-40_posesion": {
-      "ts": 1787416346438,
-      "minuto": 31,
-      "estado": "empatando",
-      "tipo": "posesion"
-    },
-    "4735867_30-40_posesion": {
-      "ts": 1787416359090,
-      "minuto": 30,
-      "estado": "empatando",
-      "tipo": "posesion"
-    },
-    "4764267_30-40_remates": {
-      "ts": 1787416397930,
-      "minuto": 31,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
-    "4764268_30-40_posesion": {
-      "ts": 1787416398667,
-      "minuto": 31,
-      "estado": "perdiendo",
-      "tipo": "posesion"
-    },
-    "4760859_30-40_posesion": {
-      "ts": 1787416721256,
-      "minuto": 35,
-      "estado": "perdiendo",
-      "tipo": "posesion"
-    },
-    "4732354_30-40_posesion": {
-      "ts": 1787418321112,
-      "minuto": 30,
-      "estado": "empatando",
-      "tipo": "posesion"
-    },
-    "4781140_30-40_posesion": {
-      "ts": 1787418646395,
-      "minuto": 33,
-      "estado": "empatando",
-      "tipo": "posesion"
-    },
-    "4741679_30-40_posesion": {
-      "ts": 1787419214484,
-      "minuto": 32,
-      "estado": "empatando",
-      "tipo": "posesion"
-    },
-    "4760859_68-80_posesion": {
-      "ts": 1787419830548,
-      "minuto": 71,
-      "estado": "perdiendo",
-      "tipo": "posesion"
-    },
-    "4764267_68-80_remates": {
-      "ts": 1787419831287,
-      "minuto": 74,
-      "estado": "perdiendo",
-      "tipo": "remates"
-    },
-    "4764268_68-80_posesion": {
-      "ts": 1787419832025,
-      "minuto": 68,
-      "estado": "perdiendo",
-      "tipo": "posesion"
-    },
-    "4777298_68-80_remates": {
-      "ts": 1787419834972,
-      "minuto": 72,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
-    "4735869_68-80_remates": {
-      "ts": 1787420163737,
-      "minuto": 78,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
-    "4760859_68-80_remates": {
-      "ts": 1787420170397,
-      "minuto": 77,
-      "estado": "perdiendo",
-      "tipo": "remates"
     }
   }
 }

@@ -29,6 +29,18 @@
       "minuto": 33,
       "estado": "empatando",
       "tipo": "posesion"
+    },
+    "4677723_30-40_posesion": {
+      "ts": 1787440183943,
+      "minuto": 38,
+      "estado": "empatando",
+      "tipo": "posesion"
+    },
+    "4634125_30-40_posesion": {
+      "ts": 1787441598518,
+      "minuto": 33,
+      "estado": "empatando",
+      "tipo": "posesion"
     }
   }
 }

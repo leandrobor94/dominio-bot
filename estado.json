@@ -53,6 +53,18 @@
       "minuto": 36,
       "estado": "empatando",
       "tipo": "posesion"
+    },
+    "4806261_68-80_posesion": {
+      "ts": 1787533204243,
+      "minuto": 69,
+      "estado": "empatando",
+      "tipo": "posesion"
+    },
+    "4659102_30-40_remates": {
+      "ts": 1787533795197,
+      "minuto": 37,
+      "estado": "empatando",
+      "tipo": "remates"
     }
   }
 }

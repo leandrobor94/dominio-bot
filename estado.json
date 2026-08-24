@@ -11,6 +11,30 @@
       "minuto": 36,
       "estado": "empatando",
       "tipo": "remates"
+    },
+    "4733042_30-40_posesion": {
+      "ts": 1787589075448,
+      "minuto": 31,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    },
+    "4733045_30-40_posesion": {
+      "ts": 1787589076160,
+      "minuto": 30,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    },
+    "4739161_30-40_posesion": {
+      "ts": 1787589079255,
+      "minuto": 32,
+      "estado": "empatando",
+      "tipo": "posesion"
+    },
+    "4733047_30-40_remates": {
+      "ts": 1787589288419,
+      "minuto": 34,
+      "estado": "empatando",
+      "tipo": "remates"
     }
   }
 }

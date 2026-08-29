@@ -143,6 +143,30 @@
       "minuto": 69,
       "estado": "perdiendo",
       "tipo": "remates"
+    },
+    "4739349_68-80_posesion": {
+      "ts": 1788029710771,
+      "minuto": 68,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    },
+    "4748463_30-40_posesion": {
+      "ts": 1788030232585,
+      "minuto": 32,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    },
+    "4764278_30-40_posesion": {
+      "ts": 1788030246531,
+      "minuto": 30,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    },
+    "4633341_68-80_posesion": {
+      "ts": 1788030670663,
+      "minuto": 68,
+      "estado": "perdiendo",
+      "tipo": "posesion"
     }
   }
 }

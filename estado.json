@@ -83,6 +83,48 @@
       "minuto": 37,
       "estado": "empatando",
       "tipo": "remates"
+    },
+    "4633336_30-40_remates": {
+      "ts": 1788114790404,
+      "minuto": 32,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4737623_30-40_posesion": {
+      "ts": 1788114844376,
+      "minuto": 32,
+      "estado": "empatando",
+      "tipo": "posesion"
+    },
+    "4806561_30-40_remates": {
+      "ts": 1788114921478,
+      "minuto": 32,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4826974_30-40_remates": {
+      "ts": 1788114934900,
+      "minuto": 31,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4633336_30-40_posesion": {
+      "ts": 1788115194025,
+      "minuto": 39,
+      "estado": "empatando",
+      "tipo": "posesion"
+    },
+    "4737623_30-40_remates": {
+      "ts": 1788115212807,
+      "minuto": 39,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4806561_30-40_posesion": {
+      "ts": 1788115265314,
+      "minuto": 39,
+      "estado": "empatando",
+      "tipo": "posesion"
     }
   }
 }

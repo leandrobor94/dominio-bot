@@ -1,3 +1,76 @@
 {
-  "avisados": {}
+  "avisados": {
+    "4637308_68-80_remates": {
+      "ts": 1788107773167,
+      "minuto": 78,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4735864_68-80_posesion": {
+      "ts": 1788107823221,
+      "minuto": 79,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    },
+    "4751192_68-80_remates": {
+      "ts": 1788107884471,
+      "minuto": 79,
+      "estado": "perdiendo",
+      "tipo": "remates"
+    },
+    "4752454_68-80_remates": {
+      "ts": 1788107886576,
+      "minuto": 79,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4739152_30-40_remates": {
+      "ts": 1788108002203,
+      "minuto": 36,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4764273_30-40_posesion": {
+      "ts": 1788108035151,
+      "minuto": 36,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    },
+    "4799941_30-40_remates": {
+      "ts": 1788108040492,
+      "minuto": 36,
+      "estado": "perdiendo",
+      "tipo": "remates"
+    },
+    "4822787_30-40_remates": {
+      "ts": 1788108055281,
+      "minuto": 36,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4652453_30-40_remates": {
+      "ts": 1788108909951,
+      "minuto": 37,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4736416_68-80_posesion": {
+      "ts": 1788109159453,
+      "minuto": 72,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    },
+    "4797621_68-80_posesion": {
+      "ts": 1788109202735,
+      "minuto": 72,
+      "estado": "empatando",
+      "tipo": "posesion"
+    },
+    "4797626_68-80_posesion": {
+      "ts": 1788109205051,
+      "minuto": 72,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    }
+  }
 }

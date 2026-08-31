@@ -11,6 +11,18 @@
       "minuto": 38,
       "estado": "perdiendo",
       "tipo": "posesion"
+    },
+    "4735710_68-80_posesion": {
+      "ts": 1788147655760,
+      "minuto": 69,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    },
+    "4735710_68-80_remates": {
+      "ts": 1788147837430,
+      "minuto": 72,
+      "estado": "perdiendo",
+      "tipo": "remates"
     }
   }
 }

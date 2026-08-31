@@ -1,34 +1,16 @@
 {
   "avisados": {
-    "4732730_30-40_remates": {
-      "ts": 1788203893603,
-      "minuto": 33,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
-    "4821868_68-80_remates": {
-      "ts": 1788204590264,
-      "minuto": 78,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
-    "4799953_30-40_posesion": {
-      "ts": 1788204833516,
-      "minuto": 32,
-      "estado": "empatando",
-      "tipo": "posesion"
-    },
-    "4812176_30-40_posesion": {
-      "ts": 1788204835699,
-      "minuto": 33,
-      "estado": "perdiendo",
-      "tipo": "posesion"
-    },
     "4757141_30-40_posesion": {
       "ts": 1788205576776,
       "minuto": 30,
       "estado": "empatando",
       "tipo": "posesion"
+    },
+    "4633340_30-40_remates": {
+      "ts": 1788215405666,
+      "minuto": 32,
+      "estado": "empatando",
+      "tipo": "remates"
     }
   }
 }

@@ -177,6 +177,10 @@ async function pasada(estado) {
 
     if (!res || res.motivo !== 'avisa') continue;
 
+    // Se registro como aviso (queda en el historial y se puede auditar), pero
+    // solo se envia si su ventana esta en la lista de envio.
+    if (CFG.ventanasEnvio && !CFG.ventanasEnvio.includes(res.ventana)) continue;
+
     // El tipo entra en la clave: los dos gatillos son independientes y el mismo
     // partido puede merecer un aviso por cada uno.
     const clave = `${p.id}_${res.ventana}_${res.tipo}`;

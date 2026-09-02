@@ -40,12 +40,25 @@
 // Se dejan los dos corriendo unas semanas y se comparan con datos propios.
 
 const CFG = {
-  // ventanas de minuto donde se mira
+  // ventanas de minuto donde se MIRA (las dos se siguen evaluando y guardando)
   ventanas: [[30, 40], [68, 80]],
+
+  // ventanas de las que se ENVIA aviso. El segundo tiempo se sigue midiendo y
+  // registrando en el historial, pero no llega al telefono: acierta 45,6 %
+  // frente al 74,0 % del primero. Decision del dueno, y los datos la respaldan.
+  // Separar "mirar" de "enviar" cuesta nada y deja la puerta abierta a
+  // reactivar el 2T si algun dia lo justifica.
+  ventanasEnvio: ['30-40'],
 
   // --- gatillo 'remates' ---
   umbral: 0.68,                                  // cuanto hay que dominar (0.5 = parejo)
-  minRematesPartido: { primera: 6, segunda: 10 },// "2 remates a 0" no es dominar
+  // primera: 6 -> 10. Medido sobre 4.489 observaciones de primer tiempo: exigir
+  // 10 remates en el partido sube el acierto del 69,5 % al 78,0 % y la ventaja
+  // sobre el reloj de +1,3 a +10,2, recortando de 12,8 a 2,7 avisos al dia.
+  // Aguanta el holdout (reserva: 72,0 % con n=25 frente al 70,2 % del actual) y
+  // quitando el dia mas cargado se queda en 74,4 %, aun por encima. p=0,040 en
+  // la prueba de permutacion: justo, no holgado.
+  minRematesPartido: { primera: 10, segunda: 10 },
   minDifSot: 2,                                  // diferencia absoluta de tiros a puerta
   // Suelo de posesion. OJO: es un guardarrail, NO un umbral medido. Por debajo
   // del 35% solo habia n=5 observaciones (que marcaron 0.200, el peor grupo);

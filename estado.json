@@ -5,6 +5,12 @@
       "minuto": 33,
       "estado": "empatando",
       "tipo": "posesion"
+    },
+    "4740461_30-40_posesion": {
+      "ts": 1788547113940,
+      "minuto": 35,
+      "estado": "perdiendo",
+      "tipo": "posesion"
     }
   }
 }

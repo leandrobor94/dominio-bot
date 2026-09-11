@@ -1,3 +1,10 @@
 {
-  "avisados": {}
+  "avisados": {
+    "4737612_30-40_remates": {
+      "ts": 1789146693720,
+      "minuto": 39,
+      "estado": "empatando",
+      "tipo": "remates"
+    }
+  }
 }

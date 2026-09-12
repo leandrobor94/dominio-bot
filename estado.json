@@ -1,3 +1,10 @@
 {
-  "avisados": {}
+  "avisados": {
+    "4784391_30-40_posesion": {
+      "ts": 1789228306382,
+      "minuto": 33,
+      "estado": "empatando",
+      "tipo": "posesion"
+    }
+  }
 }

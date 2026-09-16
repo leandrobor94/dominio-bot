@@ -1,3 +1,10 @@
 {
-  "avisados": {}
+  "avisados": {
+    "4845008_30-40_remates": {
+      "ts": 1789578492602,
+      "minuto": 35,
+      "estado": "perdiendo",
+      "tipo": "remates"
+    }
+  }
 }

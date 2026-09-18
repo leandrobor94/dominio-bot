@@ -5,6 +5,18 @@
       "minuto": 37,
       "estado": "perdiendo",
       "tipo": "remates"
+    },
+    "4740734_30-40_posesion": {
+      "ts": 1789759493770,
+      "minuto": 36,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    },
+    "4758181_30-40_posesion": {
+      "ts": 1789759498488,
+      "minuto": 38,
+      "estado": "empatando",
+      "tipo": "posesion"
     }
   }
 }

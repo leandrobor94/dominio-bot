@@ -1,17 +1,5 @@
 {
   "avisados": {
-    "4665209_30-40_remates": {
-      "ts": 1789923057717,
-      "minuto": 40,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
-    "4750841_30-40_remates": {
-      "ts": 1789924243101,
-      "minuto": 40,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
     "4752393_30-40_remates": {
       "ts": 1789925119410,
       "minuto": 38,

@@ -1,9 +1,26 @@
 # dominio-bot
 
-Avisa por Telegram cuando **un equipo está controlando el partido y no va ganando**, en el
-minuto 30-40 o en el 68-80. Nada más.
+Avisa por Telegram cuando **un equipo está controlando el partido y no va ganando**
+en el minuto 30–40. La ventana 68–80 se observa y guarda, pero no se envía.
 
-No predice goles. No calcula cuotas. No dice si apostar. Es un **filtro**: te ahorra
+## Experimento de ritmo 1T (solo sombra)
+
+Además de los avisos existentes, el bot **registra sin enviar a Telegram** una
+señal experimental de gol posterior antes del descanso. Usa el minuto 30–40,
+el marcador y los remates/remates a puerta de **ambos** equipos. El modelo está
+congelado en `src/ritmo-model.json`: entrenamiento hasta el 1 de septiembre de
+2026 y umbral fijado por volumen de señales del 2 al 12 de septiembre. El
+resultado posterior todavía **no está validado para producción**.
+
+Cada captura en esa ventana añade `sombraRitmo` a `historial.jsonl`, con
+`probabilidad`, `cruzaUmbral` y `senal`. Solo la **primera** captura que cruza
+el umbral por partido lleva `senal: true`; las demás quedan para auditoría.
+También se guardan `minFeed`, `marcadorTs` y `statsTs` para detectar desfases
+entre reloj, marcador y estadísticas. El estado de deduplicación queda en
+`estado.json`. Ninguno de esos campos participa en `notify` ni cambia los
+gatillos actuales. Ejecutar `npm test` comprueba el cálculo básico.
+
+Las alertas que llegan a Telegram no pronostican goles. No calcula cuotas ni dice si apostar. Es un **filtro**: te ahorra
 revisar los partidos a mano y te pone delante el que merece un vistazo. La decisión es
 tuya.
 

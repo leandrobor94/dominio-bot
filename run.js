@@ -19,6 +19,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 const feed = require('./src/feed');
 const { detectar, CFG } = require('./src/dominio');
+const { evaluarRitmo } = require('./src/ritmo');
 const notify = require('./src/notify');
 
 const ESTADO = path.join(__dirname, 'estado.json');
@@ -39,11 +40,17 @@ const UMBRAL = Number(val('umbral', CFG.umbral));
 const VIDA_DEDUP_MS = 3 * 60 * 60 * 1000;
 
 function leerEstado() {
-  try { return JSON.parse(fs.readFileSync(ESTADO, 'utf8')); } catch { return { avisados: {} }; }
+  try {
+    const e = JSON.parse(fs.readFileSync(ESTADO, 'utf8'));
+    e.avisados ||= {};
+    e.sombraRitmo ||= {};
+    return e;
+  } catch { return { avisados: {}, sombraRitmo: {} }; }
 }
 function guardarEstado(e) {
   const corte = Date.now() - VIDA_DEDUP_MS;
   for (const [k, v] of Object.entries(e.avisados)) if (!v || v.ts < corte) delete e.avisados[k];
+  for (const [k, v] of Object.entries(e.sombraRitmo)) if (!v || v.ts < corte) delete e.sombraRitmo[k];
   fs.writeFileSync(ESTADO, JSON.stringify(e, null, 2));
 }
 
@@ -142,9 +149,11 @@ async function pasada(estado) {
 
   const avisos = [];
   const registro = [];
+  const nuevasSombras = [];
 
   for (const p of observables) {
     const stats = await feed.estadisticas(p);
+    const statsTs = new Date().toISOString();
     await new Promise((r) => setTimeout(r, 700));
 
     const totalRemates = stats && Number.isFinite(stats.sh) && Number.isFinite(stats.sha) ? stats.sh + stats.sha : null;
@@ -165,12 +174,21 @@ async function pasada(estado) {
     };
     const res = detectar(entrada, { umbral: UMBRAL, conMotivo: true });
     const motivo = res ? res.motivo : 'sinResultado';
+    // Se evalúa INDEPENDIENTEMENTE del detector de dominio. Solo se registra
+    // el primer cruce por partido; no entra en avisos ni en notify.mensaje.
+    const ritmo = evaluarRitmo(p, stats);
+    const senalSombra = !!(ritmo?.cruzaUmbral && !estado.sombraRitmo[p.id]);
+    if (senalSombra) nuevasSombras.push({ id: p.id, minuto: p.minuto, version: ritmo.version });
     total.motivos[motivo] = (total.motivos[motivo] || 0) + 1;
     registro.push({
       id: p.id, min: p.minuto, marc: `${p.golesLocal}-${p.golesVisita}`,
       liga: p.liga, motivo,
       tipo: res && res.tipo ? res.tipo : null,
       acel,
+      // Reloj y timestamps separados para detectar marcador atrasado o
+      // diferencia entre el minuto del proveedor y el minuto reconstruido.
+      minFeed: p.minutoFeed, inicio: p.inicio, marcadorTs: p.marcadorTs, statsTs,
+      sombraRitmo: ritmo ? { ...ritmo, senal: senalSombra } : null,
       posSobreBase: res && res.posSobreBase != null ? res.posSobreBase : null,
       ind: res && res.indice != null ? res.indice : null, stats: stats || null,
     });
@@ -190,6 +208,10 @@ async function pasada(estado) {
   }
 
   apuntar(registro);
+  // No consumir la señal si falló la escritura del historial.
+  for (const s of nuevasSombras) {
+    estado.sombraRitmo[s.id] = { ts: Date.now(), minuto: s.minuto, version: s.version };
+  }
 
   if (!avisos.length) {
     const motivos = {};

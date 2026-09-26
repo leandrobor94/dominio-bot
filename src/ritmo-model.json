@@ -1,0 +1,12 @@
+{
+  "version": "ritmo-1t-v1",
+  "target": "gol posterior antes del descanso",
+  "fields": ["minute", "score_total", "score_diff_abs", "total_sh", "total_sot"],
+  "center": [35, 1, 0, 7, 3],
+  "scale": [3.2197476119692157, 0.9566668277117051, 0.7678356828829429, 3.3638157287585977, 1.869129865764112],
+  "weights": [-0.7656274092634658, -0.27684200198200815, -0.041820784913831545, 0.08067621781102277, 0.055700358394853135, 0.10010937945445084],
+  "threshold": 0.47758141333481735,
+  "training_end": "2026-09-01",
+  "volume_calibration": "2026-09-02..2026-09-12",
+  "requires_complete_shots": true
+}

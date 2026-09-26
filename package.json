@@ -7,6 +7,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "node run.js",
+    "test": "node --test",
     "once": "node run.js --una-vez",
     "dry": "node run.js --una-vez --dry",
     "calibrar": "node calibrar.js"

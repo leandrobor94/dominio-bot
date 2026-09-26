@@ -57,6 +57,7 @@ async function partidosEnVivo() {
   if (!j || !j.games) return [];
 
   const ahora = new Date();
+  const marcadorTs = ahora.toISOString();
   const salida = [];
   for (const g of j.games) {
     if (g.statusGroup !== 3 || !g.gameTime || g.gameTime <= 0) continue;
@@ -72,6 +73,9 @@ async function partidosEnVivo() {
       golesLocal: (g.homeCompetitor && g.homeCompetitor.score) ?? 0,
       golesVisita: (g.awayCompetitor && g.awayCompetitor.score) ?? 0,
       minuto,
+      minutoFeed: g.gameTime,
+      inicio: g.startTime || null,
+      marcadorTs,
       liga: (g.competitionDisplayName || '').trim() || null,
       hayStats: !!g.hasStats,
     });

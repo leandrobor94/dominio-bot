@@ -37,7 +37,7 @@ function respuestaOk(decision = 'APROBAR') {
           }) }] },
           groundingMetadata: {
             webSearchQueries: ['Local FC Visita FC tabla'],
-            groundingChunks: [{ web: { title: 'Fuente', uri: 'https://example.com/partido' } }],
+            groundingChunks: [{ web: { titulo : 'Fuente', uri: 'https://example.com/partido' } }],
           },
         }],
       };
@@ -45,8 +45,8 @@ function respuestaOk(decision = 'APROBAR') {
   };
 }
 
-test('lee hasta tres claves multilínea y elimina líneas vacías', () => {
-  assert.deepEqual(leerClaves(' clave-1 \n\nclave-2\r\nclave-3\nclave-4'), ['clave-1', 'clave-2', 'clave-3']);
+test('lee hasta cuatro claves multilínea y elimina líneas vacías', () => {
+  assert.deepEqual(leerClaves(' clave-1 \n\nclave-2\r\nclave-3\nclave-4\nclave-5'), ['clave-1', 'clave-2', 'clave-3', 'clave-4']);
 });
 
 test('sin claves se abstiene sin llamar a la red', async () => {
@@ -75,13 +75,29 @@ test('rota a la segunda clave ante 429 sin incluir claves en cuerpo o URL', asyn
   assert.equal(r.disponible, true);
   assert.equal(r.decision, 'DESCARTAR');
   assert.equal(r.clave, 2);
+  assert.equal(r.busquedaSolicitada, false);
   assert.equal(r.busquedaUsada, true);
   assert.equal(vistos[0].opciones.headers['x-goog-api-key'], 'secreto-uno');
   assert.equal(vistos[1].opciones.headers['x-goog-api-key'], 'secreto-dos');
   for (const v of vistos) {
     assert.equal(v.url.includes('secreto-'), false);
     assert.equal(v.opciones.body.includes('secreto-'), false);
+    assert.equal(Object.hasOwn(JSON.parse(v.opciones.body), 'tools'), false);
   }
+});
+
+test('solo agrega Google Search cuando se habilita de forma explicita', async () => {
+  let body;
+  const r = await evaluarGeminiSombra(entrada, {
+    keys: ['clave-prueba'],
+    usarBusqueda: true,
+    fetchImpl: async (_url, opciones) => {
+      body = JSON.parse(opciones.body);
+      return respuestaOk();
+    },
+  });
+  assert.deepEqual(body.tools, [{ google_search: {} }]);
+  assert.equal(r.busquedaSolicitada, true);
 });
 
 test('rechaza una decisión fuera del contrato', () => {

@@ -34,7 +34,7 @@ const entrada = {
 async function main() {
   const keys = leerClaves();
   console.log(`Claves Gemini configuradas: ${keys.length}`);
-  if (!keys.length) throw new Error('No se encontro el secreto GEMINI_API_KEY.');
+  if (!keys.length) throw new Error('No se encontro GEMINI_API_KEYS ni GEMINI_API_KEY.');
 
   const fallos = [];
   for (let i = 0; i < keys.length; i++) {

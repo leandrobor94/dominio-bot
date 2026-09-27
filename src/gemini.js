@@ -11,7 +11,7 @@ const USAR_BUSQUEDA = String(process.env.GEMINI_USAR_BUSQUEDA || '').toLowerCase
 
 const DECISIONES = new Set(['APROBAR', 'DESCARTAR', 'INCIERTO']);
 
-function leerClaves(valor = process.env.GEMINI_API_KEYS || '') {
+function leerClaves(valor = process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY || '') {
   return String(valor)
     .split(/\r?\n/)
     .map((x) => x.trim())

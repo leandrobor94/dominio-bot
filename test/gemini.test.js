@@ -5,6 +5,7 @@ const assert = require('node:assert/strict');
 const {
   leerClaves,
   normalizarRespuesta,
+  construirPrompt,
   evaluarGeminiSombra,
 } = require('../src/gemini');
 
@@ -102,4 +103,12 @@ test('solo agrega Google Search cuando se habilita de forma explicita', async ()
 
 test('rechaza una decisión fuera del contrato', () => {
   assert.equal(normalizarRespuesta({ decision: 'APOSTAR', confianza: 99 }), null);
+});
+
+test('sin búsqueda no promete contexto de la web', () => {
+  const sinWeb = construirPrompt(entrada, false);
+  const conWeb = construirPrompt(entrada, true);
+  assert.match(sinWeb, /No tienes acceso a la web/);
+  assert.doesNotMatch(sinWeb, /Usa Google Search/);
+  assert.match(conWeb, /Usa Google Search/);
 });

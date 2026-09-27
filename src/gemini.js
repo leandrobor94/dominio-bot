@@ -7,6 +7,7 @@
 const VERSION = 'gemini-contexto-1t-v1';
 const MODELO = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
 const TIMEOUT_MS = 18000;
+const USAR_BUSQUEDA = String(process.env.GEMINI_USAR_BUSQUEDA || '').toLowerCase() === 'true';
 
 const DECISIONES = new Set(['APROBAR', 'DESCARTAR', 'INCIERTO']);
 
@@ -15,7 +16,7 @@ function leerClaves(valor = process.env.GEMINI_API_KEYS || '') {
     .split(/\r?\n/)
     .map((x) => x.trim())
     .filter(Boolean)
-    .slice(0, 3);
+    .slice(0, 4);
 }
 
 function limpiarLista(valor, max = 4) {
@@ -81,7 +82,7 @@ function construirPrompt(x) {
     'Usa Google Search solo para contexto verificable que pueda cambiar la decisión: formato de la competición, importancia del resultado, clasificación, estilos habituales, marcador global, expulsiones o alineaciones relevantes.',
     'Da más peso a la presión live y a su cambio reciente que a estadísticas históricas genéricas.',
     'No confundas posesión con peligro, ni muchos remates desviados con ocasiones claras.',
-    'APROBAR exige señales live coherentes, tiempo suficiente y contexto que no contradiga el gol.',
+    'APROBAR exige siñales live coherentes, tiempo suficiente y contexto que no contradiga el gol.',
     'DESCARTAR cuando el dominio sea estéril, el partido haya perdido urgencia o las señales sean engañosas.',
     'INCIERTO si faltan datos importantes, las fuentes no identifican bien el partido o existe contradicción.',
     'No inventes información. Explica solo evidencia disponible.',
@@ -114,12 +115,12 @@ async function evaluarGeminiSombra(entrada, opciones = {}) {
   const keys = opciones.keys || leerClaves();
   const fetchImpl = opciones.fetchImpl || global.fetch;
   const modelo = opciones.modelo || MODELO;
+  const usarBusqueda = opciones.usarBusqueda ?? USAR_BUSQUEDA;
   if (!keys.length) return { version: VERSION, disponible: false, motivo: 'sin_claves' };
   if (typeof fetchImpl !== 'function') return { version: VERSION, disponible: false, motivo: 'sin_fetch' };
 
   const body = {
     contents: [{ role: 'user', parts: [{ text: construirPrompt(entrada) }] }],
-    tools: [{ google_search: {} }],
     generationConfig: {
       temperature: 0.1,
       maxOutputTokens: 650,
@@ -127,6 +128,10 @@ async function evaluarGeminiSombra(entrada, opciones = {}) {
       responseSchema: esquema(),
     },
   };
+  // El texto de Gemini 3.5 Flash-Lite entra en el nivel gratuito, pero Google
+  // Search no. La busqueda solo se activa de forma explicita si algun dia se
+  // usa un proyecto con facturacion.
+  if (usarBusqueda) body.tools = [{ google_search: {} }];
 
   const inicio = Date.now();
   let ultimo = 'sin_respuesta';
@@ -164,6 +169,7 @@ async function evaluarGeminiSombra(entrada, opciones = {}) {
         clave: i + 1,
         latenciaMs: Date.now() - inicio,
         busquedaUsada: consultas.length > 0 || fuentes.length > 0,
+        busquedaSolicitada: usarBusqueda,
         consultas,
         fuentes,
         ...normal,
@@ -188,6 +194,7 @@ async function evaluarGeminiSombra(entrada, opciones = {}) {
 module.exports = {
   VERSION,
   MODELO,
+  USAR_BUSQUEDA,
   leerClaves,
   normalizarRespuesta,
   construirPrompt,

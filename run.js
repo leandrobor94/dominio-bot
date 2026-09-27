@@ -21,6 +21,7 @@ const feed = require('./src/feed');
 const { detectar, CFG } = require('./src/dominio');
 const { evaluarRitmo } = require('./src/ritmo');
 const { evaluarGeminiSombra } = require('./src/gemini');
+const { validarAviso } = require('./src/validacion-envio');
 const notify = require('./src/notify');
 
 const ESTADO = path.join(__dirname, 'estado.json');
@@ -103,6 +104,8 @@ const total = {
   duraciones: [],        // para detectar que una vuelta tarda mas que el intervalo
   ultimoError: null,
   telegramFallos: 0,
+  envioDescartados: 0,
+  recheckSinPartidos: 0,
   geminiSolicitudes: 0,
   geminiAprobados: 0,
   geminiDescartados: 0,
@@ -156,6 +159,26 @@ async function pasada(estado) {
   const avisos = [];
   const registro = [];
   const nuevasSombras = [];
+  const pendientesGemini = [];
+
+  async function evaluarPendientesGemini() {
+    for (const pendiente of pendientesGemini) {
+      total.geminiSolicitudes++;
+      let gemini;
+      try { gemini = await evaluarGeminiSombra(pendiente.entrada); }
+      catch { gemini = { disponible: false, motivo: 'excepcion' }; }
+      if (!gemini.disponible) total.geminiErrores++;
+      else if (gemini.decision === 'APROBAR') total.geminiAprobados++;
+      else if (gemini.decision === 'DESCARTAR') total.geminiDescartados++;
+      else total.geminiInciertos++;
+      console.log(`  IA sombra ${pendiente.nombre}: ${gemini.disponible ? gemini.decision : gemini.motivo}`);
+      // Evento separado: una respuesta tardía de IA no altera la captura ni
+      // puede hacer esperar al Telegram. Se enlaza por id y capturaTs.
+      apuntar([{ id: pendiente.id, minOrigen: pendiente.minuto, marcOrigen: pendiente.marc,
+        motivo: 'gemini_sombra', capturaTs: pendiente.capturaTs,
+        sombraGemini: gemini }]);
+    }
+  }
 
   for (const p of observables) {
     const stats = await feed.estadisticas(p);
@@ -168,7 +191,8 @@ async function pasada(estado) {
 
     // Fuera de ventana solo se observa: alimenta la trayectoria y el historial.
     if (!enAlgunaVentana(p.minuto)) {
-      registro.push({ id: p.id, min: p.minuto, marc: `${p.golesLocal}-${p.golesVisita}`, liga: p.liga, motivo: 'observado', acel, stats: stats || null });
+      registro.push({ id: p.id, min: p.minuto, marc: `${p.golesLocal}-${p.golesVisita}`, liga: p.liga, motivo: 'observado', acel,
+        capturaTs: statsTs, marcadorTs: p.marcadorTs, stats: stats || null });
       continue;
     }
 
@@ -186,26 +210,14 @@ async function pasada(estado) {
     const senalSombra = !!(ritmo?.cruzaUmbral && !estado.sombraRitmo[p.id]);
     if (senalSombra) nuevasSombras.push({ id: p.id, minuto: p.minuto, version: ritmo.version });
 
-    // Gemini es un segundo juez SOLO para la señal experimental. Su respuesta
-    // se registra para poder medirla contra el gol antes del descanso, pero no
-    // bloquea ni crea avisos de Telegram.
-    let gemini = null;
+    // Gemini sigue siendo sombra, pero se ejecuta DESPUÉS del envío. Antes
+    // podía bloquear todos los avisos mientras probaba hasta cuatro claves.
     if (senalSombra) {
-      total.geminiSolicitudes++;
-      gemini = await evaluarGeminiSombra({
-        partido: p,
-        stats,
-        aceleracion: acel,
-        ritmo,
-        dominio: res,
-        baseLocal: entrada.baseLocal,
-        baseVisita: entrada.baseVisita,
-      });
-      if (!gemini.disponible) total.geminiErrores++;
-      else if (gemini.decision === 'APROBAR') total.geminiAprobados++;
-      else if (gemini.decision === 'DESCARTAR') total.geminiDescartados++;
-      else total.geminiInciertos++;
-      console.log(`  IA sombra ${p.local} vs ${p.visita}: ${gemini.disponible ? gemini.decision : gemini.motivo}`);
+      pendientesGemini.push({ id: p.id, minuto: p.minuto,
+        marc: `${p.golesLocal}-${p.golesVisita}`, capturaTs: statsTs,
+        nombre: `${p.local} vs ${p.visita}`,
+        entrada: { partido: p, stats, aceleracion: acel, ritmo, dominio: res,
+          baseLocal: entrada.baseLocal, baseVisita: entrada.baseVisita } });
     }
     total.motivos[motivo] = (total.motivos[motivo] || 0) + 1;
     registro.push({
@@ -216,8 +228,9 @@ async function pasada(estado) {
       // Reloj y timestamps separados para detectar marcador atrasado o
       // diferencia entre el minuto del proveedor y el minuto reconstruido.
       minFeed: p.minutoFeed, inicio: p.inicio, marcadorTs: p.marcadorTs, statsTs,
+      capturaTs: statsTs,
       sombraRitmo: ritmo ? { ...ritmo, senal: senalSombra } : null,
-      sombraGemini: gemini,
+      sombraGemini: null,
       posSobreBase: res && res.posSobreBase != null ? res.posSobreBase : null,
       ind: res && res.indice != null ? res.indice : null, stats: stats || null,
     });
@@ -246,30 +259,59 @@ async function pasada(estado) {
     const motivos = {};
     for (const r of registro) motivos[r.motivo] = (motivos[r.motivo] || 0) + 1;
     console.log('  sin avisos ·', JSON.stringify(motivos));
+    await evaluarPendientesGemini();
     return 0;
   }
 
-  for (const a of avisos) {
+  // La señal se calculó durante un barrido de muchos partidos; solo enviamos
+  // si un segundo marcador confirma que seguimos en el mismo estado y ventana.
+  const frescos = await feed.partidosEnVivo();
+  if (!frescos.length) total.recheckSinPartidos++;
+  const porId = new Map(frescos.map((p) => [p.id, p]));
+  const confirmados = [];
+  for (const aviso of avisos) {
+    const rechazo = validarAviso(aviso, porId.get(aviso.id));
+    if (rechazo) {
+      total.envioDescartados++;
+      delete estado.avisados[`${aviso.id}_${aviso.ventana}_${aviso.tipo}`];
+      console.log(`  aviso descartado antes de enviar ${aviso.id}: ${rechazo}`);
+      apuntar([{ id: aviso.id, minOrigen: aviso.minuto, tipo: aviso.tipo,
+        motivo: 'envio_descartado', detalle: rechazo }]);
+    } else confirmados.push(aviso);
+  }
+  if (!confirmados.length) {
+    await evaluarPendientesGemini();
+    return 0;
+  }
+
+  for (const a of confirmados) {
     console.log(`  >> ${a.estado.toUpperCase()} ${a.equipo} vs ${a.rival} ${a.marcador} min ${a.minuto} · dominio ${(100 * a.indice).toFixed(0)}%`);
   }
 
-  const texto = notify.mensaje(avisos);
+  const texto = notify.mensaje(confirmados);
+  let enviados = 0;
   // El dedup se apunta ANTES de enviar para no duplicar si algo falla a medias,
   // asi que hay que deshacerlo cuando el aviso no llego a salir. Incluye el modo
   // seco: si una prueba con --dry dejara la marca puesta, el siguiente arranque
   // de verdad se callaria justo esos partidos.
-  const deshacer = () => { for (const a of avisos) delete estado.avisados[`${a.id}_${a.ventana}_${a.tipo}`]; };
+  const deshacer = () => { for (const a of confirmados) delete estado.avisados[`${a.id}_${a.ventana}_${a.tipo}`]; };
 
   if (DRY) {
     console.log('  [dry] no se envia:\n' + texto.replace(/<[^>]+>/g, ''));
     deshacer();
   } else if (await notify.enviar(texto)) {
-    console.log(`  enviado a Telegram (${avisos.length})`);
+    console.log(`  enviado a Telegram (${confirmados.length})`);
+    enviados = confirmados.length;
+    apuntar(confirmados.map((a) => ({ id: a.id, minOrigen: a.minuto,
+      tipo: a.tipo, marcOrigen: a.marcador, motivo: 'envio_confirmado' })));
   } else {
     total.telegramFallos++;
     deshacer();
+    apuntar(confirmados.map((a) => ({ id: a.id, minOrigen: a.minuto,
+      tipo: a.tipo, marcOrigen: a.marcador, motivo: 'envio_fallido' })));
   }
-  return avisos.length;
+  await evaluarPendientesGemini();
+  return enviados;
 }
 
 /**
@@ -304,6 +346,7 @@ async function resumen() {
   if (total.vueltasVacias >= 3) problemas.push(`el feed devolvió 0 partidos en ${total.vueltasVacias} vueltas`);
   if (total.errores > 0) problemas.push(`${total.errores} vuelta(s) con error${total.ultimoError ? ': ' + total.ultimoError : ''}`);
   if (total.telegramFallos > 0) problemas.push(`${total.telegramFallos} envío(s) a Telegram fallaron`);
+  if (total.recheckSinPartidos > 0) problemas.push(`${total.recheckSinPartidos} comprobación(es) de frescura sin partidos`);
   if (lentas > 0) problemas.push(`${lentas} vuelta(s) tardaron más que el intervalo (${(durMedia / 1000).toFixed(0)}s de media)`);
 
   const sano = problemas.length === 0;
@@ -317,6 +360,7 @@ async function resumen() {
     '',
     `${total.vueltas} vueltas · ${total.vistos} partidos mirados · ${total.enVentana} en ventana`,
     `<b>${total.avisos}</b> aviso${total.avisos === 1 ? '' : 's'} enviado${total.avisos === 1 ? '' : 's'}`,
+    total.envioDescartados ? `${total.envioDescartados} candidato(s) descartado(s) antes de enviar por frescura` : null,
     total.geminiSolicitudes
       ? `IA sombra: ${total.geminiSolicitudes} candidato(s) · ${total.geminiAprobados} aprobados · ${total.geminiDescartados} descartados · ${total.geminiInciertos} inciertos · ${total.geminiErrores} fallos`
       : null,

@@ -1,6 +1,6 @@
 name: Vigilar dominio
 
-# ─────────────────────────────────────────────────────────────────────────────
+# ────────────────────────────────────────────────────────────────────────
 # POR QUE NO HAY UN CRON CADA 3 MINUTOS
 #
 # GitHub Actions retrasa y se salta ejecuciones programadas, sobre todo con
@@ -72,7 +72,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           # Secreto multilínea: una clave Gemini por línea. Solo está disponible
           # durante este paso; no llega al guardado del historial ni a git.
-          GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           node run.js \
             --minutos "${{ github.event.inputs.minutos || '290' }}" \

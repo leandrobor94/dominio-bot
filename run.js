@@ -20,6 +20,7 @@ const { execSync } = require('child_process');
 const feed = require('./src/feed');
 const { detectar, CFG } = require('./src/dominio');
 const { evaluarRitmo } = require('./src/ritmo');
+const { evaluarGeminiSombra } = require('./src/gemini');
 const notify = require('./src/notify');
 
 const ESTADO = path.join(__dirname, 'estado.json');
@@ -102,6 +103,11 @@ const total = {
   duraciones: [],        // para detectar que una vuelta tarda mas que el intervalo
   ultimoError: null,
   telegramFallos: 0,
+  geminiSolicitudes: 0,
+  geminiAprobados: 0,
+  geminiDescartados: 0,
+  geminiInciertos: 0,
+  geminiErrores: 0,
 };
 
 // MEMORIA DE TRAYECTORIA.
@@ -179,6 +185,28 @@ async function pasada(estado) {
     const ritmo = evaluarRitmo(p, stats);
     const senalSombra = !!(ritmo?.cruzaUmbral && !estado.sombraRitmo[p.id]);
     if (senalSombra) nuevasSombras.push({ id: p.id, minuto: p.minuto, version: ritmo.version });
+
+    // Gemini es un segundo juez SOLO para la señal experimental. Su respuesta
+    // se registra para poder medirla contra el gol antes del descanso, pero no
+    // bloquea ni crea avisos de Telegram.
+    let gemini = null;
+    if (senalSombra) {
+      total.geminiSolicitudes++;
+      gemini = await evaluarGeminiSombra({
+        partido: p,
+        stats,
+        aceleracion: acel,
+        ritmo,
+        dominio: res,
+        baseLocal: entrada.baseLocal,
+        baseVisita: entrada.baseVisita,
+      });
+      if (!gemini.disponible) total.geminiErrores++;
+      else if (gemini.decision === 'APROBAR') total.geminiAprobados++;
+      else if (gemini.decision === 'DESCARTAR') total.geminiDescartados++;
+      else total.geminiInciertos++;
+      console.log(`  IA sombra ${p.local} vs ${p.visita}: ${gemini.disponible ? gemini.decision : gemini.motivo}`);
+    }
     total.motivos[motivo] = (total.motivos[motivo] || 0) + 1;
     registro.push({
       id: p.id, min: p.minuto, marc: `${p.golesLocal}-${p.golesVisita}`,
@@ -189,6 +217,7 @@ async function pasada(estado) {
       // diferencia entre el minuto del proveedor y el minuto reconstruido.
       minFeed: p.minutoFeed, inicio: p.inicio, marcadorTs: p.marcadorTs, statsTs,
       sombraRitmo: ritmo ? { ...ritmo, senal: senalSombra } : null,
+      sombraGemini: gemini,
       posSobreBase: res && res.posSobreBase != null ? res.posSobreBase : null,
       ind: res && res.indice != null ? res.indice : null, stats: stats || null,
     });
@@ -288,6 +317,9 @@ async function resumen() {
     '',
     `${total.vueltas} vueltas · ${total.vistos} partidos mirados · ${total.enVentana} en ventana`,
     `<b>${total.avisos}</b> aviso${total.avisos === 1 ? '' : 's'} enviado${total.avisos === 1 ? '' : 's'}`,
+    total.geminiSolicitudes
+      ? `IA sombra: ${total.geminiSolicitudes} candidato(s) · ${total.geminiAprobados} aprobados · ${total.geminiDescartados} descartados · ${total.geminiInciertos} inciertos · ${total.geminiErrores} fallos`
+      : null,
     filtros.length ? '\n<i>por qué no avisó del resto:</i>\n' + filtros.map(([k, v]) => `· ${NOMBRES[k] || k}: ${v}`).join('\n') : null,
     total.enVentana === 0 ? '\n<i>Ningún partido llegó a las ventanas mientras corría — normal a horas muertas.</i>' : null,
     sano && total.avisos === 0 && total.enVentana > 0

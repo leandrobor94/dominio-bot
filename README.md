@@ -20,6 +20,24 @@ entre reloj, marcador y estadísticas. El estado de deduplicación queda en
 `estado.json`. Ninguno de esos campos participa en `notify` ni cambia los
 gatillos actuales. Ejecutar `npm test` comprueba el cálculo básico.
 
+## Juez Gemini contextual (solo sombra)
+
+Cuando aparece la primera señal de ritmo 1T, Gemini recibe el marcador, minuto,
+estadísticas live, aceleración, línea base de temporada y resultado del detector
+de dominio. Puede buscar contexto público actual —competición, necesidad del
+resultado, clasificación, estilo, expulsiones o alineaciones— y responde
+`APROBAR`, `DESCARTAR` o `INCIERTO` con un contrato JSON estricto.
+
+Su respuesta queda en `sombraGemini` dentro de `historial.jsonl`. **No crea,
+elimina ni retrasa alertas de Telegram.** Así se podrá medir a ciegas si el juez
+contextual mejora la precisión antes de darle cualquier responsabilidad real.
+
+La credencial se configura como un único GitHub Actions Secret multilínea llamado
+`GEMINI_API_KEYS`, con una clave por línea. El cliente prueba la siguiente clave
+solo cuando la anterior alcanza cuota o falla. Las claves viajan en el encabezado
+`x-goog-api-key`; nunca se escriben en historial, estado o logs. El modelo por
+defecto es `gemini-3.5-flash-lite` y puede cambiarse con `GEMINI_MODEL`.
+
 Las alertas que llegan a Telegram no pronostican goles. No calcula cuotas ni dice si apostar. Es un **filtro**: te ahorra
 revisar los partidos a mano y te pone delante el que merece un vistazo. La decisión es
 tuya.

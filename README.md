@@ -24,13 +24,19 @@ gatillos actuales. Ejecutar `npm test` comprueba el cálculo básico.
 
 Cuando aparece la primera señal de ritmo 1T, Gemini recibe el marcador, minuto,
 estadísticas live, aceleración, línea base de temporada y resultado del detector
-de dominio. Puede buscar contexto público actual —competición, necesidad del
-resultado, clasificación, estilo, expulsiones o alineaciones— y responde
+de dominio. Solo puede consultar contexto público actual cuando se habilita
+explícitamente Google Search; por defecto juzga únicamente los datos recibidos.
+Responde
 `APROBAR`, `DESCARTAR` o `INCIERTO` con un contrato JSON estricto.
 
-Su respuesta queda en `sombraGemini` dentro de `historial.jsonl`. **No crea,
-elimina ni retrasa alertas de Telegram.** Así se podrá medir a ciegas si el juez
+Su respuesta se registra en un evento separado `gemini_sombra` de
+`historial.jsonl`, después de enviar las alertas. **No crea, elimina ni retrasa
+alertas de Telegram.** Así se podrá medir a ciegas si el juez
 contextual mejora la precisión antes de darle cualquier responsabilidad real.
+
+La definición de acierto (gol posterior en la misma mitad), los resultados
+históricos y sus límites se detallan en
+[`docs/investigacion-1t-2026-09-27.md`](docs/investigacion-1t-2026-09-27.md).
 
 La credencial se configura como un único GitHub Actions Secret multilínea llamado
 `GEMINI_API_KEYS`, con una clave por línea. El cliente prueba la siguiente clave

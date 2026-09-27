@@ -56,7 +56,7 @@ function esquema() {
   };
 }
 
-function construirPrompt(x) {
+function construirPrompt(x, usarBusqueda = false) {
   const datos = {
     objetivo: 'al menos un gol DESPUES de esta captura y ANTES del descanso',
     partido: {
@@ -79,10 +79,12 @@ function construirPrompt(x) {
   return [
     'Actua como un juez MUY CONSERVADOR de una señal de gol antes del descanso.',
     'No uses ni busques cuotas. No evalúes goles del segundo tiempo.',
-    'Usa Google Search solo para contexto verificable que pueda cambiar la decisión: formato de la competición, importancia del resultado, clasificación, estilos habituales, marcador global, expulsiones o alineaciones relevantes.',
+    usarBusqueda
+      ? 'Usa Google Search solo para contexto verificable que pueda cambiar la decisión: formato de la competición, importancia del resultado, clasificación, estilos habituales, marcador global, expulsiones o alineaciones relevantes.'
+      : 'No tienes acceso a la web en esta evaluación. Usa únicamente los datos proporcionados; no inventes formato, urgencia, alineaciones ni noticias.',
     'Da más peso a la presión live y a su cambio reciente que a estadísticas históricas genéricas.',
     'No confundas posesión con peligro, ni muchos remates desviados con ocasiones claras.',
-    'APROBAR exige siñales live coherentes, tiempo suficiente y contexto que no contradiga el gol.',
+    'APROBAR exige señales live coherentes, tiempo suficiente y contexto que no contradiga el gol.',
     'DESCARTAR cuando el dominio sea estéril, el partido haya perdido urgencia o las señales sean engañosas.',
     'INCIERTO si faltan datos importantes, las fuentes no identifican bien el partido o existe contradicción.',
     'No inventes información. Explica solo evidencia disponible.',
@@ -120,7 +122,7 @@ async function evaluarGeminiSombra(entrada, opciones = {}) {
   if (typeof fetchImpl !== 'function') return { version: VERSION, disponible: false, motivo: 'sin_fetch' };
 
   const body = {
-    contents: [{ role: 'user', parts: [{ text: construirPrompt(entrada) }] }],
+    contents: [{ role: 'user', parts: [{ text: construirPrompt(entrada, usarBusqueda) }] }],
     generationConfig: {
       temperature: 0.1,
       maxOutputTokens: 650,

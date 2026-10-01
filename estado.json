@@ -1,8 +1,32 @@
 {
-  "avisados": {},
+  "avisados": {
+    "4672354_30-40_posesion": {
+      "ts": 1790882294729,
+      "minuto": 32,
+      "estado": "empatando",
+      "tipo": "posesion"
+    },
+    "4672354_30-40_remates": {
+      "ts": 1790882493169,
+      "minuto": 35,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4697794_30-40_remates": {
+      "ts": 1790882689836,
+      "minuto": 38,
+      "estado": "empatando",
+      "tipo": "remates"
+    }
+  },
   "sombraRitmo": {
     "4376574": {
       "ts": 1790880296032,
+      "minuto": 30,
+      "version": "ritmo-1t-v1"
+    },
+    "4672352": {
+      "ts": 1790882298765,
       "minuto": 30,
       "version": "ritmo-1t-v1"
     }

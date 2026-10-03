@@ -1,4 +1,11 @@
 {
-  "avisados": {},
+  "avisados": {
+    "4800107_30-40_posesion": {
+      "ts": 1791043742422,
+      "minuto": 39,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    }
+  },
   "sombraRitmo": {}
 }

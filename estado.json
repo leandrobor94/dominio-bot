@@ -5,6 +5,30 @@
       "minuto": 39,
       "estado": "perdiendo",
       "tipo": "posesion"
+    },
+    "4656653_30-40_remates": {
+      "ts": 1791052343672,
+      "minuto": 32,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4640502_30-40_remates": {
+      "ts": 1791052586033,
+      "minuto": 35,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4734244_30-40_remates": {
+      "ts": 1791052591755,
+      "minuto": 36,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4734245_30-40_remates": {
+      "ts": 1791052592471,
+      "minuto": 36,
+      "estado": "empatando",
+      "tipo": "remates"
     }
   },
   "sombraRitmo": {}

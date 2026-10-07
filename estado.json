@@ -1,4 +1,11 @@
 {
-  "avisados": {},
+  "avisados": {
+    "4856774_30-40_posesion": {
+      "ts": 1791401391451,
+      "minuto": 30,
+      "estado": "empatando",
+      "tipo": "posesion"
+    }
+  },
   "sombraRitmo": {}
 }

@@ -35,17 +35,23 @@
       "minuto": 33,
       "estado": "empatando",
       "tipo": "remates"
+    },
+    "4727674_30-40_posesion": {
+      "ts": 1792261953030,
+      "minuto": 31,
+      "estado": "empatando",
+      "tipo": "posesion"
     }
   },
   "sombraRitmo": {
-    "4755380": {
-      "ts": 1792256618176,
+    "4734560": {
+      "ts": 1792261969238,
       "minuto": 31,
       "version": "ritmo-1t-v1"
     },
-    "4877790": {
-      "ts": 1792251217565,
-      "minuto": 30,
+    "4755380": {
+      "ts": 1792256618176,
+      "minuto": 31,
       "version": "ritmo-1t-v1"
     }
   }

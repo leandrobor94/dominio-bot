@@ -19,5 +19,11 @@
       "tipo": "remates"
     }
   },
-  "sombraRitmo": {}
+  "sombraRitmo": {
+    "4750979": {
+      "ts": 1792341211465,
+      "minuto": 32,
+      "version": "ritmo-1t-v1"
+    }
+  }
 }

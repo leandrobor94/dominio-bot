@@ -1,16 +1,9 @@
 {
-  "avisados": {
-    "4867496_30-40_posesion": {
-      "ts": 1792355679679,
-      "minuto": 35,
-      "estado": "perdiendo",
-      "tipo": "posesion"
-    }
-  },
+  "avisados": {},
   "sombraRitmo": {
-    "4789096": {
-      "ts": 1792348413524,
-      "minuto": 32,
+    "4789092": {
+      "ts": 1792373610395,
+      "minuto": 30,
       "version": "ritmo-1t-v1"
     }
   }

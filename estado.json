@@ -5,6 +5,12 @@
       "minuto": 31,
       "estado": "perdiendo",
       "tipo": "posesion"
+    },
+    "4669921_30-40_remates": {
+      "ts": 1792451258178,
+      "minuto": 36,
+      "estado": "empatando",
+      "tipo": "remates"
     }
   },
   "sombraRitmo": {}

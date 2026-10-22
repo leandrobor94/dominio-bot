@@ -1,4 +1,29 @@
 {
-  "avisados": {},
-  "sombraRitmo": {}
+  "avisados": {
+    "4828728_30-40_remates": {
+      "ts": 1792689413441,
+      "minuto": 32,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4828919_30-40_remates": {
+      "ts": 1792689628349,
+      "minuto": 35,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4828723_30-40_posesion": {
+      "ts": 1792689822038,
+      "minuto": 37,
+      "estado": "perdiendo",
+      "tipo": "posesion"
+    }
+  },
+  "sombraRitmo": {
+    "4828724": {
+      "ts": 1792689421841,
+      "minuto": 32,
+      "version": "ritmo-1t-v1"
+    }
+  }
 }

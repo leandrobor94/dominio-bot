@@ -1,5 +1,12 @@
 {
-  "avisados": {},
+  "avisados": {
+    "4727665_30-40_posesion": {
+      "ts": 1792780772535,
+      "minuto": 38,
+      "estado": "empatando",
+      "tipo": "posesion"
+    }
+  },
   "sombraRitmo": {
     "4734212": {
       "ts": 1792780343987,
@@ -9,6 +16,16 @@
     "4734215": {
       "ts": 1792780343987,
       "minuto": 32,
+      "version": "ritmo-1t-v1"
+    },
+    "4738571": {
+      "ts": 1792781242539,
+      "minuto": 31,
+      "version": "ritmo-1t-v1"
+    },
+    "4751286": {
+      "ts": 1792782134058,
+      "minuto": 30,
       "version": "ritmo-1t-v1"
     }
   }

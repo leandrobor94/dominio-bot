@@ -1,4 +1,15 @@
 {
   "avisados": {},
-  "sombraRitmo": {}
+  "sombraRitmo": {
+    "4734212": {
+      "ts": 1792780343987,
+      "minuto": 30,
+      "version": "ritmo-1t-v1"
+    },
+    "4734215": {
+      "ts": 1792780343987,
+      "minuto": 32,
+      "version": "ritmo-1t-v1"
+    }
+  }
 }

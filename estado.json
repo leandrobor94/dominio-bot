@@ -1,38 +1,4 @@
 {
-  "avisados": {
-    "4758149_30-40_posesion": {
-      "ts": 1792783273611,
-      "minuto": 33,
-      "estado": "perdiendo",
-      "tipo": "posesion"
-    },
-    "4869540_30-40_posesion": {
-      "ts": 1792787864978,
-      "minuto": 34,
-      "estado": "empatando",
-      "tipo": "posesion"
-    }
-  },
-  "sombraRitmo": {
-    "4738571": {
-      "ts": 1792781242539,
-      "minuto": 31,
-      "version": "ritmo-1t-v1"
-    },
-    "4746087": {
-      "ts": 1792783967954,
-      "minuto": 32,
-      "version": "ritmo-1t-v1"
-    },
-    "4751286": {
-      "ts": 1792782134058,
-      "minuto": 30,
-      "version": "ritmo-1t-v1"
-    },
-    "4758144": {
-      "ts": 1792783048854,
-      "minuto": 32,
-      "version": "ritmo-1t-v1"
-    }
-  }
+  "avisados": {},
+  "sombraRitmo": {}
 }

@@ -35,9 +35,41 @@
       "minuto": 34,
       "estado": "perdiendo",
       "tipo": "posesion"
+    },
+    "4776076_30-40_remates": {
+      "ts": 1792953094979,
+      "minuto": 30,
+      "estado": "empatando",
+      "tipo": "remates"
+    },
+    "4757182_30-40_posesion": {
+      "ts": 1792953534702,
+      "minuto": 39,
+      "estado": "perdiendo",
+      "tipo": "posesion"
     }
   },
   "sombraRitmo": {
+    "4633229": {
+      "ts": 1792952222791,
+      "minuto": 30,
+      "version": "ritmo-1t-v1"
+    },
+    "4640471": {
+      "ts": 1792953109125,
+      "minuto": 30,
+      "version": "ritmo-1t-v1"
+    },
+    "4740426": {
+      "ts": 1792953997367,
+      "minuto": 30,
+      "version": "ritmo-1t-v1"
+    },
+    "4770016": {
+      "ts": 1792953109125,
+      "minuto": 31,
+      "version": "ritmo-1t-v1"
+    },
     "4775906": {
       "ts": 1792945836652,
       "minuto": 30,

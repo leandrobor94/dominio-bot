@@ -1,11 +1,22 @@
 {
   "avisados": {
-    "4818675_30-40_remates": {
-      "ts": 1793261778246,
-      "minuto": 31,
-      "estado": "empatando",
+    "4885212_30-40_remates": {
+      "ts": 1793299308292,
+      "minuto": 39,
+      "estado": "perdiendo",
       "tipo": "remates"
     }
   },
-  "sombraRitmo": {}
+  "sombraRitmo": {
+    "4789431": {
+      "ts": 1793298664360,
+      "minuto": 30,
+      "version": "ritmo-1t-v1"
+    },
+    "4870829": {
+      "ts": 1793298664360,
+      "minuto": 30,
+      "version": "ritmo-1t-v1"
+    }
+  }
 }

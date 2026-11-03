@@ -5,18 +5,13 @@
       "minuto": 39,
       "estado": "perdiendo",
       "tipo": "posesion"
+    },
+    "4875855_30-40_posesion": {
+      "ts": 1793749094256,
+      "minuto": 38,
+      "estado": "empatando",
+      "tipo": "posesion"
     }
   },
-  "sombraRitmo": {
-    "4746064": {
-      "ts": 1793737962996,
-      "minuto": 32,
-      "version": "ritmo-1t-v1"
-    },
-    "4828446": {
-      "ts": 1793737962996,
-      "minuto": 31,
-      "version": "ritmo-1t-v1"
-    }
-  }
+  "sombraRitmo": {}
 }

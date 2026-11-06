@@ -1,15 +1,8 @@
 {
-  "avisados": {
-    "4750223_30-40_remates": {
-      "ts": 1793995840423,
-      "minuto": 37,
-      "estado": "perdiendo",
-      "tipo": "remates"
-    }
-  },
+  "avisados": {},
   "sombraRitmo": {
-    "4755347": {
-      "ts": 1793995200180,
+    "4632607": {
+      "ts": 1794007823437,
       "minuto": 30,
       "version": "ritmo-1t-v1"
     }

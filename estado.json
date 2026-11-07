@@ -17,6 +17,12 @@
       "minuto": 34,
       "estado": "empatando",
       "tipo": "remates"
+    },
+    "4679997_30-40_remates": {
+      "ts": 1794035383945,
+      "minuto": 40,
+      "estado": "empatando",
+      "tipo": "remates"
     }
   },
   "sombraRitmo": {}

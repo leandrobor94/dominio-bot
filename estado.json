@@ -1,11 +1,5 @@
 {
   "avisados": {
-    "4740690_30-40_remates": {
-      "ts": 1794161080071,
-      "minuto": 32,
-      "estado": "empatando",
-      "tipo": "remates"
-    },
     "4732639_30-40_remates": {
       "ts": 1794169718302,
       "minuto": 40,
@@ -17,6 +11,11 @@
     "4755350": {
       "ts": 1794164574747,
       "minuto": 33,
+      "version": "ritmo-1t-v1"
+    },
+    "4866410": {
+      "ts": 1794173372797,
+      "minuto": 30,
       "version": "ritmo-1t-v1"
     },
     "4882520": {

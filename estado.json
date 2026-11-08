@@ -1,23 +1,4 @@
 {
-  "avisados": {
-    "4882514_30-40_posesion": {
-      "ts": 1794083368031,
-      "minuto": 31,
-      "estado": "empatando",
-      "tipo": "posesion"
-    },
-    "4757203_30-40_posesion": {
-      "ts": 1794085249282,
-      "minuto": 31,
-      "estado": "empatando",
-      "tipo": "posesion"
-    }
-  },
-  "sombraRitmo": {
-    "4866413": {
-      "ts": 1794087179656,
-      "minuto": 32,
-      "version": "ritmo-1t-v1"
-    }
-  }
+  "avisados": {},
+  "sombraRitmo": {}
 }

@@ -13,5 +13,11 @@
       "tipo": "posesion"
     }
   },
-  "sombraRitmo": {}
+  "sombraRitmo": {
+    "4672299": {
+      "ts": 1794601038079,
+      "minuto": 30,
+      "version": "ritmo-1t-v1"
+    }
+  }
 }
